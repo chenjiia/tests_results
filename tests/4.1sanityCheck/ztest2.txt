@@ -1,0 +1,45 @@
+var S = 0;
+var O = 0;
+
+var SMax = 63;
+var OMax = 63;
+
+var STemp = 0;
+var OTemp = 0;
+var OCounter = 0;
+
+var base = 4;
+
+while(O <= OMax){
+	S = 0;
+	while(S <= SMax){
+		//code start
+		OTemp = 0;
+		STemp = S;
+		if(STemp < 16){
+			OTemp = base+ STemp;
+		}
+		else{
+			OTemp = base;
+		}
+		//code end
+		if(O == OTemp){
+			OCounter = OCounter + 1;
+			goto nextO;
+		}
+		if(S<SMax){
+			S = S + 1;
+		}else{
+			goto nextO;
+		}
+	}
+	nextO : if(O<OMax){
+		O = O + 1;
+	}else{
+		goto assertBlock;
+	}
+}
+
+assertBlock: if(OCounter == 16){
+	reach: 0>1;
+}

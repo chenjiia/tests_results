@@ -1,0 +1,35 @@
+var S = 0;
+
+var SMax = 1024;
+
+var STemp = S;
+var OTemp = 0;
+var OCounter = 0;
+var OMax = 0;
+
+//code start		
+OTemp = STemp & 992;
+//code end
+
+OMax = OTemp;
+OCounter = 1;
+S = S + 1;
+
+
+while(S != SMax){
+	STemp = S;
+	//code start
+
+	OTemp = STemp & 992;
+	//code end
+
+	if (OTemp > OMax ){
+		OMax = OTemp; 
+		OCounter= OCounter+1;
+	}
+	S = S + 1;
+}
+
+if(OCounter == 16){
+	reach: 0>1;
+}

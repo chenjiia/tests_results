@@ -1,0 +1,46 @@
+var S = 0;
+
+var SMax = 1024;
+
+var STemp = S;
+var OTemp = 0;
+var OCounter = 0;
+var OMax = 0;
+
+//code start
+
+//O = ((S>>4)^S)&0xf;
+temp1 = STemp >> 5;
+temp2 = temp1 ^ STemp;
+OTemp = temp2 & 31;
+temp1 = OTemp << 5;
+OTemp = OTemp | temp1;
+//code end
+
+OMax = OTemp;
+OCounter = 1;
+S = S + 1;
+
+
+while(S != SMax){
+	STemp = S;
+	//code start
+
+	//O = ((S>>4)^S)&0xf;
+	temp1 = STemp >> 5;
+	temp2 = temp1 ^ STemp;
+	OTemp = temp2 & 31;
+	temp1 = OTemp << 5;
+	OTemp = OTemp | temp1;
+	//code end
+
+	if (OTemp > OMax ){
+		OMax = OTemp; 
+		OCounter= OCounter+1;
+	}
+	S = S + 1;
+}
+
+if(OCounter == 16){
+	reach: 0>1;
+}

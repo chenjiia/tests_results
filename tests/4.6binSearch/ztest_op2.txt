@@ -1,0 +1,76 @@
+var S = 0;
+
+var SMax = 1024;
+
+var STemp = S;
+var OTemp = 0;
+var OCounter = 0;
+var OMax = 0;
+
+var temp1 = 0;
+
+//code start
+temp1 = OTemp + 512;
+if(temp1 <= STemp){
+	OTemp = OTemp + 512;
+}		
+temp1 = OTemp + 256;
+if(temp1 <= STemp){
+	OTemp = OTemp + 256;
+}	
+temp1 = OTemp + 128;
+if(temp1 <= STemp){
+	OTemp = OTemp + 128;
+}
+temp1 = OTemp + 64;
+if(temp1 <= STemp){
+	OTemp = OTemp + 64;
+}	
+temp1 = OTemp + 32;
+if(temp1 <= STemp){
+	OTemp = OTemp + 32;
+}	
+//code end
+
+OMax = OTemp;
+OCounter = 1;
+S = S + 1;
+
+
+while(S != SMax){
+	STemp = S;
+	//code start
+
+temp1 = OTemp + 512;
+if(temp1 <= STemp){
+	OTemp = OTemp + 512;
+}		
+temp1 = OTemp + 256;
+if(temp1 <= STemp){
+	OTemp = OTemp + 256;
+}	
+temp1 = OTemp + 128;
+if(temp1 <= STemp){
+	OTemp = OTemp + 128;
+}
+temp1 = OTemp + 64;
+if(temp1 <= STemp){
+	OTemp = OTemp + 64;
+}	
+temp1 = OTemp + 32;
+if(temp1 <= STemp){
+	OTemp = OTemp + 32;
+}	
+
+	//code end
+
+	if (OTemp > OMax ){
+		OMax = OTemp; 
+		OCounter= OCounter+1;
+	}
+	S = S + 1;
+}
+
+if(OCounter == 32){
+	reach: 0>1;
+}

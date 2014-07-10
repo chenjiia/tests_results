@@ -1,0 +1,86 @@
+var S = 0;
+
+var SMax = 512;
+
+var STemp = S;
+var OTemp = 0;
+var OCounter = 0;
+var OMax = 0;
+
+//code start
+if(S == 0){
+	OTemp = 0;
+}else{
+	if(S == 1){
+		OTemp = 1;
+	}else{
+		if(S == 2){
+			OTemp = 2;
+		}else{
+			if(S == 3){
+				OTemp = 3;
+			}else{
+				if(S == 4){
+					OTemp = 4;
+				}else{
+					if(S == 5){
+						OTemp = 5;
+					}else{
+						if(S == 6){
+							OTemp = 6;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+//code end
+
+OMax = OTemp;
+OCounter = 1;
+S = S + 1;
+
+
+while(S != SMax){
+	STemp = S;
+	//code start
+	if(S == 0){
+		OTemp = 0;
+	}else{
+		if(S == 1){
+			OTemp = 1;
+		}else{
+			if(S == 2){
+				OTemp = 2;
+			}else{
+				if(S == 3){
+					OTemp = 3;
+				}else{
+					if(S == 4){
+						OTemp = 4;
+					}else{
+						if(S == 5){
+							OTemp = 5;
+						}else{
+							if(S == 6){
+								OTemp = 6;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	//code end
+
+	if (OTemp > OMax ){
+		OMax = OTemp; 
+		OCounter= OCounter+1;
+	}
+	S = S + 1;
+}
+
+if(OCounter == 7){
+	reach: 0>1;
+}
