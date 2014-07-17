@@ -1,0 +1,3482 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x747d3f09, pid=2920, tid=1960397632
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_05-b13) (build 1.8.0_05-b13)
+# Java VM: Java HotSpot(TM) Server VM (25.5-b02 mixed mode linux-x86 )
+# Problematic frame:
+# C  [libcudd.so+0x44f09]  Cudd_Ref+0x9
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x81dd0400):  JavaThread "Thread-7" [_thread_in_native, id=3002, stack(0x74d44000,0x74d95000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x00000002
+
+Registers:
+EAX=0x00000000, EBX=0x00000000, ECX=0x00000000, EDX=0x00000000
+ESP=0x74d93b5c, EBP=0x74d93b88, ESI=0x74d93b78, EDI=0x81dd0400
+EIP=0x747d3f09, EFLAGS=0x00010246, CR2=0x00000002
+
+Top of Stack: (sp=0x74d93b5c)
+0x74d93b5c:   a82f2aac 00000000 74d93b78 00000000
+0x74d93b6c:   00000000 88eb2c50 88eb2c50 88eb2c50
+0x74d93b7c:   00000000 0000000f 80000018 09de1cb8
+0x74d93b8c:   a8a02aa4 00000000 00000000 09de1cb8
+0x74d93b9c:   00000000 7abc8da1 00000000 88eb6788
+0x74d93bac:   a2f7d8e8 00000000 00000000 35a92361
+0x74d93bbc:   00000000 00000001 88eb6a98 00000002
+0x74d93bcc:   88eb6f20 00000002 81dd0400 09de1cb8 
+
+Instructions: (pc=0x747d3f09)
+0x747d3ee9:   33 00 00 00 89 6c 24 04 89 34 24 e8 27 00 00 00
+0x747d3ef9:   e9 5e f9 ff ff 90 90 8b 4c 24 04 31 d2 83 e1 fe
+0x747d3f09:   0f b7 41 02 66 83 f8 ff 0f 95 c2 01 d0 66 89 41
+0x747d3f19:   02 c3 90 8d 74 26 00 57 56 53 8b 74 24 10 8b 86 
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0x00000000 is an unknown value
+ECX=0x00000000 is an unknown value
+EDX=0x00000000 is an unknown value
+ESP=0x74d93b5c is pointing into the stack for thread: 0x81dd0400
+EBP=0x74d93b88 is pointing into the stack for thread: 0x81dd0400
+ESI=0x74d93b78 is pointing into the stack for thread: 0x81dd0400
+EDI=0x81dd0400 is a thread
+
+
+Stack: [0x74d44000,0x74d95000],  sp=0x74d93b5c,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libcudd.so+0x44f09]  Cudd_Ref+0x9
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 8272  net.sf.javabdd.CUDDFactory$CUDDBDD.addRef(J)V (0 bytes) @ 0xa82f2a68 [0xa82f2a20+0x48]
+J 8692 C2 de.tum.in.jmoped.underbone.DomainSemiring.arith(Lde/tum/in/jmoped/underbone/expr/ExprSemiring;)Lde/tum/in/jmoped/underbone/DomainSemiring; (575 bytes) @ 0xa8a02aa4 [0xa8a017a0+0x1304]
+J 8685 C2 de.tum.in.jmoped.underbone.DomainSemiring.extend(Lde/tum/in/wpds/Semiring;Lde/tum/in/wpds/CancelMonitor;)Lde/tum/in/wpds/Semiring; (767 bytes) @ 0xa89af944 [0xa89ae740+0x1204]
+J 8690% C2 de.tum.in.wpds.PdsSat.depleteWorkset()V (689 bytes) @ 0xa765ec54 [0xa765eb20+0x134]
+j  de.tum.in.wpds.PdsSat.poststar(Lde/tum/in/wpds/Fa;Lde/tum/in/wpds/CancelMonitor;)Lde/tum/in/wpds/Fa;+97
+j  de.tum.in.wpds.PdsSat.poststar(Lde/tum/in/wpds/Fa;Lde/tum/in/wpds/CancelMonitor;)Ljava/lang/Object;+3
+j  de.tum.in.jmoped.underbone.Remopla.bdddomain(Lde/tum/in/jmoped/underbone/ProgressMonitor;)V+208
+j  de.tum.in.jmoped.underbone.Remopla.coverage(Lde/tum/in/jmoped/underbone/Remopla$Coverage;Lde/tum/in/jmoped/underbone/ProgressMonitor;)V+78
+j  de.tum.in.jmoped.CoverageLaunchShortcut$CoverageRunner.run()V+125
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x09e2f000 JavaThread "Worker-8" [_thread_blocked, id=3027, stack(0x80038000,0x80089000)]
+=>0x81dd0400 JavaThread "Thread-7" [_thread_in_native, id=3002, stack(0x74d44000,0x74d95000)]
+  0x86d0b800 JavaThread "[ThreadPool Manager] - Idle Thread" daemon [_thread_blocked, id=2965, stack(0x7aeaf000,0x7af00000)]
+  0x7e4e4000 JavaThread "org.eclipse.jdt.internal.ui.text.JavaReconciler" daemon [_thread_blocked, id=2964, stack(0x7e20d000,0x7e25e000)]
+  0x86d06400 JavaThread "Worker-4" [_thread_blocked, id=2960, stack(0x76808000,0x76859000)]
+  0x84d6b400 JavaThread "Worker-2" [_thread_blocked, id=2958, stack(0x7ac5e000,0x7acaf000)]
+  0x7bb81800 JavaThread "Java indexing" daemon [_thread_blocked, id=2955, stack(0x7b8af000,0x7b900000)]
+  0x7c29ac00 JavaThread "Bundle File Closer" daemon [_thread_blocked, id=2953, stack(0x81b0d000,0x81b5e000)]
+  0x84d04c00 JavaThread "Worker-1" [_thread_blocked, id=2947, stack(0x805af000,0x80600000)]
+  0x81136400 JavaThread "Worker-JM" [_thread_blocked, id=2943, stack(0x8195a000,0x819ab000)]
+  0x82182400 JavaThread "[Timer] - Main Queue Handler" daemon [_thread_blocked, id=2942, stack(0x819af000,0x81a00000)]
+  0x868dc400 JavaThread "Framework Event Dispatcher" daemon [_thread_blocked, id=2940, stack(0x81c5e000,0x81caf000)]
+  0x81d01800 JavaThread "Start Level Event Dispatcher" daemon [_thread_blocked, id=2939, stack(0x81caf000,0x81d00000)]
+  0x81d18c00 JavaThread "State Data Manager" daemon [_thread_blocked, id=2938, stack(0x8231f000,0x82370000)]
+  0x822c8000 JavaThread "Framework Active Thread" [_thread_blocked, id=2937, stack(0x82370000,0x823c1000)]
+  0x84ead000 JavaThread "Service Thread" daemon [_thread_blocked, id=2933, stack(0x847db000,0x8482c000)]
+  0x84eaa000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=2932, stack(0x8482c000,0x848ad000)]
+  0x84ea8800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=2931, stack(0x848ad000,0x8492e000)]
+  0x84ea6800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=2930, stack(0x8492e000,0x849af000)]
+  0x84ea5000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2929, stack(0x849af000,0x84a00000)]
+  0x84e87000 JavaThread "Finalizer" daemon [_thread_blocked, id=2928, stack(0x84f0d000,0x84f5e000)]
+  0x84e84800 JavaThread "Reference Handler" daemon [_thread_blocked, id=2927, stack(0x8692e000,0x8697f000)]
+  0xb6507c00 JavaThread "main" [_thread_in_native, id=2921, stack(0xb66d7000,0xb6728000)]
+
+Other Threads:
+  0x84e81400 VMThread [stack: 0x84f5e000,0x84fdf000] [id=2926]
+  0x84ec7400 WatcherThread [stack: 0x8475a000,0x847db000] [id=2934]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 167424K, used 115139K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 162816K, 68% used [0x9c580000,0xa31a0e48,0xa6480000)
+  from space 4608K, 95% used [0xa6480000,0xa68d0000,0xa6900000)
+  to   space 6144K, 0% used [0xa6a00000,0xa6a00000,0xa7000000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+
+Card table byte_map: [0xa703f000,0xa7140000] byte_map_base: 0xa6c07000
+
+Marking Bits: (ParMarkBitMap*) 0xb70edd80
+ Begin Bits: [0x85800000, 0x86000000)
+ End Bits:   [0x86000000, 0x86800000)
+
+Polling page: 0xb76f1000
+
+CodeCache: size=245760Kb used=21180Kb max_used=21189Kb free=224579Kb
+ bounds [0xa7500000, 0xa8a20000, 0xb6500000]
+ total_blobs=7427 nmethods=7178 adapters=161
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 678.059 Thread 0x84ea8800 8806       4       org.eclipse.e4.ui.model.internal.ModelUtils::getContainingContext (128 bytes)
+Event: 678.063 Thread 0x84ea8800 nmethod 8806 0xa7fb6ac8 code [0xa7fb6c20, 0xa7fb6f50]
+Event: 704.522 Thread 0x84ea6800 8807       4       org.eclipse.e4.ui.model.internal.ModelUtils::getContainingContext (128 bytes)
+Event: 704.530 Thread 0x84ea6800 nmethod 8807 0xa7fb9c08 code [0xa7fb9de0, 0xa7fba484]
+Event: 720.827 Thread 0x84eaa000 8808       1       java.lang.Thread::getPriority (5 bytes)
+Event: 720.828 Thread 0x84eaa000 nmethod 8808 0xa7e71248 code [0xa7e71340, 0xa7e713e0]
+Event: 761.507 Thread 0x84eaa000 8809       3       org.eclipse.core.runtime.Platform::isRunning (7 bytes)
+Event: 761.508 Thread 0x84eaa000 nmethod 8809 0xa7fb98c8 code [0xa7fb99e0, 0xa7fb9b4c]
+Event: 761.508 Thread 0x84eaa000 8810   !   3       org.eclipse.core.internal.runtime.InternalPlatform::isRunning (39 bytes)
+Event: 761.508 Thread 0x84eaa000 nmethod 8810 0xa7fb6148 code [0xa7fb62c0, 0xa7fb66f8]
+
+GC Heap History (10 events):
+Event: 757.155 GC heap before
+{Heap before GC invocations=237 (full 16):
+ PSYoungGen      total 169216K, used 167040K [0x9c580000, 0xa6fc0000, 0xa7000000)
+  eden space 164096K, 100% used [0x9c580000,0xa65c0000,0xa65c0000)
+  from space 5120K, 57% used [0xa6ac0000,0xa6da0000,0xa6fc0000)
+  to   space 5120K, 0% used [0xa65c0000,0xa65c0000,0xa6ac0000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+Event: 757.162 GC heap after
+Heap after GC invocations=237 (full 16):
+ PSYoungGen      total 169216K, used 3232K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 164096K, 0% used [0x9c580000,0x9c580000,0xa65c0000)
+  from space 5120K, 63% used [0xa65c0000,0xa68e8000,0xa6ac0000)
+  to   space 5120K, 0% used [0xa6b00000,0xa6b00000,0xa7000000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+}
+Event: 758.575 GC heap before
+{Heap before GC invocations=238 (full 16):
+ PSYoungGen      total 169216K, used 167328K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 164096K, 100% used [0x9c580000,0xa65c0000,0xa65c0000)
+  from space 5120K, 63% used [0xa65c0000,0xa68e8000,0xa6ac0000)
+  to   space 5120K, 0% used [0xa6b00000,0xa6b00000,0xa7000000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+Event: 758.581 GC heap after
+Heap after GC invocations=238 (full 16):
+ PSYoungGen      total 168960K, used 3520K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 163840K, 0% used [0x9c580000,0x9c580000,0xa6580000)
+  from space 5120K, 68% used [0xa6b00000,0xa6e70000,0xa7000000)
+  to   space 5376K, 0% used [0xa6580000,0xa6580000,0xa6ac0000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+}
+Event: 767.259 GC heap before
+{Heap before GC invocations=239 (full 16):
+ PSYoungGen      total 168960K, used 167360K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 163840K, 100% used [0x9c580000,0xa6580000,0xa6580000)
+  from space 5120K, 68% used [0xa6b00000,0xa6e70000,0xa7000000)
+  to   space 5376K, 0% used [0xa6580000,0xa6580000,0xa6ac0000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+Event: 767.265 GC heap after
+Heap after GC invocations=239 (full 16):
+ PSYoungGen      total 167680K, used 3824K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 163840K, 0% used [0x9c580000,0x9c580000,0xa6580000)
+  from space 3840K, 99% used [0xa6580000,0xa693c000,0xa6940000)
+  to   space 5632K, 0% used [0xa6a80000,0xa6a80000,0xa7000000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+}
+Event: 768.558 GC heap before
+{Heap before GC invocations=240 (full 16):
+ PSYoungGen      total 167680K, used 167664K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 163840K, 100% used [0x9c580000,0xa6580000,0xa6580000)
+  from space 3840K, 99% used [0xa6580000,0xa693c000,0xa6940000)
+  to   space 5632K, 0% used [0xa6a80000,0xa6a80000,0xa7000000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+Event: 768.565 GC heap after
+Heap after GC invocations=240 (full 16):
+ PSYoungGen      total 168448K, used 4096K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 162816K, 0% used [0x9c580000,0x9c580000,0xa6480000)
+  from space 5632K, 72% used [0xa6a80000,0xa6e80000,0xa7000000)
+  to   space 5888K, 0% used [0xa6480000,0xa6480000,0xa6a40000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+}
+Event: 770.058 GC heap before
+{Heap before GC invocations=241 (full 16):
+ PSYoungGen      total 168448K, used 166912K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 162816K, 100% used [0x9c580000,0xa6480000,0xa6480000)
+  from space 5632K, 72% used [0xa6a80000,0xa6e80000,0xa7000000)
+  to   space 5888K, 0% used [0xa6480000,0xa6480000,0xa6a40000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+Event: 770.065 GC heap after
+Heap after GC invocations=241 (full 16):
+ PSYoungGen      total 167424K, used 4416K [0x9c580000, 0xa7000000, 0xa7000000)
+  eden space 162816K, 0% used [0x9c580000,0x9c580000,0xa6480000)
+  from space 4608K, 95% used [0xa6480000,0xa68d0000,0xa6900000)
+  to   space 6144K, 0% used [0xa6a00000,0xa6a00000,0xa7000000)
+ ParOldGen       total 89344K, used 35903K [0x87000000, 0x8c740000, 0x9c580000)
+  object space 89344K, 40% used [0x87000000,0x8930fd80,0x8c740000)
+ Metaspace       used 48728K, capacity 51039K, committed 51176K, reserved 51504K
+}
+
+Deoptimization events (10 events):
+Event: 177.428 Thread 0xb6507c00 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa7c279f0 method=org.eclipse.osgi.baseadaptor.bundlefile.ZipBundleEntry$ZipBundleEntryInputStream.read([BII)I @ 7
+Event: 177.429 Thread 0xb6507c00 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa79beb18 method=org.eclipse.osgi.baseadaptor.bundlefile.ZipBundleEntry$ZipBundleEntryInputStream.read([BII)I @ 7
+Event: 177.810 Thread 0xb6507c00 Uncommon trap: reason=unreached action=reinterpret pc=0xa80f06fc method=org.eclipse.e4.core.internal.contexts.EclipseContext.set(Ljava/lang/String;Ljava/lang/Object;)V @ 89
+Event: 179.877 Thread 0x81dd0400 Uncommon trap: reason=null_check action=make_not_entrant pc=0xa7c40fc4 method=de.tum.in.wpds.Fa.add(Lde/tum/in/wpds/Semiring;Lde/tum/in/wpds/Transition;)Z @ 10
+Event: 179.877 Thread 0x81dd0400 Uncommon trap: reason=unreached action=reinterpret pc=0xa789c040 method=de.tum.in.jmoped.CoverageListener.reach(Ljava/lang/String;)V @ 10
+Event: 179.885 Thread 0x81dd0400 Uncommon trap: reason=unreached action=reinterpret pc=0xa7bf1d24 method=de.tum.in.jmoped.underbone.DomainManager.getVarSetWithout(I)Lnet/sf/javabdd/BDDVarSet; @ 41
+Event: 678.460 Thread 0xb6507c00 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa7fb6c74 method=org.eclipse.e4.ui.model.internal.ModelUtils.getContainingContext(Lorg/eclipse/e4/ui/model/application/MApplicationElement;)Lorg/eclipse/e4/core/contexts/IEclipseContext; @ 13
+Event: 678.460 Thread 0xb6507c00 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa7fb6c74 method=org.eclipse.e4.ui.model.internal.ModelUtils.getContainingContext(Lorg/eclipse/e4/ui/model/application/MApplicationElement;)Lorg/eclipse/e4/core/contexts/IEclipseContext; @ 13
+Event: 678.861 Thread 0xb6507c00 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa7fb6c74 method=org.eclipse.e4.ui.model.internal.ModelUtils.getContainingContext(Lorg/eclipse/e4/ui/model/application/MApplicationElement;)Lorg/eclipse/e4/core/contexts/IEclipseContext; @ 13
+Event: 678.861 Thread 0xb6507c00 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa7fb6c74 method=org.eclipse.e4.ui.model.internal.ModelUtils.getContainingContext(Lorg/eclipse/e4/ui/model/application/MApplicationElement;)Lorg/eclipse/e4/core/contexts/IEclipseContext; @ 13
+
+Internal exceptions (10 events):
+Event: 177.390 Thread 0xb6507c00 Exception <a 'sun/nio/fs/UnixException'> (0x9eec3e98) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u5/2488/hotspot/src/share/vm/prims/jni.cpp, line 716]
+Event: 177.407 Thread 0xb6507c00 Exception <a 'java/io/FileNotFoundException'> (0x9efc86e8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u5/2488/hotspot/src/share/vm/prims/jni.cpp, line 716]
+Event: 177.409 Thread 0xb6507c00 Exception <a 'sun/nio/fs/UnixException'> (0x9efd2110) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u5/2488/hotspot/src/share/vm/prims/jni.cpp, line 716]
+Event: 177.414 Thread 0xb6507c00 Exception <a 'sun/nio/fs/UnixException'> (0x9efed8e8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u5/2488/hotspot/src/share/vm/prims/jni.cpp, line 716]
+Event: 177.418 Thread 0xb6507c00 Exception <a 'sun/nio/fs/UnixException'> (0x9f014110) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u5/2488/hotspot/src/share/vm/prims/jni.cpp, line 716]
+Event: 177.419 Thread 0xb6507c00 Exception <a 'sun/nio/fs/UnixException'> (0x9f023068) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u5/2488/hotspot/src/share/vm/prims/jni.cpp, line 716]
+Event: 177.423 Thread 0xb6507c00 Exception <a 'sun/nio/fs/UnixException'> (0x9f0396f0) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u5/2488/hotspot/src/share/vm/prims/jni.cpp, line 716]
+Event: 179.885 Thread 0x81dd0400 Implicit null exception at 0xa7befe26 to 0xa7bf1cdd
+Event: 334.590 Thread 0x84d6b400 Exception <a 'java/security/PrivilegedActionException'> (0xa54eae30) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u5/2488/hotspot/src/share/vm/prims/jvm.cpp, line 1248]
+Event: 334.590 Thread 0x84d6b400 Exception <a 'java/security/PrivilegedActionException'> (0xa54eb700) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u5/2488/hotspot/src/share/vm/prims/jvm.cpp, line 1248]
+
+Events (10 events):
+Event: 757.155 Executing VM operation: ParallelGCFailedAllocation
+Event: 757.162 Executing VM operation: ParallelGCFailedAllocation done
+Event: 758.575 Executing VM operation: ParallelGCFailedAllocation
+Event: 758.581 Executing VM operation: ParallelGCFailedAllocation done
+Event: 767.258 Executing VM operation: ParallelGCFailedAllocation
+Event: 767.265 Executing VM operation: ParallelGCFailedAllocation done
+Event: 768.558 Executing VM operation: ParallelGCFailedAllocation
+Event: 768.565 Executing VM operation: ParallelGCFailedAllocation done
+Event: 770.057 Executing VM operation: ParallelGCFailedAllocation
+Event: 770.065 Executing VM operation: ParallelGCFailedAllocation done
+
+
+Dynamic libraries:
+00010000-00100000 rw-p 00000000 00:00 0 
+00100000-001fd000 rw-p 00000000 00:00 0 
+001fd000-00200000 ---p 00000000 00:00 0 
+00200000-00300000 rw-p 00000000 00:00 0 
+00300000-003fd000 rw-p 00000000 00:00 0 
+003fd000-00400000 ---p 00000000 00:00 0 
+00400000-004fe000 rw-p 00000000 00:00 0 
+004fe000-00500000 ---p 00000000 00:00 0 
+00500000-005fe000 rw-p 00000000 00:00 0 
+005fe000-00600000 ---p 00000000 00:00 0 
+00600000-006fd000 rw-p 00000000 00:00 0 
+006fd000-00700000 ---p 00000000 00:00 0 
+00700000-008fe000 rw-p 00000000 00:00 0 
+008fe000-00900000 ---p 00000000 00:00 0 
+00900000-00b00000 rw-p 00000000 00:00 0 
+00b00000-00d00000 rw-p 00000000 00:00 0 
+00d00000-00f00000 rw-p 00000000 00:00 0 
+00f00000-01100000 rw-p 00000000 00:00 0 
+01100000-01300000 rw-p 00000000 00:00 0 
+01300000-013fd000 rw-p 00000000 00:00 0 
+013fd000-01400000 ---p 00000000 00:00 0 
+01400000-01500000 rw-p 00000000 00:00 0 
+01500000-015ff000 rw-p 00000000 00:00 0 
+015ff000-01600000 ---p 00000000 00:00 0 
+01600000-016fd000 rw-p 00000000 00:00 0 
+016fd000-01700000 ---p 00000000 00:00 0 
+01700000-017fe000 rw-p 00000000 00:00 0 
+017fe000-01800000 ---p 00000000 00:00 0 
+01800000-01900000 rw-p 00000000 00:00 0 
+01900000-019ff000 rw-p 00000000 00:00 0 
+019ff000-01a00000 ---p 00000000 00:00 0 
+01a00000-01b00000 rw-p 00000000 00:00 0 
+01b00000-01d00000 rw-p 00000000 00:00 0 
+01d00000-01dfd000 rw-p 00000000 00:00 0 
+01dfd000-01e00000 ---p 00000000 00:00 0 
+01e00000-01efe000 rw-p 00000000 00:00 0 
+01efe000-01f00000 ---p 00000000 00:00 0 
+01f00000-020ff000 rw-p 00000000 00:00 0 
+020ff000-02100000 ---p 00000000 00:00 0 
+02100000-021fe000 rw-p 00000000 00:00 0 
+021fe000-02200000 ---p 00000000 00:00 0 
+02200000-02300000 rw-p 00000000 00:00 0 
+02300000-023ff000 rw-p 00000000 00:00 0 
+023ff000-02400000 ---p 00000000 00:00 0 
+02400000-024fd000 rw-p 00000000 00:00 0 
+024fd000-02500000 ---p 00000000 00:00 0 
+02500000-02700000 rw-p 00000000 00:00 0 
+02700000-028fd000 rw-p 00000000 00:00 0 
+028fd000-02900000 ---p 00000000 00:00 0 
+02900000-029fe000 rw-p 00000000 00:00 0 
+029fe000-02a00000 ---p 00000000 00:00 0 
+02a00000-02b00000 rw-p 00000000 00:00 0 
+02b00000-02cff000 rw-p 00000000 00:00 0 
+02cff000-02d00000 ---p 00000000 00:00 0 
+02d00000-02f00000 rw-p 00000000 00:00 0 
+02f00000-03100000 rw-p 00000000 00:00 0 
+03100000-03300000 rw-p 00000000 00:00 0 
+03300000-03500000 rw-p 00000000 00:00 0 
+03500000-03700000 rw-p 00000000 00:00 0 
+03700000-03900000 rw-p 00000000 00:00 0 
+03900000-03b00000 rw-p 00000000 00:00 0 
+03b00000-03cfe000 rw-p 00000000 00:00 0 
+03cfe000-03d00000 ---p 00000000 00:00 0 
+03d00000-03eff000 rw-p 00000000 00:00 0 
+03eff000-03f00000 ---p 00000000 00:00 0 
+03f00000-03ffd000 rw-p 00000000 00:00 0 
+03ffd000-04000000 ---p 00000000 00:00 0 
+04000000-040fe000 rw-p 00000000 00:00 0 
+040fe000-04100000 ---p 00000000 00:00 0 
+04100000-041fe000 rw-p 00000000 00:00 0 
+041fe000-04200000 ---p 00000000 00:00 0 
+04200000-042fd000 rw-p 00000000 00:00 0 
+042fd000-04300000 ---p 00000000 00:00 0 
+04300000-043fd000 rw-p 00000000 00:00 0 
+043fd000-04400000 ---p 00000000 00:00 0 
+04400000-04500000 rw-p 00000000 00:00 0 
+04500000-046fe000 rw-p 00000000 00:00 0 
+046fe000-04700000 ---p 00000000 00:00 0 
+04700000-048ff000 rw-p 00000000 00:00 0 
+048ff000-04900000 ---p 00000000 00:00 0 
+04900000-049fe000 rw-p 00000000 00:00 0 
+049fe000-04a00000 ---p 00000000 00:00 0 
+04a00000-04b00000 rw-p 00000000 00:00 0 
+04b00000-04bfd000 rw-p 00000000 00:00 0 
+04bfd000-04c00000 ---p 00000000 00:00 0 
+04c00000-04cfe000 rw-p 00000000 00:00 0 
+04cfe000-04d00000 ---p 00000000 00:00 0 
+04d00000-04dfe000 rw-p 00000000 00:00 0 
+04dfe000-04e00000 ---p 00000000 00:00 0 
+04e00000-04f00000 rw-p 00000000 00:00 0 
+04f00000-050fe000 rw-p 00000000 00:00 0 
+050fe000-05100000 ---p 00000000 00:00 0 
+05100000-051fe000 rw-p 00000000 00:00 0 
+051fe000-05200000 ---p 00000000 00:00 0 
+05200000-05300000 rw-p 00000000 00:00 0 
+05300000-054fe000 rw-p 00000000 00:00 0 
+054fe000-05500000 ---p 00000000 00:00 0 
+05500000-056ff000 rw-p 00000000 00:00 0 
+056ff000-05700000 ---p 00000000 00:00 0 
+05700000-05900000 rw-p 00000000 00:00 0 
+05900000-059fd000 rw-p 00000000 00:00 0 
+059fd000-05a00000 ---p 00000000 00:00 0 
+05a00000-05afd000 rw-p 00000000 00:00 0 
+05afd000-05b00000 ---p 00000000 00:00 0 
+05b00000-05cfe000 rw-p 00000000 00:00 0 
+05cfe000-05d00000 ---p 00000000 00:00 0 
+05d00000-05dfe000 rw-p 00000000 00:00 0 
+05dfe000-05e00000 ---p 00000000 00:00 0 
+05e00000-05eff000 rw-p 00000000 00:00 0 
+05eff000-05f00000 ---p 00000000 00:00 0 
+05f00000-05ffd000 rw-p 00000000 00:00 0 
+05ffd000-06000000 ---p 00000000 00:00 0 
+06000000-060ff000 rw-p 00000000 00:00 0 
+060ff000-06100000 ---p 00000000 00:00 0 
+06100000-062fe000 rw-p 00000000 00:00 0 
+062fe000-06300000 ---p 00000000 00:00 0 
+06300000-063fd000 rw-p 00000000 00:00 0 
+063fd000-06400000 ---p 00000000 00:00 0 
+06400000-06500000 rw-p 00000000 00:00 0 
+06500000-065fd000 rw-p 00000000 00:00 0 
+065fd000-06600000 ---p 00000000 00:00 0 
+06600000-066fe000 rw-p 00000000 00:00 0 
+066fe000-06700000 ---p 00000000 00:00 0 
+06700000-06900000 rw-p 00000000 00:00 0 
+06900000-069fe000 rw-p 00000000 00:00 0 
+069fe000-06a00000 ---p 00000000 00:00 0 
+06a00000-06c00000 rw-p 00000000 00:00 0 
+06c00000-06cfe000 rw-p 00000000 00:00 0 
+06cfe000-06d00000 ---p 00000000 00:00 0 
+06d00000-06e00000 rw-p 00000000 00:00 0 
+06e00000-06efd000 rw-p 00000000 00:00 0 
+06efd000-06f00000 ---p 00000000 00:00 0 
+06f00000-07000000 rw-p 00000000 00:00 0 
+07000000-070ff000 rw-p 00000000 00:00 0 
+070ff000-07100000 ---p 00000000 00:00 0 
+07100000-07200000 rw-p 00000000 00:00 0 
+07200000-072fe000 rw-p 00000000 00:00 0 
+072fe000-07300000 ---p 00000000 00:00 0 
+07300000-07400000 rw-p 00000000 00:00 0 
+07400000-074ff000 rw-p 00000000 00:00 0 
+074ff000-07500000 ---p 00000000 00:00 0 
+07500000-07d00000 rw-p 00000000 00:00 0 
+07d00000-07dfe000 rw-p 00000000 00:00 0 
+07dfe000-07e00000 ---p 00000000 00:00 0 
+07e00000-08048000 rw-p 00000000 00:00 0 
+08048000-08049000 r-xp 00000000 08:25 266228     /home/chenjia/Documents/jdk1.8.0_05/bin/java
+08049000-0804a000 rw-p 00000000 08:25 266228     /home/chenjia/Documents/jdk1.8.0_05/bin/java
+0804a000-08100000 rw-p 00000000 00:00 0 
+08100000-081ff000 rw-p 00000000 00:00 0 
+081ff000-08200000 ---p 00000000 00:00 0 
+08200000-08300000 rw-p 00000000 00:00 0 
+08300000-083c1000 rw-p 00000000 00:00 0 
+083c1000-08400000 ---p 00000000 00:00 0 
+08400000-084c1000 rw-p 00000000 00:00 0 
+084c1000-08500000 ---p 00000000 00:00 0 
+08500000-086d5000 rw-p 00000000 00:00 0 
+086d5000-08700000 ---p 00000000 00:00 0 
+08700000-087ea000 rw-p 00000000 00:00 0 
+087ea000-08800000 ---p 00000000 00:00 0 
+08800000-08900000 rw-p 00000000 00:00 0 
+08900000-08afd000 rw-p 00000000 00:00 0 
+08afd000-08b00000 ---p 00000000 00:00 0 
+08b00000-08d00000 rw-p 00000000 00:00 0 
+08d00000-08f00000 rw-p 00000000 00:00 0 
+08f00000-08fef000 rw-p 00000000 00:00 0 
+08fef000-09000000 ---p 00000000 00:00 0 
+09000000-09100000 rw-p 00000000 00:00 0 
+09100000-092fd000 rw-p 00000000 00:00 0 
+092fd000-09300000 ---p 00000000 00:00 0 
+09300000-093fe000 rw-p 00000000 00:00 0 
+093fe000-09400000 ---p 00000000 00:00 0 
+09400000-094fd000 rw-p 00000000 00:00 0 
+094fd000-09500000 ---p 00000000 00:00 0 
+09500000-095fd000 rw-p 00000000 00:00 0 
+095fd000-09600000 ---p 00000000 00:00 0 
+09600000-09700000 rw-p 00000000 00:00 0 
+09700000-098fe000 rw-p 00000000 00:00 0 
+098fe000-09900000 ---p 00000000 00:00 0 
+09900000-099fd000 rw-p 00000000 00:00 0 
+099fd000-09a00000 ---p 00000000 00:00 0 
+09a00000-09afd000 rw-p 00000000 00:00 0 
+09afd000-09b00000 ---p 00000000 00:00 0 
+09b00000-09bff000 rw-p 00000000 00:00 0 
+09bff000-09c00000 ---p 00000000 00:00 0 
+09c00000-09e92000 rw-p 00000000 00:00 0          [heap]
+09e92000-0a000000 rw-p 00000000 00:00 0 
+0a000000-0a1fd000 rw-p 00000000 00:00 0 
+0a1fd000-0a200000 ---p 00000000 00:00 0 
+0a200000-0a400000 rw-p 00000000 00:00 0 
+0a400000-0a600000 rw-p 00000000 00:00 0 
+0a600000-0a800000 rw-p 00000000 00:00 0 
+0a800000-0a8fd000 rw-p 00000000 00:00 0 
+0a8fd000-0a900000 ---p 00000000 00:00 0 
+0a900000-0aa00000 rw-p 00000000 00:00 0 
+0aa00000-0aafe000 rw-p 00000000 00:00 0 
+0aafe000-0ab00000 ---p 00000000 00:00 0 
+0ab00000-0ac00000 rw-p 00000000 00:00 0 
+0ac00000-0acfd000 rw-p 00000000 00:00 0 
+0acfd000-0ad00000 ---p 00000000 00:00 0 
+0ad00000-0ae00000 rw-p 00000000 00:00 0 
+0ae00000-0aeff000 rw-p 00000000 00:00 0 
+0aeff000-0af00000 ---p 00000000 00:00 0 
+0af00000-0b000000 rw-p 00000000 00:00 0 
+0b000000-0b1f2000 rw-p 00000000 00:00 0 
+0b1f2000-0b200000 ---p 00000000 00:00 0 
+0b200000-0b2fd000 rw-p 00000000 00:00 0 
+0b2fd000-0b300000 ---p 00000000 00:00 0 
+0b300000-0b400000 rw-p 00000000 00:00 0 
+0b400000-0b5fe000 rw-p 00000000 00:00 0 
+0b5fe000-0b600000 ---p 00000000 00:00 0 
+0b600000-0b800000 rw-p 00000000 00:00 0 
+0b800000-0ba00000 rw-p 00000000 00:00 0 
+0ba00000-0bafd000 rw-p 00000000 00:00 0 
+0bafd000-0bb00000 ---p 00000000 00:00 0 
+0bb00000-0bbff000 rw-p 00000000 00:00 0 
+0bbff000-0bc00000 ---p 00000000 00:00 0 
+0bc00000-0bdfe000 rw-p 00000000 00:00 0 
+0bdfe000-0be00000 ---p 00000000 00:00 0 
+0be00000-0beff000 rw-p 00000000 00:00 0 
+0beff000-0bf00000 ---p 00000000 00:00 0 
+0bf00000-0bffe000 rw-p 00000000 00:00 0 
+0bffe000-0c000000 ---p 00000000 00:00 0 
+0c000000-0c0fe000 rw-p 00000000 00:00 0 
+0c0fe000-0c100000 ---p 00000000 00:00 0 
+0c100000-0c200000 rw-p 00000000 00:00 0 
+0c200000-0c3fe000 rw-p 00000000 00:00 0 
+0c3fe000-0c400000 ---p 00000000 00:00 0 
+0c400000-0c4fd000 rw-p 00000000 00:00 0 
+0c4fd000-0c500000 ---p 00000000 00:00 0 
+0c500000-0c5fe000 rw-p 00000000 00:00 0 
+0c5fe000-0c600000 ---p 00000000 00:00 0 
+0c600000-0c7fe000 rw-p 00000000 00:00 0 
+0c7fe000-0c800000 ---p 00000000 00:00 0 
+0c800000-0ca00000 rw-p 00000000 00:00 0 
+0ca00000-0cc00000 rw-p 00000000 00:00 0 
+0cc00000-0ce00000 rw-p 00000000 00:00 0 
+0ce00000-0ceff000 rw-p 00000000 00:00 0 
+0ceff000-0cf00000 ---p 00000000 00:00 0 
+0cf00000-0d000000 rw-p 00000000 00:00 0 
+0d000000-0d200000 rw-p 00000000 00:00 0 
+0d200000-0d3fd000 rw-p 00000000 00:00 0 
+0d3fd000-0d400000 ---p 00000000 00:00 0 
+0d400000-0d4ff000 rw-p 00000000 00:00 0 
+0d4ff000-0d500000 ---p 00000000 00:00 0 
+0d500000-0d5fe000 rw-p 00000000 00:00 0 
+0d5fe000-0d600000 ---p 00000000 00:00 0 
+0d600000-0d6fe000 rw-p 00000000 00:00 0 
+0d6fe000-0d700000 ---p 00000000 00:00 0 
+0d700000-0d7fe000 rw-p 00000000 00:00 0 
+0d7fe000-0d800000 ---p 00000000 00:00 0 
+0d800000-0d8fd000 rw-p 00000000 00:00 0 
+0d8fd000-0d900000 ---p 00000000 00:00 0 
+0d900000-0da00000 rw-p 00000000 00:00 0 
+0da00000-0dbff000 rw-p 00000000 00:00 0 
+0dbff000-0dc00000 ---p 00000000 00:00 0 
+0dc00000-0de00000 rw-p 00000000 00:00 0 
+0de00000-0e000000 rw-p 00000000 00:00 0 
+0e000000-0e0fe000 rw-p 00000000 00:00 0 
+0e0fe000-0e100000 ---p 00000000 00:00 0 
+0e100000-0e200000 rw-p 00000000 00:00 0 
+0e200000-0e2ff000 rw-p 00000000 00:00 0 
+0e2ff000-0e300000 ---p 00000000 00:00 0 
+0e300000-0e400000 rw-p 00000000 00:00 0 
+0e400000-0e4fd000 rw-p 00000000 00:00 0 
+0e4fd000-0e500000 ---p 00000000 00:00 0 
+0e500000-0e600000 rw-p 00000000 00:00 0 
+0e600000-0e7fd000 rw-p 00000000 00:00 0 
+0e7fd000-0e800000 ---p 00000000 00:00 0 
+0e800000-0e9fe000 rw-p 00000000 00:00 0 
+0e9fe000-0ea00000 ---p 00000000 00:00 0 
+0ea00000-0ebff000 rw-p 00000000 00:00 0 
+0ebff000-0ec00000 ---p 00000000 00:00 0 
+0ec00000-0edfe000 rw-p 00000000 00:00 0 
+0edfe000-0ee00000 ---p 00000000 00:00 0 
+0ee00000-0f000000 rw-p 00000000 00:00 0 
+0f000000-0f200000 rw-p 00000000 00:00 0 
+0f200000-0f400000 rw-p 00000000 00:00 0 
+0f400000-0f600000 rw-p 00000000 00:00 0 
+0f600000-0f6ff000 rw-p 00000000 00:00 0 
+0f6ff000-0f700000 ---p 00000000 00:00 0 
+0f700000-0f7fd000 rw-p 00000000 00:00 0 
+0f7fd000-0f800000 ---p 00000000 00:00 0 
+0f800000-0f8fd000 rw-p 00000000 00:00 0 
+0f8fd000-0f900000 ---p 00000000 00:00 0 
+0f900000-0f9fe000 rw-p 00000000 00:00 0 
+0f9fe000-0fa00000 ---p 00000000 00:00 0 
+0fa00000-0fafe000 rw-p 00000000 00:00 0 
+0fafe000-0fb00000 ---p 00000000 00:00 0 
+0fb00000-0fc00000 rw-p 00000000 00:00 0 
+0fc00000-0fcfd000 rw-p 00000000 00:00 0 
+0fcfd000-0fd00000 ---p 00000000 00:00 0 
+0fd00000-0fe00000 rw-p 00000000 00:00 0 
+0fe00000-0fffe000 rw-p 00000000 00:00 0 
+0fffe000-10000000 ---p 00000000 00:00 0 
+10000000-101fe000 rw-p 00000000 00:00 0 
+101fe000-10200000 ---p 00000000 00:00 0 
+10200000-10400000 rw-p 00000000 00:00 0 
+10400000-10600000 rw-p 00000000 00:00 0 
+10600000-10800000 rw-p 00000000 00:00 0 
+10800000-108ff000 rw-p 00000000 00:00 0 
+108ff000-10900000 ---p 00000000 00:00 0 
+10900000-109fe000 rw-p 00000000 00:00 0 
+109fe000-10a00000 ---p 00000000 00:00 0 
+10a00000-10afb000 rw-p 00000000 00:00 0 
+10afb000-10b00000 ---p 00000000 00:00 0 
+10b00000-10c00000 rw-p 00000000 00:00 0 
+10c00000-10cfd000 rw-p 00000000 00:00 0 
+10cfd000-10d00000 ---p 00000000 00:00 0 
+10d00000-10dfd000 rw-p 00000000 00:00 0 
+10dfd000-10e00000 ---p 00000000 00:00 0 
+10e00000-10efe000 rw-p 00000000 00:00 0 
+10efe000-10f00000 ---p 00000000 00:00 0 
+10f00000-10ffd000 rw-p 00000000 00:00 0 
+10ffd000-11000000 ---p 00000000 00:00 0 
+11000000-111ff000 rw-p 00000000 00:00 0 
+111ff000-11200000 ---p 00000000 00:00 0 
+11200000-113fe000 rw-p 00000000 00:00 0 
+113fe000-11400000 ---p 00000000 00:00 0 
+11400000-11600000 rw-p 00000000 00:00 0 
+11600000-11800000 rw-p 00000000 00:00 0 
+11800000-11a00000 rw-p 00000000 00:00 0 
+11a00000-11afe000 rw-p 00000000 00:00 0 
+11afe000-11b00000 ---p 00000000 00:00 0 
+11b00000-11c00000 rw-p 00000000 00:00 0 
+11c00000-11cfe000 rw-p 00000000 00:00 0 
+11cfe000-11d00000 ---p 00000000 00:00 0 
+11d00000-11e00000 rw-p 00000000 00:00 0 
+11e00000-11efd000 rw-p 00000000 00:00 0 
+11efd000-11f00000 ---p 00000000 00:00 0 
+11f00000-12000000 rw-p 00000000 00:00 0 
+12000000-121fd000 rw-p 00000000 00:00 0 
+121fd000-12200000 ---p 00000000 00:00 0 
+12200000-122fe000 rw-p 00000000 00:00 0 
+122fe000-12300000 ---p 00000000 00:00 0 
+12300000-123fe000 rw-p 00000000 00:00 0 
+123fe000-12400000 ---p 00000000 00:00 0 
+12400000-12600000 rw-p 00000000 00:00 0 
+12600000-127fd000 rw-p 00000000 00:00 0 
+127fd000-12800000 ---p 00000000 00:00 0 
+12800000-12a00000 rw-p 00000000 00:00 0 
+12a00000-12c00000 rw-p 00000000 00:00 0 
+12c00000-12cfd000 rw-p 00000000 00:00 0 
+12cfd000-12d00000 ---p 00000000 00:00 0 
+12d00000-12e00000 rw-p 00000000 00:00 0 
+12e00000-12ffe000 rw-p 00000000 00:00 0 
+12ffe000-13000000 ---p 00000000 00:00 0 
+13000000-130fe000 rw-p 00000000 00:00 0 
+130fe000-13100000 ---p 00000000 00:00 0 
+13100000-131ff000 rw-p 00000000 00:00 0 
+131ff000-13200000 ---p 00000000 00:00 0 
+13200000-133ff000 rw-p 00000000 00:00 0 
+133ff000-13400000 ---p 00000000 00:00 0 
+13400000-134fe000 rw-p 00000000 00:00 0 
+134fe000-13500000 ---p 00000000 00:00 0 
+13500000-135fe000 rw-p 00000000 00:00 0 
+135fe000-13600000 ---p 00000000 00:00 0 
+13600000-136fe000 rw-p 00000000 00:00 0 
+136fe000-13700000 ---p 00000000 00:00 0 
+13700000-13800000 rw-p 00000000 00:00 0 
+13800000-13a00000 rw-p 00000000 00:00 0 
+13a00000-13c00000 rw-p 00000000 00:00 0 
+13c00000-13e00000 rw-p 00000000 00:00 0 
+13e00000-14000000 rw-p 00000000 00:00 0 
+14000000-141fd000 rw-p 00000000 00:00 0 
+141fd000-14200000 ---p 00000000 00:00 0 
+14200000-142ff000 rw-p 00000000 00:00 0 
+142ff000-14300000 ---p 00000000 00:00 0 
+14300000-143fd000 rw-p 00000000 00:00 0 
+143fd000-14400000 ---p 00000000 00:00 0 
+14400000-144ff000 rw-p 00000000 00:00 0 
+144ff000-14500000 ---p 00000000 00:00 0 
+14500000-14600000 rw-p 00000000 00:00 0 
+14600000-146fe000 rw-p 00000000 00:00 0 
+146fe000-14700000 ---p 00000000 00:00 0 
+14700000-147ff000 rw-p 00000000 00:00 0 
+147ff000-14800000 ---p 00000000 00:00 0 
+14800000-148fe000 rw-p 00000000 00:00 0 
+148fe000-14900000 ---p 00000000 00:00 0 
+14900000-149ff000 rw-p 00000000 00:00 0 
+149ff000-14a00000 ---p 00000000 00:00 0 
+14a00000-14bff000 rw-p 00000000 00:00 0 
+14bff000-14c00000 ---p 00000000 00:00 0 
+14c00000-14dff000 rw-p 00000000 00:00 0 
+14dff000-14e00000 ---p 00000000 00:00 0 
+14e00000-15000000 rw-p 00000000 00:00 0 
+15000000-15200000 rw-p 00000000 00:00 0 
+15200000-15400000 rw-p 00000000 00:00 0 
+15400000-154ff000 rw-p 00000000 00:00 0 
+154ff000-15500000 ---p 00000000 00:00 0 
+15500000-15600000 rw-p 00000000 00:00 0 
+15600000-156fd000 rw-p 00000000 00:00 0 
+156fd000-15700000 ---p 00000000 00:00 0 
+15700000-15800000 rw-p 00000000 00:00 0 
+15800000-159fe000 rw-p 00000000 00:00 0 
+159fe000-15a00000 ---p 00000000 00:00 0 
+15a00000-15afd000 rw-p 00000000 00:00 0 
+15afd000-15b00000 ---p 00000000 00:00 0 
+15b00000-15c00000 rw-p 00000000 00:00 0 
+15c00000-15dff000 rw-p 00000000 00:00 0 
+15dff000-15e00000 ---p 00000000 00:00 0 
+15e00000-15fff000 rw-p 00000000 00:00 0 
+15fff000-16000000 ---p 00000000 00:00 0 
+16000000-161fe000 rw-p 00000000 00:00 0 
+161fe000-16200000 ---p 00000000 00:00 0 
+16200000-16400000 rw-p 00000000 00:00 0 
+16400000-16600000 rw-p 00000000 00:00 0 
+16600000-16800000 rw-p 00000000 00:00 0 
+16800000-169fe000 rw-p 00000000 00:00 0 
+169fe000-16a00000 ---p 00000000 00:00 0 
+16a00000-16c00000 rw-p 00000000 00:00 0 
+16c00000-16dfe000 rw-p 00000000 00:00 0 
+16dfe000-16e00000 ---p 00000000 00:00 0 
+16e00000-16efd000 rw-p 00000000 00:00 0 
+16efd000-16f00000 ---p 00000000 00:00 0 
+16f00000-16ffd000 rw-p 00000000 00:00 0 
+16ffd000-17000000 ---p 00000000 00:00 0 
+17000000-170fe000 rw-p 00000000 00:00 0 
+170fe000-17100000 ---p 00000000 00:00 0 
+17100000-171fe000 rw-p 00000000 00:00 0 
+171fe000-17200000 ---p 00000000 00:00 0 
+17200000-172fd000 rw-p 00000000 00:00 0 
+172fd000-17300000 ---p 00000000 00:00 0 
+17300000-173fe000 rw-p 00000000 00:00 0 
+173fe000-17400000 ---p 00000000 00:00 0 
+17400000-17600000 rw-p 00000000 00:00 0 
+17600000-17800000 rw-p 00000000 00:00 0 
+17800000-17a00000 rw-p 00000000 00:00 0 
+17a00000-17afe000 rw-p 00000000 00:00 0 
+17afe000-17b00000 ---p 00000000 00:00 0 
+17b00000-17bfe000 rw-p 00000000 00:00 0 
+17bfe000-17c00000 ---p 00000000 00:00 0 
+17c00000-17cfe000 rw-p 00000000 00:00 0 
+17cfe000-17d00000 ---p 00000000 00:00 0 
+17d00000-17dfe000 rw-p 00000000 00:00 0 
+17dfe000-17e00000 ---p 00000000 00:00 0 
+17e00000-18000000 rw-p 00000000 00:00 0 
+18000000-180fd000 rw-p 00000000 00:00 0 
+180fd000-18100000 ---p 00000000 00:00 0 
+18100000-181fd000 rw-p 00000000 00:00 0 
+181fd000-18200000 ---p 00000000 00:00 0 
+18200000-182fe000 rw-p 00000000 00:00 0 
+182fe000-18300000 ---p 00000000 00:00 0 
+18300000-183fe000 rw-p 00000000 00:00 0 
+183fe000-18400000 ---p 00000000 00:00 0 
+18400000-184ff000 rw-p 00000000 00:00 0 
+184ff000-18500000 ---p 00000000 00:00 0 
+18500000-18600000 rw-p 00000000 00:00 0 
+18600000-187fe000 rw-p 00000000 00:00 0 
+187fe000-18800000 ---p 00000000 00:00 0 
+18800000-18a00000 rw-p 00000000 00:00 0 
+18a00000-18c00000 rw-p 00000000 00:00 0 
+18c00000-18cff000 rw-p 00000000 00:00 0 
+18cff000-18d00000 ---p 00000000 00:00 0 
+18d00000-18e00000 rw-p 00000000 00:00 0 
+18e00000-18efe000 rw-p 00000000 00:00 0 
+18efe000-18f00000 ---p 00000000 00:00 0 
+18f00000-18ffe000 rw-p 00000000 00:00 0 
+18ffe000-19000000 ---p 00000000 00:00 0 
+19000000-190ff000 rw-p 00000000 00:00 0 
+190ff000-19100000 ---p 00000000 00:00 0 
+19100000-19200000 rw-p 00000000 00:00 0 
+19200000-193ff000 rw-p 00000000 00:00 0 
+193ff000-19400000 ---p 00000000 00:00 0 
+19400000-194fe000 rw-p 00000000 00:00 0 
+194fe000-19500000 ---p 00000000 00:00 0 
+19500000-19600000 rw-p 00000000 00:00 0 
+19600000-196fe000 rw-p 00000000 00:00 0 
+196fe000-19700000 ---p 00000000 00:00 0 
+19700000-19800000 rw-p 00000000 00:00 0 
+19800000-198fe000 rw-p 00000000 00:00 0 
+198fe000-19900000 ---p 00000000 00:00 0 
+19900000-19a00000 rw-p 00000000 00:00 0 
+19a00000-19c00000 rw-p 00000000 00:00 0 
+19c00000-19e00000 rw-p 00000000 00:00 0 
+19e00000-1a000000 rw-p 00000000 00:00 0 
+1a000000-1a0ff000 rw-p 00000000 00:00 0 
+1a0ff000-1a100000 ---p 00000000 00:00 0 
+1a100000-1a1fd000 rw-p 00000000 00:00 0 
+1a1fd000-1a200000 ---p 00000000 00:00 0 
+1a200000-1a2fd000 rw-p 00000000 00:00 0 
+1a2fd000-1a300000 ---p 00000000 00:00 0 
+1a300000-1a3fe000 rw-p 00000000 00:00 0 
+1a3fe000-1a400000 ---p 00000000 00:00 0 
+1a400000-1a5fe000 rw-p 00000000 00:00 0 
+1a5fe000-1a600000 ---p 00000000 00:00 0 
+1a600000-1a7fd000 rw-p 00000000 00:00 0 
+1a7fd000-1a800000 ---p 00000000 00:00 0 
+1a800000-1a8fe000 rw-p 00000000 00:00 0 
+1a8fe000-1a900000 ---p 00000000 00:00 0 
+1a900000-1a9fd000 rw-p 00000000 00:00 0 
+1a9fd000-1aa00000 ---p 00000000 00:00 0 
+1aa00000-1aafd000 rw-p 00000000 00:00 0 
+1aafd000-1ab00000 ---p 00000000 00:00 0 
+1ab00000-1abfd000 rw-p 00000000 00:00 0 
+1abfd000-1ac00000 ---p 00000000 00:00 0 
+1ac00000-1adfd000 rw-p 00000000 00:00 0 
+1adfd000-1ae00000 ---p 00000000 00:00 0 
+1ae00000-1b000000 rw-p 00000000 00:00 0 
+1b000000-1b200000 rw-p 00000000 00:00 0 
+1b200000-1b2fe000 rw-p 00000000 00:00 0 
+1b2fe000-1b300000 ---p 00000000 00:00 0 
+1b300000-1b400000 rw-p 00000000 00:00 0 
+1b400000-1b600000 rw-p 00000000 00:00 0 
+1b600000-1b6fd000 rw-p 00000000 00:00 0 
+1b6fd000-1b700000 ---p 00000000 00:00 0 
+1b700000-1b7fd000 rw-p 00000000 00:00 0 
+1b7fd000-1b800000 ---p 00000000 00:00 0 
+1b800000-1b8fe000 rw-p 00000000 00:00 0 
+1b8fe000-1b900000 ---p 00000000 00:00 0 
+1b900000-1ba00000 rw-p 00000000 00:00 0 
+1ba00000-1bafd000 rw-p 00000000 00:00 0 
+1bafd000-1bb00000 ---p 00000000 00:00 0 
+1bb00000-1bc00000 rw-p 00000000 00:00 0 
+1bc00000-1bcfd000 rw-p 00000000 00:00 0 
+1bcfd000-1bd00000 ---p 00000000 00:00 0 
+1bd00000-1bdfd000 rw-p 00000000 00:00 0 
+1bdfd000-1be00000 ---p 00000000 00:00 0 
+1be00000-1befe000 rw-p 00000000 00:00 0 
+1befe000-1bf00000 ---p 00000000 00:00 0 
+1bf00000-1bffd000 rw-p 00000000 00:00 0 
+1bffd000-1c000000 ---p 00000000 00:00 0 
+1c000000-1c200000 rw-p 00000000 00:00 0 
+1c200000-1c400000 rw-p 00000000 00:00 0 
+1c400000-1c600000 rw-p 00000000 00:00 0 
+1c600000-1c6fe000 rw-p 00000000 00:00 0 
+1c6fe000-1c700000 ---p 00000000 00:00 0 
+1c700000-1c7fd000 rw-p 00000000 00:00 0 
+1c7fd000-1c800000 ---p 00000000 00:00 0 
+1c800000-1c8ff000 rw-p 00000000 00:00 0 
+1c8ff000-1c900000 ---p 00000000 00:00 0 
+1c900000-1c9fe000 rw-p 00000000 00:00 0 
+1c9fe000-1ca00000 ---p 00000000 00:00 0 
+1ca00000-1cc00000 rw-p 00000000 00:00 0 
+1cc00000-1ccff000 rw-p 00000000 00:00 0 
+1ccff000-1cd00000 ---p 00000000 00:00 0 
+1cd00000-1cdff000 rw-p 00000000 00:00 0 
+1cdff000-1ce00000 ---p 00000000 00:00 0 
+1ce00000-1cefd000 rw-p 00000000 00:00 0 
+1cefd000-1cf00000 ---p 00000000 00:00 0 
+1cf00000-1cffe000 rw-p 00000000 00:00 0 
+1cffe000-1d000000 ---p 00000000 00:00 0 
+1d000000-1d1ff000 rw-p 00000000 00:00 0 
+1d1ff000-1d200000 ---p 00000000 00:00 0 
+1d200000-1d400000 rw-p 00000000 00:00 0 
+1d400000-1d600000 rw-p 00000000 00:00 0 
+1d600000-1d800000 rw-p 00000000 00:00 0 
+1d800000-1d8ff000 rw-p 00000000 00:00 0 
+1d8ff000-1d900000 ---p 00000000 00:00 0 
+1d900000-1da00000 rw-p 00000000 00:00 0 
+1da00000-1daff000 rw-p 00000000 00:00 0 
+1daff000-1db00000 ---p 00000000 00:00 0 
+1db00000-1dc00000 rw-p 00000000 00:00 0 
+1dc00000-1ddff000 rw-p 00000000 00:00 0 
+1ddff000-1de00000 ---p 00000000 00:00 0 
+1de00000-1e000000 rw-p 00000000 00:00 0 
+1e000000-1e1fe000 rw-p 00000000 00:00 0 
+1e1fe000-1e200000 ---p 00000000 00:00 0 
+1e200000-1e2ff000 rw-p 00000000 00:00 0 
+1e2ff000-1e300000 ---p 00000000 00:00 0 
+1e300000-1e3fe000 rw-p 00000000 00:00 0 
+1e3fe000-1e400000 ---p 00000000 00:00 0 
+1e400000-1e5ff000 rw-p 00000000 00:00 0 
+1e5ff000-1e600000 ---p 00000000 00:00 0 
+1e600000-1e800000 rw-p 00000000 00:00 0 
+1e800000-1ea00000 rw-p 00000000 00:00 0 
+1ea00000-1ec00000 rw-p 00000000 00:00 0 
+1ec00000-1ecfe000 rw-p 00000000 00:00 0 
+1ecfe000-1ed00000 ---p 00000000 00:00 0 
+1ed00000-1edfd000 rw-p 00000000 00:00 0 
+1edfd000-1ee00000 ---p 00000000 00:00 0 
+1ee00000-1f000000 rw-p 00000000 00:00 0 
+1f000000-1f0fe000 rw-p 00000000 00:00 0 
+1f0fe000-1f100000 ---p 00000000 00:00 0 
+1f100000-1f1fd000 rw-p 00000000 00:00 0 
+1f1fd000-1f200000 ---p 00000000 00:00 0 
+1f200000-1f2fd000 rw-p 00000000 00:00 0 
+1f2fd000-1f300000 ---p 00000000 00:00 0 
+1f300000-1f400000 rw-p 00000000 00:00 0 
+1f400000-1f5fd000 rw-p 00000000 00:00 0 
+1f5fd000-1f600000 ---p 00000000 00:00 0 
+1f600000-1f7ff000 rw-p 00000000 00:00 0 
+1f7ff000-1f800000 ---p 00000000 00:00 0 
+1f800000-1f9ff000 rw-p 00000000 00:00 0 
+1f9ff000-1fa00000 ---p 00000000 00:00 0 
+1fa00000-1fc00000 rw-p 00000000 00:00 0 
+1fc00000-1fe00000 rw-p 00000000 00:00 0 
+1fe00000-1fefe000 rw-p 00000000 00:00 0 
+1fefe000-1ff00000 ---p 00000000 00:00 0 
+1ff00000-20000000 rw-p 00000000 00:00 0 
+20000000-201fe000 rw-p 00000000 00:00 0 
+201fe000-20200000 ---p 00000000 00:00 0 
+20200000-202fd000 rw-p 00000000 00:00 0 
+202fd000-20300000 ---p 00000000 00:00 0 
+20300000-203fd000 rw-p 00000000 00:00 0 
+203fd000-20400000 ---p 00000000 00:00 0 
+20400000-205fd000 rw-p 00000000 00:00 0 
+205fd000-20600000 ---p 00000000 00:00 0 
+20600000-207fe000 rw-p 00000000 00:00 0 
+207fe000-20800000 ---p 00000000 00:00 0 
+20800000-209ff000 rw-p 00000000 00:00 0 
+209ff000-20a00000 ---p 00000000 00:00 0 
+20a00000-20bff000 rw-p 00000000 00:00 0 
+20bff000-20c00000 ---p 00000000 00:00 0 
+20c00000-20dff000 rw-p 00000000 00:00 0 
+20dff000-20e00000 ---p 00000000 00:00 0 
+20e00000-21000000 rw-p 00000000 00:00 0 
+21000000-21200000 rw-p 00000000 00:00 0 
+21200000-212ff000 rw-p 00000000 00:00 0 
+212ff000-21300000 ---p 00000000 00:00 0 
+21300000-21400000 rw-p 00000000 00:00 0 
+21400000-21600000 rw-p 00000000 00:00 0 
+21600000-217fe000 rw-p 00000000 00:00 0 
+217fe000-21800000 ---p 00000000 00:00 0 
+21800000-218fd000 rw-p 00000000 00:00 0 
+218fd000-21900000 ---p 00000000 00:00 0 
+21900000-21a00000 rw-p 00000000 00:00 0 
+21a00000-21afe000 rw-p 00000000 00:00 0 
+21afe000-21b00000 ---p 00000000 00:00 0 
+21b00000-21bfd000 rw-p 00000000 00:00 0 
+21bfd000-21c00000 ---p 00000000 00:00 0 
+21c00000-21cfe000 rw-p 00000000 00:00 0 
+21cfe000-21d00000 ---p 00000000 00:00 0 
+21d00000-21e00000 rw-p 00000000 00:00 0 
+21e00000-21ffd000 rw-p 00000000 00:00 0 
+21ffd000-22000000 ---p 00000000 00:00 0 
+22000000-22200000 rw-p 00000000 00:00 0 
+22200000-22400000 rw-p 00000000 00:00 0 
+22400000-22600000 rw-p 00000000 00:00 0 
+22600000-227fe000 rw-p 00000000 00:00 0 
+227fe000-22800000 ---p 00000000 00:00 0 
+22800000-228fe000 rw-p 00000000 00:00 0 
+228fe000-22900000 ---p 00000000 00:00 0 
+22900000-229ff000 rw-p 00000000 00:00 0 
+229ff000-22a00000 ---p 00000000 00:00 0 
+22a00000-22afe000 rw-p 00000000 00:00 0 
+22afe000-22b00000 ---p 00000000 00:00 0 
+22b00000-22c00000 rw-p 00000000 00:00 0 
+22c00000-22cfe000 rw-p 00000000 00:00 0 
+22cfe000-22d00000 ---p 00000000 00:00 0 
+22d00000-22e00000 rw-p 00000000 00:00 0 
+22e00000-23000000 rw-p 00000000 00:00 0 
+23000000-231fe000 rw-p 00000000 00:00 0 
+231fe000-23200000 ---p 00000000 00:00 0 
+23200000-23400000 rw-p 00000000 00:00 0 
+23400000-23600000 rw-p 00000000 00:00 0 
+23600000-23800000 rw-p 00000000 00:00 0 
+23800000-238ff000 rw-p 00000000 00:00 0 
+238ff000-23900000 ---p 00000000 00:00 0 
+23900000-23a00000 rw-p 00000000 00:00 0 
+23a00000-23bfe000 rw-p 00000000 00:00 0 
+23bfe000-23c00000 ---p 00000000 00:00 0 
+23c00000-23dff000 rw-p 00000000 00:00 0 
+23dff000-23e00000 ---p 00000000 00:00 0 
+23e00000-23efd000 rw-p 00000000 00:00 0 
+23efd000-23f00000 ---p 00000000 00:00 0 
+23f00000-23ffd000 rw-p 00000000 00:00 0 
+23ffd000-24000000 ---p 00000000 00:00 0 
+24000000-241fe000 rw-p 00000000 00:00 0 
+241fe000-24200000 ---p 00000000 00:00 0 
+24200000-242fe000 rw-p 00000000 00:00 0 
+242fe000-24300000 ---p 00000000 00:00 0 
+24300000-24400000 rw-p 00000000 00:00 0 
+24400000-245fe000 rw-p 00000000 00:00 0 
+245fe000-24600000 ---p 00000000 00:00 0 
+24600000-24800000 rw-p 00000000 00:00 0 
+24800000-24a00000 rw-p 00000000 00:00 0 
+24a00000-24c00000 rw-p 00000000 00:00 0 
+24c00000-24dfe000 rw-p 00000000 00:00 0 
+24dfe000-24e00000 ---p 00000000 00:00 0 
+24e00000-24ffd000 rw-p 00000000 00:00 0 
+24ffd000-25000000 ---p 00000000 00:00 0 
+25000000-250fd000 rw-p 00000000 00:00 0 
+250fd000-25100000 ---p 00000000 00:00 0 
+25100000-251fd000 rw-p 00000000 00:00 0 
+251fd000-25200000 ---p 00000000 00:00 0 
+25200000-252fe000 rw-p 00000000 00:00 0 
+252fe000-25300000 ---p 00000000 00:00 0 
+25300000-253ff000 rw-p 00000000 00:00 0 
+253ff000-25400000 ---p 00000000 00:00 0 
+25400000-254fe000 rw-p 00000000 00:00 0 
+254fe000-25500000 ---p 00000000 00:00 0 
+25500000-25600000 rw-p 00000000 00:00 0 
+25600000-256fd000 rw-p 00000000 00:00 0 
+256fd000-25700000 ---p 00000000 00:00 0 
+25700000-25800000 rw-p 00000000 00:00 0 
+25800000-25a00000 rw-p 00000000 00:00 0 
+25a00000-25c00000 rw-p 00000000 00:00 0 
+25c00000-25e00000 rw-p 00000000 00:00 0 
+25e00000-25f00000 rw-p 00000000 00:00 0 
+25f00000-26400000 rw-p 00000000 00:00 0 
+26400000-26600000 rw-p 00000000 00:00 0 
+26600000-266c3000 rw-p 00000000 00:00 0 
+266c3000-26700000 ---p 00000000 00:00 0 
+26700000-267fe000 rw-p 00000000 00:00 0 
+267fe000-26800000 ---p 00000000 00:00 0 
+26800000-268c5000 rw-p 00000000 00:00 0 
+268c5000-26900000 ---p 00000000 00:00 0 
+26900000-26a00000 rw-p 00000000 00:00 0 
+26a00000-26bff000 rw-p 00000000 00:00 0 
+26bff000-26c00000 ---p 00000000 00:00 0 
+26c00000-26dfd000 rw-p 00000000 00:00 0 
+26dfd000-26e00000 ---p 00000000 00:00 0 
+26e00000-26efd000 rw-p 00000000 00:00 0 
+26efd000-26f00000 ---p 00000000 00:00 0 
+26f00000-26ffe000 rw-p 00000000 00:00 0 
+26ffe000-27000000 ---p 00000000 00:00 0 
+27000000-27200000 rw-p 00000000 00:00 0 
+27200000-27400000 rw-p 00000000 00:00 0 
+27400000-27600000 rw-p 00000000 00:00 0 
+27600000-276fe000 rw-p 00000000 00:00 0 
+276fe000-27700000 ---p 00000000 00:00 0 
+27700000-27800000 rw-p 00000000 00:00 0 
+27800000-279fd000 rw-p 00000000 00:00 0 
+279fd000-27a00000 ---p 00000000 00:00 0 
+27a00000-27bff000 rw-p 00000000 00:00 0 
+27bff000-27c00000 ---p 00000000 00:00 0 
+27c00000-27cfd000 rw-p 00000000 00:00 0 
+27cfd000-27d00000 ---p 00000000 00:00 0 
+27d00000-27e00000 rw-p 00000000 00:00 0 
+27e00000-27efe000 rw-p 00000000 00:00 0 
+27efe000-27f00000 ---p 00000000 00:00 0 
+27f00000-28000000 rw-p 00000000 00:00 0 
+28000000-280ff000 rw-p 00000000 00:00 0 
+280ff000-28100000 ---p 00000000 00:00 0 
+28100000-28200000 rw-p 00000000 00:00 0 
+28200000-282fe000 rw-p 00000000 00:00 0 
+282fe000-28300000 ---p 00000000 00:00 0 
+28300000-283fe000 rw-p 00000000 00:00 0 
+283fe000-28400000 ---p 00000000 00:00 0 
+28400000-28600000 rw-p 00000000 00:00 0 
+28600000-28800000 rw-p 00000000 00:00 0 
+28800000-28a00000 rw-p 00000000 00:00 0 
+28a00000-28c00000 rw-p 00000000 00:00 0 
+28c00000-28dfe000 rw-p 00000000 00:00 0 
+28dfe000-28e00000 ---p 00000000 00:00 0 
+28e00000-28efe000 rw-p 00000000 00:00 0 
+28efe000-28f00000 ---p 00000000 00:00 0 
+28f00000-29000000 rw-p 00000000 00:00 0 
+29000000-291ff000 rw-p 00000000 00:00 0 
+291ff000-29200000 ---p 00000000 00:00 0 
+29200000-292fd000 rw-p 00000000 00:00 0 
+292fd000-29300000 ---p 00000000 00:00 0 
+29300000-29400000 rw-p 00000000 00:00 0 
+29400000-295ff000 rw-p 00000000 00:00 0 
+295ff000-29600000 ---p 00000000 00:00 0 
+29600000-297ff000 rw-p 00000000 00:00 0 
+297ff000-29800000 ---p 00000000 00:00 0 
+29800000-29a00000 rw-p 00000000 00:00 0 
+29a00000-29c00000 rw-p 00000000 00:00 0 
+29c00000-29e00000 rw-p 00000000 00:00 0 
+29e00000-29efd000 rw-p 00000000 00:00 0 
+29efd000-29f00000 ---p 00000000 00:00 0 
+29f00000-2bd00000 rw-p 00000000 00:00 0 
+2bd00000-2bde1000 rw-p 00000000 00:00 0 
+2bde1000-2be00000 ---p 00000000 00:00 0 
+2be00000-2befe000 rw-p 00000000 00:00 0 
+2befe000-2bf00000 ---p 00000000 00:00 0 
+2bf00000-2c0fe000 rw-p 00000000 00:00 0 
+2c0fe000-2c100000 ---p 00000000 00:00 0 
+2c100000-2c2fe000 rw-p 00000000 00:00 0 
+2c2fe000-2c300000 ---p 00000000 00:00 0 
+2c300000-2c500000 rw-p 00000000 00:00 0 
+2c500000-2c700000 rw-p 00000000 00:00 0 
+2c700000-2c7c1000 rw-p 00000000 00:00 0 
+2c7c1000-2c800000 ---p 00000000 00:00 0 
+2c800000-2c900000 rw-p 00000000 00:00 0 
+2c900000-2c9e2000 rw-p 00000000 00:00 0 
+2c9e2000-2ca00000 ---p 00000000 00:00 0 
+2ca00000-2cac1000 rw-p 00000000 00:00 0 
+2cac1000-2cb00000 ---p 00000000 00:00 0 
+2cb00000-2cc00000 rw-p 00000000 00:00 0 
+2cc00000-2d000000 rw-p 00000000 00:00 0 
+2d000000-2d200000 rw-p 00000000 00:00 0 
+2d200000-2d2fe000 rw-p 00000000 00:00 0 
+2d2fe000-2d300000 ---p 00000000 00:00 0 
+2d300000-2d3fd000 rw-p 00000000 00:00 0 
+2d3fd000-2d400000 ---p 00000000 00:00 0 
+2d400000-2d4fb000 rw-p 00000000 00:00 0 
+2d4fb000-2d500000 ---p 00000000 00:00 0 
+2d500000-2d5fd000 rw-p 00000000 00:00 0 
+2d5fd000-2d600000 ---p 00000000 00:00 0 
+2d600000-2d7fd000 rw-p 00000000 00:00 0 
+2d7fd000-2d800000 ---p 00000000 00:00 0 
+2d800000-2d8fe000 rw-p 00000000 00:00 0 
+2d8fe000-2d900000 ---p 00000000 00:00 0 
+2d900000-2da00000 rw-p 00000000 00:00 0 
+2da00000-2dbff000 rw-p 00000000 00:00 0 
+2dbff000-2dc00000 ---p 00000000 00:00 0 
+2dc00000-2de00000 rw-p 00000000 00:00 0 
+2de00000-2e000000 rw-p 00000000 00:00 0 
+2e000000-2e200000 rw-p 00000000 00:00 0 
+2e200000-2e2fd000 rw-p 00000000 00:00 0 
+2e2fd000-2e300000 ---p 00000000 00:00 0 
+2e300000-2e3fd000 rw-p 00000000 00:00 0 
+2e3fd000-2e400000 ---p 00000000 00:00 0 
+2e400000-2e4ff000 rw-p 00000000 00:00 0 
+2e4ff000-2e500000 ---p 00000000 00:00 0 
+2e500000-2e600000 rw-p 00000000 00:00 0 
+2e600000-2e6fd000 rw-p 00000000 00:00 0 
+2e6fd000-2e700000 ---p 00000000 00:00 0 
+2e700000-2e7fd000 rw-p 00000000 00:00 0 
+2e7fd000-2e800000 ---p 00000000 00:00 0 
+2e800000-2e8fe000 rw-p 00000000 00:00 0 
+2e8fe000-2e900000 ---p 00000000 00:00 0 
+2e900000-2ea00000 rw-p 00000000 00:00 0 
+2ea00000-2eaff000 rw-p 00000000 00:00 0 
+2eaff000-2eb00000 ---p 00000000 00:00 0 
+2eb00000-2ec00000 rw-p 00000000 00:00 0 
+2ec00000-2ecfe000 rw-p 00000000 00:00 0 
+2ecfe000-2ed00000 ---p 00000000 00:00 0 
+2ed00000-2edfe000 rw-p 00000000 00:00 0 
+2edfe000-2ee00000 ---p 00000000 00:00 0 
+2ee00000-2f000000 rw-p 00000000 00:00 0 
+2f000000-2f200000 rw-p 00000000 00:00 0 
+2f200000-2f400000 rw-p 00000000 00:00 0 
+2f400000-2f4ff000 rw-p 00000000 00:00 0 
+2f4ff000-2f500000 ---p 00000000 00:00 0 
+2f500000-2f600000 rw-p 00000000 00:00 0 
+2f600000-2f6fe000 rw-p 00000000 00:00 0 
+2f6fe000-2f700000 ---p 00000000 00:00 0 
+2f700000-2f7ff000 rw-p 00000000 00:00 0 
+2f7ff000-2f800000 ---p 00000000 00:00 0 
+2f800000-2f9fd000 rw-p 00000000 00:00 0 
+2f9fd000-2fa00000 ---p 00000000 00:00 0 
+2fa00000-2fbfe000 rw-p 00000000 00:00 0 
+2fbfe000-2fc00000 ---p 00000000 00:00 0 
+2fc00000-2fcfe000 rw-p 00000000 00:00 0 
+2fcfe000-2fd00000 ---p 00000000 00:00 0 
+2fd00000-2fe00000 rw-p 00000000 00:00 0 
+2fe00000-2fefe000 rw-p 00000000 00:00 0 
+2fefe000-2ff00000 ---p 00000000 00:00 0 
+2ff00000-30000000 rw-p 00000000 00:00 0 
+30000000-301fe000 rw-p 00000000 00:00 0 
+301fe000-30200000 ---p 00000000 00:00 0 
+30200000-30400000 rw-p 00000000 00:00 0 
+30400000-30600000 rw-p 00000000 00:00 0 
+30600000-306fd000 rw-p 00000000 00:00 0 
+306fd000-30700000 ---p 00000000 00:00 0 
+30700000-30800000 rw-p 00000000 00:00 0 
+30800000-30a00000 rw-p 00000000 00:00 0 
+30a00000-30bfd000 rw-p 00000000 00:00 0 
+30bfd000-30c00000 ---p 00000000 00:00 0 
+30c00000-30dfe000 rw-p 00000000 00:00 0 
+30dfe000-30e00000 ---p 00000000 00:00 0 
+30e00000-30ffe000 rw-p 00000000 00:00 0 
+30ffe000-31000000 ---p 00000000 00:00 0 
+31000000-310ff000 rw-p 00000000 00:00 0 
+310ff000-31100000 ---p 00000000 00:00 0 
+31100000-311fd000 rw-p 00000000 00:00 0 
+311fd000-31200000 ---p 00000000 00:00 0 
+31200000-312fd000 rw-p 00000000 00:00 0 
+312fd000-31300000 ---p 00000000 00:00 0 
+31300000-31400000 rw-p 00000000 00:00 0 
+31400000-31600000 rw-p 00000000 00:00 0 
+31600000-31800000 rw-p 00000000 00:00 0 
+31800000-31a00000 rw-p 00000000 00:00 0 
+31a00000-31c00000 rw-p 00000000 00:00 0 
+31c00000-31dfe000 rw-p 00000000 00:00 0 
+31dfe000-31e00000 ---p 00000000 00:00 0 
+31e00000-31efe000 rw-p 00000000 00:00 0 
+31efe000-31f00000 ---p 00000000 00:00 0 
+31f00000-31fff000 rw-p 00000000 00:00 0 
+31fff000-32000000 ---p 00000000 00:00 0 
+32000000-320fd000 rw-p 00000000 00:00 0 
+320fd000-32100000 ---p 00000000 00:00 0 
+32100000-321fd000 rw-p 00000000 00:00 0 
+321fd000-32200000 ---p 00000000 00:00 0 
+32200000-322ff000 rw-p 00000000 00:00 0 
+322ff000-32300000 ---p 00000000 00:00 0 
+32300000-32400000 rw-p 00000000 00:00 0 
+32400000-324fe000 rw-p 00000000 00:00 0 
+324fe000-32500000 ---p 00000000 00:00 0 
+32500000-325ff000 rw-p 00000000 00:00 0 
+325ff000-32600000 ---p 00000000 00:00 0 
+32600000-326fe000 rw-p 00000000 00:00 0 
+326fe000-32700000 ---p 00000000 00:00 0 
+32700000-327fd000 rw-p 00000000 00:00 0 
+327fd000-32800000 ---p 00000000 00:00 0 
+32800000-32a00000 rw-p 00000000 00:00 0 
+32a00000-32c00000 rw-p 00000000 00:00 0 
+32c00000-32cfd000 rw-p 00000000 00:00 0 
+32cfd000-32d00000 ---p 00000000 00:00 0 
+32d00000-32e00000 rw-p 00000000 00:00 0 
+32e00000-32efd000 rw-p 00000000 00:00 0 
+32efd000-32f00000 ---p 00000000 00:00 0 
+32f00000-33000000 rw-p 00000000 00:00 0 
+33000000-330fd000 rw-p 00000000 00:00 0 
+330fd000-33100000 ---p 00000000 00:00 0 
+33100000-33200000 rw-p 00000000 00:00 0 
+33200000-332fd000 rw-p 00000000 00:00 0 
+332fd000-33300000 ---p 00000000 00:00 0 
+33300000-33400000 rw-p 00000000 00:00 0 
+33400000-335fd000 rw-p 00000000 00:00 0 
+335fd000-33600000 ---p 00000000 00:00 0 
+33600000-337fd000 rw-p 00000000 00:00 0 
+337fd000-33800000 ---p 00000000 00:00 0 
+33800000-338ff000 rw-p 00000000 00:00 0 
+338ff000-33900000 ---p 00000000 00:00 0 
+33900000-339fd000 rw-p 00000000 00:00 0 
+339fd000-33a00000 ---p 00000000 00:00 0 
+33a00000-33bfe000 rw-p 00000000 00:00 0 
+33bfe000-33c00000 ---p 00000000 00:00 0 
+33c00000-33e00000 rw-p 00000000 00:00 0 
+33e00000-34000000 rw-p 00000000 00:00 0 
+34000000-340ff000 rw-p 00000000 00:00 0 
+340ff000-34100000 ---p 00000000 00:00 0 
+34100000-34200000 rw-p 00000000 00:00 0 
+34200000-343ff000 rw-p 00000000 00:00 0 
+343ff000-34400000 ---p 00000000 00:00 0 
+34400000-345fe000 rw-p 00000000 00:00 0 
+345fe000-34600000 ---p 00000000 00:00 0 
+34600000-346fe000 rw-p 00000000 00:00 0 
+346fe000-34700000 ---p 00000000 00:00 0 
+34700000-34800000 rw-p 00000000 00:00 0 
+34800000-349fe000 rw-p 00000000 00:00 0 
+349fe000-34a00000 ---p 00000000 00:00 0 
+34a00000-34bff000 rw-p 00000000 00:00 0 
+34bff000-34c00000 ---p 00000000 00:00 0 
+34c00000-34e00000 rw-p 00000000 00:00 0 
+34e00000-35000000 rw-p 00000000 00:00 0 
+35000000-35200000 rw-p 00000000 00:00 0 
+35200000-35400000 rw-p 00000000 00:00 0 
+35400000-355fd000 rw-p 00000000 00:00 0 
+355fd000-35600000 ---p 00000000 00:00 0 
+35600000-357fd000 rw-p 00000000 00:00 0 
+357fd000-35800000 ---p 00000000 00:00 0 
+35800000-35900000 rw-p 00000000 00:00 0 
+35900000-35a00000 rw-p 00000000 00:00 0 
+35a00000-35b00000 rw-p 00000000 00:00 0 
+35b00000-35cfe000 rw-p 00000000 00:00 0 
+35cfe000-35d00000 ---p 00000000 00:00 0 
+35d00000-35eff000 rw-p 00000000 00:00 0 
+35eff000-35f00000 ---p 00000000 00:00 0 
+35f00000-35ffd000 rw-p 00000000 00:00 0 
+35ffd000-36000000 ---p 00000000 00:00 0 
+36000000-36100000 rw-p 00000000 00:00 0 
+36100000-361ff000 rw-p 00000000 00:00 0 
+361ff000-36200000 ---p 00000000 00:00 0 
+36200000-362fd000 rw-p 00000000 00:00 0 
+362fd000-36300000 ---p 00000000 00:00 0 
+36300000-36500000 rw-p 00000000 00:00 0 
+36500000-36700000 rw-p 00000000 00:00 0 
+36700000-36900000 rw-p 00000000 00:00 0 
+36900000-369fd000 rw-p 00000000 00:00 0 
+369fd000-36a00000 ---p 00000000 00:00 0 
+36a00000-36b00000 rw-p 00000000 00:00 0 
+36b00000-36d00000 rw-p 00000000 00:00 0 
+36d00000-36efe000 rw-p 00000000 00:00 0 
+36efe000-36f00000 ---p 00000000 00:00 0 
+36f00000-370ff000 rw-p 00000000 00:00 0 
+370ff000-37100000 ---p 00000000 00:00 0 
+37100000-371ff000 rw-p 00000000 00:00 0 
+371ff000-37200000 ---p 00000000 00:00 0 
+37200000-372ff000 rw-p 00000000 00:00 0 
+372ff000-37300000 ---p 00000000 00:00 0 
+37300000-373fe000 rw-p 00000000 00:00 0 
+373fe000-37400000 ---p 00000000 00:00 0 
+37400000-37500000 rw-p 00000000 00:00 0 
+37500000-376ff000 rw-p 00000000 00:00 0 
+376ff000-37700000 ---p 00000000 00:00 0 
+37700000-37900000 rw-p 00000000 00:00 0 
+37900000-37b00000 rw-p 00000000 00:00 0 
+37b00000-37cff000 rw-p 00000000 00:00 0 
+37cff000-37d00000 ---p 00000000 00:00 0 
+37d00000-37efd000 rw-p 00000000 00:00 0 
+37efd000-37f00000 ---p 00000000 00:00 0 
+37f00000-380fd000 rw-p 00000000 00:00 0 
+380fd000-38100000 ---p 00000000 00:00 0 
+38100000-381fd000 rw-p 00000000 00:00 0 
+381fd000-38200000 ---p 00000000 00:00 0 
+38200000-382fe000 rw-p 00000000 00:00 0 
+382fe000-38300000 ---p 00000000 00:00 0 
+38300000-38500000 rw-p 00000000 00:00 0 
+38500000-385fe000 rw-p 00000000 00:00 0 
+385fe000-38600000 ---p 00000000 00:00 0 
+38600000-386fd000 rw-p 00000000 00:00 0 
+386fd000-38700000 ---p 00000000 00:00 0 
+38700000-387fd000 rw-p 00000000 00:00 0 
+387fd000-38800000 ---p 00000000 00:00 0 
+38800000-388fe000 rw-p 00000000 00:00 0 
+388fe000-38900000 ---p 00000000 00:00 0 
+38900000-38b00000 rw-p 00000000 00:00 0 
+38b00000-38d00000 rw-p 00000000 00:00 0 
+38d00000-38f00000 rw-p 00000000 00:00 0 
+38f00000-39100000 rw-p 00000000 00:00 0 
+39100000-391fe000 rw-p 00000000 00:00 0 
+391fe000-39200000 ---p 00000000 00:00 0 
+39200000-392fe000 rw-p 00000000 00:00 0 
+392fe000-39300000 ---p 00000000 00:00 0 
+39300000-394fe000 rw-p 00000000 00:00 0 
+394fe000-39500000 ---p 00000000 00:00 0 
+39500000-396fd000 rw-p 00000000 00:00 0 
+396fd000-39700000 ---p 00000000 00:00 0 
+39700000-398ff000 rw-p 00000000 00:00 0 
+398ff000-39900000 ---p 00000000 00:00 0 
+39900000-399fe000 rw-p 00000000 00:00 0 
+399fe000-39a00000 ---p 00000000 00:00 0 
+39a00000-39b00000 rw-p 00000000 00:00 0 
+39b00000-39bfe000 rw-p 00000000 00:00 0 
+39bfe000-39c00000 ---p 00000000 00:00 0 
+39c00000-39cfd000 rw-p 00000000 00:00 0 
+39cfd000-39d00000 ---p 00000000 00:00 0 
+39d00000-39f00000 rw-p 00000000 00:00 0 
+39f00000-3a100000 rw-p 00000000 00:00 0 
+3a100000-3a300000 rw-p 00000000 00:00 0 
+3a300000-3a3fd000 rw-p 00000000 00:00 0 
+3a3fd000-3a400000 ---p 00000000 00:00 0 
+3a400000-3a4fd000 rw-p 00000000 00:00 0 
+3a4fd000-3a500000 ---p 00000000 00:00 0 
+3a500000-3a5fe000 rw-p 00000000 00:00 0 
+3a5fe000-3a600000 ---p 00000000 00:00 0 
+3a600000-3a6ff000 rw-p 00000000 00:00 0 
+3a6ff000-3a700000 ---p 00000000 00:00 0 
+3a700000-3a900000 rw-p 00000000 00:00 0 
+3a900000-3a9ff000 rw-p 00000000 00:00 0 
+3a9ff000-3aa00000 ---p 00000000 00:00 0 
+3aa00000-3aafd000 rw-p 00000000 00:00 0 
+3aafd000-3ab00000 ---p 00000000 00:00 0 
+3ab00000-3ad00000 rw-p 00000000 00:00 0 
+3ad00000-3aefe000 rw-p 00000000 00:00 0 
+3aefe000-3af00000 ---p 00000000 00:00 0 
+3af00000-3b100000 rw-p 00000000 00:00 0 
+3b100000-3b300000 rw-p 00000000 00:00 0 
+3b300000-3b500000 rw-p 00000000 00:00 0 
+3b500000-3b700000 rw-p 00000000 00:00 0 
+3b700000-3b8fe000 rw-p 00000000 00:00 0 
+3b8fe000-3b900000 ---p 00000000 00:00 0 
+3b900000-3bafe000 rw-p 00000000 00:00 0 
+3bafe000-3bb00000 ---p 00000000 00:00 0 
+3bb00000-3bcfe000 rw-p 00000000 00:00 0 
+3bcfe000-3bd00000 ---p 00000000 00:00 0 
+3bd00000-3bdfe000 rw-p 00000000 00:00 0 
+3bdfe000-3be00000 ---p 00000000 00:00 0 
+3be00000-3bf00000 rw-p 00000000 00:00 0 
+3bf00000-3bffd000 rw-p 00000000 00:00 0 
+3bffd000-3c000000 ---p 00000000 00:00 0 
+3c000000-3c100000 rw-p 00000000 00:00 0 
+3c100000-3c2fd000 rw-p 00000000 00:00 0 
+3c2fd000-3c300000 ---p 00000000 00:00 0 
+3c300000-3c500000 rw-p 00000000 00:00 0 
+3c500000-3c700000 rw-p 00000000 00:00 0 
+3c700000-3c900000 rw-p 00000000 00:00 0 
+3c900000-3c9ff000 rw-p 00000000 00:00 0 
+3c9ff000-3ca00000 ---p 00000000 00:00 0 
+3ca00000-3cb00000 rw-p 00000000 00:00 0 
+3cb00000-3cbfe000 rw-p 00000000 00:00 0 
+3cbfe000-3cc00000 ---p 00000000 00:00 0 
+3cc00000-3ccfe000 rw-p 00000000 00:00 0 
+3ccfe000-3cd00000 ---p 00000000 00:00 0 
+3cd00000-3cdfd000 rw-p 00000000 00:00 0 
+3cdfd000-3ce00000 ---p 00000000 00:00 0 
+3ce00000-3cf00000 rw-p 00000000 00:00 0 
+3cf00000-3cffd000 rw-p 00000000 00:00 0 
+3cffd000-3d000000 ---p 00000000 00:00 0 
+3d000000-3d100000 rw-p 00000000 00:00 0 
+3d100000-3d200000 rw-p 00000000 00:00 0 
+3d200000-3d2e2000 rw-p 00000000 00:00 0 
+3d2e2000-3d300000 ---p 00000000 00:00 0 
+3d300000-3d400000 rw-p 00000000 00:00 0 
+3d400000-3d4fd000 rw-p 00000000 00:00 0 
+3d4fd000-3d500000 ---p 00000000 00:00 0 
+3d500000-3d600000 rw-p 00000000 00:00 0 
+3d600000-3d800000 rw-p 00000000 00:00 0 
+3d800000-3da00000 rw-p 00000000 00:00 0 
+3da00000-3dc00000 rw-p 00000000 00:00 0 
+3dc00000-3dd00000 rw-p 00000000 00:00 0 
+3dd00000-3e200000 rw-p 00000000 00:00 0 
+3e200000-3e2ea000 rw-p 00000000 00:00 0 
+3e2ea000-3e300000 ---p 00000000 00:00 0 
+3e300000-3e400000 rw-p 00000000 00:00 0 
+3e400000-3e4d5000 rw-p 00000000 00:00 0 
+3e4d5000-3e500000 ---p 00000000 00:00 0 
+3e500000-3e600000 rw-p 00000000 00:00 0 
+3e600000-3e6e8000 rw-p 00000000 00:00 0 
+3e6e8000-3e700000 ---p 00000000 00:00 0 
+3e700000-3e7c9000 rw-p 00000000 00:00 0 
+3e7c9000-3e800000 ---p 00000000 00:00 0 
+3e800000-3ea00000 rw-p 00000000 00:00 0 
+3ea00000-3eafe000 rw-p 00000000 00:00 0 
+3eafe000-3eb00000 ---p 00000000 00:00 0 
+3eb00000-3ebfe000 rw-p 00000000 00:00 0 
+3ebfe000-3ec00000 ---p 00000000 00:00 0 
+3ec00000-3ed00000 rw-p 00000000 00:00 0 
+3ed00000-3ee00000 rw-p 00000000 00:00 0 
+3ee00000-3f000000 rw-p 00000000 00:00 0 
+3f000000-3f200000 rw-p 00000000 00:00 0 
+3f200000-3f400000 rw-p 00000000 00:00 0 
+3f400000-3f600000 rw-p 00000000 00:00 0 
+3f600000-3f800000 rw-p 00000000 00:00 0 
+3f800000-3f8fd000 rw-p 00000000 00:00 0 
+3f8fd000-3f900000 ---p 00000000 00:00 0 
+3f900000-3fa00000 rw-p 00000000 00:00 0 
+3fa00000-3fbff000 rw-p 00000000 00:00 0 
+3fbff000-3fc00000 ---p 00000000 00:00 0 
+3fc00000-3fcfe000 rw-p 00000000 00:00 0 
+3fcfe000-3fd00000 ---p 00000000 00:00 0 
+3fd00000-3fe00000 rw-p 00000000 00:00 0 
+3fe00000-3fefe000 rw-p 00000000 00:00 0 
+3fefe000-3ff00000 ---p 00000000 00:00 0 
+3ff00000-40000000 rw-p 00000000 00:00 0 
+40000000-400fd000 rw-p 00000000 00:00 0 
+400fd000-40100000 ---p 00000000 00:00 0 
+40100000-40200000 rw-p 00000000 00:00 0 
+40200000-403ff000 rw-p 00000000 00:00 0 
+403ff000-40400000 ---p 00000000 00:00 0 
+40400000-405ff000 rw-p 00000000 00:00 0 
+405ff000-40600000 ---p 00000000 00:00 0 
+40600000-40800000 rw-p 00000000 00:00 0 
+40800000-40a00000 rw-p 00000000 00:00 0 
+40a00000-40c00000 rw-p 00000000 00:00 0 
+40c00000-40cff000 rw-p 00000000 00:00 0 
+40cff000-40d00000 ---p 00000000 00:00 0 
+40d00000-40e00000 rw-p 00000000 00:00 0 
+40e00000-40fff000 rw-p 00000000 00:00 0 
+40fff000-41000000 ---p 00000000 00:00 0 
+41000000-411fe000 rw-p 00000000 00:00 0 
+411fe000-41200000 ---p 00000000 00:00 0 
+41200000-412fd000 rw-p 00000000 00:00 0 
+412fd000-41300000 ---p 00000000 00:00 0 
+41300000-41400000 rw-p 00000000 00:00 0 
+41400000-414fd000 rw-p 00000000 00:00 0 
+414fd000-41500000 ---p 00000000 00:00 0 
+41500000-415fd000 rw-p 00000000 00:00 0 
+415fd000-41600000 ---p 00000000 00:00 0 
+41600000-416ff000 rw-p 00000000 00:00 0 
+416ff000-41700000 ---p 00000000 00:00 0 
+41700000-417fe000 rw-p 00000000 00:00 0 
+417fe000-41800000 ---p 00000000 00:00 0 
+41800000-41a00000 rw-p 00000000 00:00 0 
+41a00000-41c00000 rw-p 00000000 00:00 0 
+41c00000-41e00000 rw-p 00000000 00:00 0 
+41e00000-41ffe000 rw-p 00000000 00:00 0 
+41ffe000-42000000 ---p 00000000 00:00 0 
+42000000-421fe000 rw-p 00000000 00:00 0 
+421fe000-42200000 ---p 00000000 00:00 0 
+42200000-422fe000 rw-p 00000000 00:00 0 
+422fe000-42300000 ---p 00000000 00:00 0 
+42300000-423fe000 rw-p 00000000 00:00 0 
+423fe000-42400000 ---p 00000000 00:00 0 
+42400000-424fd000 rw-p 00000000 00:00 0 
+424fd000-42500000 ---p 00000000 00:00 0 
+42500000-42600000 rw-p 00000000 00:00 0 
+42600000-427fe000 rw-p 00000000 00:00 0 
+427fe000-42800000 ---p 00000000 00:00 0 
+42800000-429fd000 rw-p 00000000 00:00 0 
+429fd000-42a00000 ---p 00000000 00:00 0 
+42a00000-42bff000 rw-p 00000000 00:00 0 
+42bff000-42c00000 ---p 00000000 00:00 0 
+42c00000-42e00000 rw-p 00000000 00:00 0 
+42e00000-43000000 rw-p 00000000 00:00 0 
+43000000-430fe000 rw-p 00000000 00:00 0 
+430fe000-43100000 ---p 00000000 00:00 0 
+43100000-43200000 rw-p 00000000 00:00 0 
+43200000-433ff000 rw-p 00000000 00:00 0 
+433ff000-43400000 ---p 00000000 00:00 0 
+43400000-434fe000 rw-p 00000000 00:00 0 
+434fe000-43500000 ---p 00000000 00:00 0 
+43500000-435ff000 rw-p 00000000 00:00 0 
+435ff000-43600000 ---p 00000000 00:00 0 
+43600000-436fe000 rw-p 00000000 00:00 0 
+436fe000-43700000 ---p 00000000 00:00 0 
+43700000-437fd000 rw-p 00000000 00:00 0 
+437fd000-43800000 ---p 00000000 00:00 0 
+43800000-43a00000 rw-p 00000000 00:00 0 
+43a00000-43bfd000 rw-p 00000000 00:00 0 
+43bfd000-43c00000 ---p 00000000 00:00 0 
+43c00000-43dff000 rw-p 00000000 00:00 0 
+43dff000-43e00000 ---p 00000000 00:00 0 
+43e00000-44000000 rw-p 00000000 00:00 0 
+44000000-44200000 rw-p 00000000 00:00 0 
+44200000-44400000 rw-p 00000000 00:00 0 
+44400000-445fd000 rw-p 00000000 00:00 0 
+445fd000-44600000 ---p 00000000 00:00 0 
+44600000-44800000 rw-p 00000000 00:00 0 
+44800000-448fd000 rw-p 00000000 00:00 0 
+448fd000-44900000 ---p 00000000 00:00 0 
+44900000-449fd000 rw-p 00000000 00:00 0 
+449fd000-44a00000 ---p 00000000 00:00 0 
+44a00000-44afe000 rw-p 00000000 00:00 0 
+44afe000-44b00000 ---p 00000000 00:00 0 
+44b00000-44bfe000 rw-p 00000000 00:00 0 
+44bfe000-44c00000 ---p 00000000 00:00 0 
+44c00000-44cfd000 rw-p 00000000 00:00 0 
+44cfd000-44d00000 ---p 00000000 00:00 0 
+44d00000-44dfd000 rw-p 00000000 00:00 0 
+44dfd000-44e00000 ---p 00000000 00:00 0 
+44e00000-44eff000 rw-p 00000000 00:00 0 
+44eff000-44f00000 ---p 00000000 00:00 0 
+44f00000-44ffd000 rw-p 00000000 00:00 0 
+44ffd000-45000000 ---p 00000000 00:00 0 
+45000000-451fd000 rw-p 00000000 00:00 0 
+451fd000-45200000 ---p 00000000 00:00 0 
+45200000-45400000 rw-p 00000000 00:00 0 
+45400000-45600000 rw-p 00000000 00:00 0 
+45600000-456ff000 rw-p 00000000 00:00 0 
+456ff000-45700000 ---p 00000000 00:00 0 
+45700000-45800000 rw-p 00000000 00:00 0 
+45800000-458fe000 rw-p 00000000 00:00 0 
+458fe000-45900000 ---p 00000000 00:00 0 
+45900000-459fd000 rw-p 00000000 00:00 0 
+459fd000-45a00000 ---p 00000000 00:00 0 
+45a00000-45c00000 rw-p 00000000 00:00 0 
+45c00000-45cfd000 rw-p 00000000 00:00 0 
+45cfd000-45d00000 ---p 00000000 00:00 0 
+45d00000-45dfd000 rw-p 00000000 00:00 0 
+45dfd000-45e00000 ---p 00000000 00:00 0 
+45e00000-45efe000 rw-p 00000000 00:00 0 
+45efe000-45f00000 ---p 00000000 00:00 0 
+45f00000-46000000 rw-p 00000000 00:00 0 
+46000000-460fe000 rw-p 00000000 00:00 0 
+460fe000-46100000 ---p 00000000 00:00 0 
+46100000-46200000 rw-p 00000000 00:00 0 
+46200000-462fe000 rw-p 00000000 00:00 0 
+462fe000-46300000 ---p 00000000 00:00 0 
+46300000-463ff000 rw-p 00000000 00:00 0 
+463ff000-46400000 ---p 00000000 00:00 0 
+46400000-465fe000 rw-p 00000000 00:00 0 
+465fe000-46600000 ---p 00000000 00:00 0 
+46600000-46800000 rw-p 00000000 00:00 0 
+46800000-46a00000 rw-p 00000000 00:00 0 
+46a00000-46c00000 rw-p 00000000 00:00 0 
+46c00000-46cfd000 rw-p 00000000 00:00 0 
+46cfd000-46d00000 ---p 00000000 00:00 0 
+46d00000-46e00000 rw-p 00000000 00:00 0 
+46e00000-46efd000 rw-p 00000000 00:00 0 
+46efd000-46f00000 ---p 00000000 00:00 0 
+46f00000-47000000 rw-p 00000000 00:00 0 
+47000000-471fd000 rw-p 00000000 00:00 0 
+471fd000-47200000 ---p 00000000 00:00 0 
+47200000-47400000 rw-p 00000000 00:00 0 
+47400000-474ff000 rw-p 00000000 00:00 0 
+474ff000-47500000 ---p 00000000 00:00 0 
+47500000-475fd000 rw-p 00000000 00:00 0 
+475fd000-47600000 ---p 00000000 00:00 0 
+47600000-476fe000 rw-p 00000000 00:00 0 
+476fe000-47700000 ---p 00000000 00:00 0 
+47700000-477fe000 rw-p 00000000 00:00 0 
+477fe000-47800000 ---p 00000000 00:00 0 
+47800000-47a00000 rw-p 00000000 00:00 0 
+47a00000-47c00000 rw-p 00000000 00:00 0 
+47c00000-47e00000 rw-p 00000000 00:00 0 
+47e00000-48000000 rw-p 00000000 00:00 0 
+48000000-481fe000 rw-p 00000000 00:00 0 
+481fe000-48200000 ---p 00000000 00:00 0 
+48200000-483fe000 rw-p 00000000 00:00 0 
+483fe000-48400000 ---p 00000000 00:00 0 
+48400000-485fe000 rw-p 00000000 00:00 0 
+485fe000-48600000 ---p 00000000 00:00 0 
+48600000-486fe000 rw-p 00000000 00:00 0 
+486fe000-48700000 ---p 00000000 00:00 0 
+48700000-487fd000 rw-p 00000000 00:00 0 
+487fd000-48800000 ---p 00000000 00:00 0 
+48800000-48a00000 rw-p 00000000 00:00 0 
+48a00000-48bfe000 rw-p 00000000 00:00 0 
+48bfe000-48c00000 ---p 00000000 00:00 0 
+48c00000-48e00000 rw-p 00000000 00:00 0 
+48e00000-49000000 rw-p 00000000 00:00 0 
+49000000-490ff000 rw-p 00000000 00:00 0 
+490ff000-49100000 ---p 00000000 00:00 0 
+49100000-49200000 rw-p 00000000 00:00 0 
+49200000-492fd000 rw-p 00000000 00:00 0 
+492fd000-49300000 ---p 00000000 00:00 0 
+49300000-493fd000 rw-p 00000000 00:00 0 
+493fd000-49400000 ---p 00000000 00:00 0 
+49400000-494ff000 rw-p 00000000 00:00 0 
+494ff000-49500000 ---p 00000000 00:00 0 
+49500000-495ff000 rw-p 00000000 00:00 0 
+495ff000-49600000 ---p 00000000 00:00 0 
+49600000-49800000 rw-p 00000000 00:00 0 
+49800000-499fe000 rw-p 00000000 00:00 0 
+499fe000-49a00000 ---p 00000000 00:00 0 
+49a00000-49afd000 rw-p 00000000 00:00 0 
+49afd000-49b00000 ---p 00000000 00:00 0 
+49b00000-49c00000 rw-p 00000000 00:00 0 
+49c00000-49dfd000 rw-p 00000000 00:00 0 
+49dfd000-49e00000 ---p 00000000 00:00 0 
+49e00000-4a000000 rw-p 00000000 00:00 0 
+4a000000-4a200000 rw-p 00000000 00:00 0 
+4a200000-4a400000 rw-p 00000000 00:00 0 
+4a400000-4a4ff000 rw-p 00000000 00:00 0 
+4a4ff000-4a500000 ---p 00000000 00:00 0 
+4a500000-4a5ff000 rw-p 00000000 00:00 0 
+4a5ff000-4a600000 ---p 00000000 00:00 0 
+4a600000-4a800000 rw-p 00000000 00:00 0 
+4a800000-4a8fd000 rw-p 00000000 00:00 0 
+4a8fd000-4a900000 ---p 00000000 00:00 0 
+4a900000-4a9fe000 rw-p 00000000 00:00 0 
+4a9fe000-4aa00000 ---p 00000000 00:00 0 
+4aa00000-4aafd000 rw-p 00000000 00:00 0 
+4aafd000-4ab00000 ---p 00000000 00:00 0 
+4ab00000-4ac00000 rw-p 00000000 00:00 0 
+4ac00000-4acfe000 rw-p 00000000 00:00 0 
+4acfe000-4ad00000 ---p 00000000 00:00 0 
+4ad00000-4adff000 rw-p 00000000 00:00 0 
+4adff000-4ae00000 ---p 00000000 00:00 0 
+4ae00000-4aefe000 rw-p 00000000 00:00 0 
+4aefe000-4af00000 ---p 00000000 00:00 0 
+4af00000-4b000000 rw-p 00000000 00:00 0 
+4b000000-4b200000 rw-p 00000000 00:00 0 
+4b200000-4b400000 rw-p 00000000 00:00 0 
+4b400000-4b600000 rw-p 00000000 00:00 0 
+4b600000-4b800000 rw-p 00000000 00:00 0 
+4b800000-4b8fd000 rw-p 00000000 00:00 0 
+4b8fd000-4b900000 ---p 00000000 00:00 0 
+4b900000-4b9fd000 rw-p 00000000 00:00 0 
+4b9fd000-4ba00000 ---p 00000000 00:00 0 
+4ba00000-4bbfe000 rw-p 00000000 00:00 0 
+4bbfe000-4bc00000 ---p 00000000 00:00 0 
+4bc00000-4bcff000 rw-p 00000000 00:00 0 
+4bcff000-4bd00000 ---p 00000000 00:00 0 
+4bd00000-4be00000 rw-p 00000000 00:00 0 
+4be00000-4beff000 rw-p 00000000 00:00 0 
+4beff000-4bf00000 ---p 00000000 00:00 0 
+4bf00000-4c000000 rw-p 00000000 00:00 0 
+4c000000-4c1fe000 rw-p 00000000 00:00 0 
+4c1fe000-4c200000 ---p 00000000 00:00 0 
+4c200000-4c2fd000 rw-p 00000000 00:00 0 
+4c2fd000-4c300000 ---p 00000000 00:00 0 
+4c300000-4c3ff000 rw-p 00000000 00:00 0 
+4c3ff000-4c400000 ---p 00000000 00:00 0 
+4c400000-4c600000 rw-p 00000000 00:00 0 
+4c600000-4c800000 rw-p 00000000 00:00 0 
+4c800000-4ca00000 rw-p 00000000 00:00 0 
+4ca00000-4cbf9000 rw-p 00000000 00:00 0 
+4cbf9000-4cc00000 ---p 00000000 00:00 0 
+4cc00000-4cd00000 rw-p 00000000 00:00 0 
+4cd00000-4ce00000 rw-p 00000000 00:00 0 
+4ce00000-4cf00000 rw-p 00000000 00:00 0 
+4cf00000-4cffe000 rw-p 00000000 00:00 0 
+4cffe000-4d000000 ---p 00000000 00:00 0 
+4d000000-4d100000 rw-p 00000000 00:00 0 
+4d100000-4d1fd000 rw-p 00000000 00:00 0 
+4d1fd000-4d200000 ---p 00000000 00:00 0 
+4d200000-4d2ff000 rw-p 00000000 00:00 0 
+4d2ff000-4d300000 ---p 00000000 00:00 0 
+4d300000-4d4ff000 rw-p 00000000 00:00 0 
+4d4ff000-4d500000 ---p 00000000 00:00 0 
+4d500000-4d5fe000 rw-p 00000000 00:00 0 
+4d5fe000-4d600000 ---p 00000000 00:00 0 
+4d600000-4d6d4000 rw-p 00000000 00:00 0 
+4d6d4000-4d700000 ---p 00000000 00:00 0 
+4d700000-4d7fe000 rw-p 00000000 00:00 0 
+4d7fe000-4d800000 ---p 00000000 00:00 0 
+4d800000-4d900000 rw-p 00000000 00:00 0 
+4d900000-4d9fd000 rw-p 00000000 00:00 0 
+4d9fd000-4da00000 ---p 00000000 00:00 0 
+4da00000-4db00000 rw-p 00000000 00:00 0 
+4db00000-4dd00000 rw-p 00000000 00:00 0 
+4dd00000-4df00000 rw-p 00000000 00:00 0 
+4df00000-4dffe000 rw-p 00000000 00:00 0 
+4dffe000-4e000000 ---p 00000000 00:00 0 
+4e000000-4e100000 rw-p 00000000 00:00 0 
+4e100000-4e1fd000 rw-p 00000000 00:00 0 
+4e1fd000-4e200000 ---p 00000000 00:00 0 
+4e200000-4e2ff000 rw-p 00000000 00:00 0 
+4e2ff000-4e300000 ---p 00000000 00:00 0 
+4e300000-4e3fe000 rw-p 00000000 00:00 0 
+4e3fe000-4e400000 ---p 00000000 00:00 0 
+4e400000-4e500000 rw-p 00000000 00:00 0 
+4e500000-4e700000 rw-p 00000000 00:00 0 
+4e700000-4e8fe000 rw-p 00000000 00:00 0 
+4e8fe000-4e900000 ---p 00000000 00:00 0 
+4e900000-4eafd000 rw-p 00000000 00:00 0 
+4eafd000-4eb00000 ---p 00000000 00:00 0 
+4eb00000-4ebff000 rw-p 00000000 00:00 0 
+4ebff000-4ec00000 ---p 00000000 00:00 0 
+4ec00000-4fa00000 rw-p 00000000 00:00 0 
+4fa00000-4fafe000 rw-p 00000000 00:00 0 
+4fafe000-4fb00000 ---p 00000000 00:00 0 
+4fb00000-4fbff000 rw-p 00000000 00:00 0 
+4fbff000-4fc00000 ---p 00000000 00:00 0 
+4fc00000-4fce6000 rw-p 00000000 00:00 0 
+4fce6000-4fd00000 ---p 00000000 00:00 0 
+4fd00000-4fe00000 rw-p 00000000 00:00 0 
+4fe00000-50000000 rw-p 00000000 00:00 0 
+50000000-500c1000 rw-p 00000000 00:00 0 
+500c1000-50100000 ---p 00000000 00:00 0 
+50100000-501c1000 rw-p 00000000 00:00 0 
+501c1000-50200000 ---p 00000000 00:00 0 
+50200000-502fd000 rw-p 00000000 00:00 0 
+502fd000-50300000 ---p 00000000 00:00 0 
+50300000-503d8000 rw-p 00000000 00:00 0 
+503d8000-50400000 ---p 00000000 00:00 0 
+50400000-50600000 rw-p 00000000 00:00 0 
+50600000-50800000 rw-p 00000000 00:00 0 
+50800000-508fd000 rw-p 00000000 00:00 0 
+508fd000-50900000 ---p 00000000 00:00 0 
+50900000-50a00000 rw-p 00000000 00:00 0 
+50a00000-50c00000 rw-p 00000000 00:00 0 
+50c00000-50e00000 rw-p 00000000 00:00 0 
+50e00000-51000000 rw-p 00000000 00:00 0 
+51000000-510fd000 rw-p 00000000 00:00 0 
+510fd000-51100000 ---p 00000000 00:00 0 
+51100000-511ff000 rw-p 00000000 00:00 0 
+511ff000-51200000 ---p 00000000 00:00 0 
+51200000-513fd000 rw-p 00000000 00:00 0 
+513fd000-51400000 ---p 00000000 00:00 0 
+51400000-515fe000 rw-p 00000000 00:00 0 
+515fe000-51600000 ---p 00000000 00:00 0 
+51600000-516fd000 rw-p 00000000 00:00 0 
+516fd000-51700000 ---p 00000000 00:00 0 
+51700000-517ff000 rw-p 00000000 00:00 0 
+517ff000-51800000 ---p 00000000 00:00 0 
+51800000-518fd000 rw-p 00000000 00:00 0 
+518fd000-51900000 ---p 00000000 00:00 0 
+51900000-519fd000 rw-p 00000000 00:00 0 
+519fd000-51a00000 ---p 00000000 00:00 0 
+51a00000-51afe000 rw-p 00000000 00:00 0 
+51afe000-51b00000 ---p 00000000 00:00 0 
+51b00000-51c00000 rw-p 00000000 00:00 0 
+51c00000-51cfe000 rw-p 00000000 00:00 0 
+51cfe000-51d00000 ---p 00000000 00:00 0 
+51d00000-51dfe000 rw-p 00000000 00:00 0 
+51dfe000-51e00000 ---p 00000000 00:00 0 
+51e00000-52000000 rw-p 00000000 00:00 0 
+52000000-52200000 rw-p 00000000 00:00 0 
+52200000-52400000 rw-p 00000000 00:00 0 
+52400000-524ff000 rw-p 00000000 00:00 0 
+524ff000-52500000 ---p 00000000 00:00 0 
+52500000-52600000 rw-p 00000000 00:00 0 
+52600000-526fd000 rw-p 00000000 00:00 0 
+526fd000-52700000 ---p 00000000 00:00 0 
+52700000-52800000 rw-p 00000000 00:00 0 
+52800000-528fd000 rw-p 00000000 00:00 0 
+528fd000-52900000 ---p 00000000 00:00 0 
+52900000-529fd000 rw-p 00000000 00:00 0 
+529fd000-52a00000 ---p 00000000 00:00 0 
+52a00000-52afd000 rw-p 00000000 00:00 0 
+52afd000-52b00000 ---p 00000000 00:00 0 
+52b00000-52bfe000 rw-p 00000000 00:00 0 
+52bfe000-52c00000 ---p 00000000 00:00 0 
+52c00000-52cff000 rw-p 00000000 00:00 0 
+52cff000-52d00000 ---p 00000000 00:00 0 
+52d00000-52dff000 rw-p 00000000 00:00 0 
+52dff000-52e00000 ---p 00000000 00:00 0 
+52e00000-52ffe000 rw-p 00000000 00:00 0 
+52ffe000-53000000 ---p 00000000 00:00 0 
+53000000-531ff000 rw-p 00000000 00:00 0 
+531ff000-53200000 ---p 00000000 00:00 0 
+53200000-53400000 rw-p 00000000 00:00 0 
+53400000-53600000 rw-p 00000000 00:00 0 
+53600000-53800000 rw-p 00000000 00:00 0 
+53800000-539fd000 rw-p 00000000 00:00 0 
+539fd000-53a00000 ---p 00000000 00:00 0 
+53a00000-53bfd000 rw-p 00000000 00:00 0 
+53bfd000-53c00000 ---p 00000000 00:00 0 
+53c00000-53dfe000 rw-p 00000000 00:00 0 
+53dfe000-53e00000 ---p 00000000 00:00 0 
+53e00000-53ffd000 rw-p 00000000 00:00 0 
+53ffd000-54000000 ---p 00000000 00:00 0 
+54000000-541fd000 rw-p 00000000 00:00 0 
+541fd000-54200000 ---p 00000000 00:00 0 
+54200000-543ff000 rw-p 00000000 00:00 0 
+543ff000-54400000 ---p 00000000 00:00 0 
+54400000-54600000 rw-p 00000000 00:00 0 
+54600000-546fd000 rw-p 00000000 00:00 0 
+546fd000-54700000 ---p 00000000 00:00 0 
+54700000-547fd000 rw-p 00000000 00:00 0 
+547fd000-54800000 ---p 00000000 00:00 0 
+54800000-548fd000 rw-p 00000000 00:00 0 
+548fd000-54900000 ---p 00000000 00:00 0 
+54900000-54a00000 rw-p 00000000 00:00 0 
+54a00000-54afe000 rw-p 00000000 00:00 0 
+54afe000-54b00000 ---p 00000000 00:00 0 
+54b00000-54bfd000 rw-p 00000000 00:00 0 
+54bfd000-54c00000 ---p 00000000 00:00 0 
+54c00000-54dff000 rw-p 00000000 00:00 0 
+54dff000-54e00000 ---p 00000000 00:00 0 
+54e00000-54efe000 rw-p 00000000 00:00 0 
+54efe000-54f00000 ---p 00000000 00:00 0 
+54f00000-54ffe000 rw-p 00000000 00:00 0 
+54ffe000-55000000 ---p 00000000 00:00 0 
+55000000-55200000 rw-p 00000000 00:00 0 
+55200000-55400000 rw-p 00000000 00:00 0 
+55400000-554fe000 rw-p 00000000 00:00 0 
+554fe000-55500000 ---p 00000000 00:00 0 
+55500000-55600000 rw-p 00000000 00:00 0 
+55600000-55800000 rw-p 00000000 00:00 0 
+55800000-559ff000 rw-p 00000000 00:00 0 
+559ff000-55a00000 ---p 00000000 00:00 0 
+55a00000-55aff000 rw-p 00000000 00:00 0 
+55aff000-55b00000 ---p 00000000 00:00 0 
+55b00000-55c00000 rw-p 00000000 00:00 0 
+55c00000-55dfe000 rw-p 00000000 00:00 0 
+55dfe000-55e00000 ---p 00000000 00:00 0 
+55e00000-55ffd000 rw-p 00000000 00:00 0 
+55ffd000-56000000 ---p 00000000 00:00 0 
+56000000-56200000 rw-p 00000000 00:00 0 
+56200000-56400000 rw-p 00000000 00:00 0 
+56400000-564fe000 rw-p 00000000 00:00 0 
+564fe000-56500000 ---p 00000000 00:00 0 
+56500000-565cf000 rw-p 00000000 00:00 0 
+565cf000-56600000 ---p 00000000 00:00 0 
+56600000-567ff000 rw-p 00000000 00:00 0 
+567ff000-56800000 ---p 00000000 00:00 0 
+56800000-569ff000 rw-p 00000000 00:00 0 
+569ff000-56a00000 ---p 00000000 00:00 0 
+56a00000-56c00000 rw-p 00000000 00:00 0 
+56c00000-56e00000 rw-p 00000000 00:00 0 
+56e00000-56ffd000 rw-p 00000000 00:00 0 
+56ffd000-57000000 ---p 00000000 00:00 0 
+57000000-570ff000 rw-p 00000000 00:00 0 
+570ff000-57100000 ---p 00000000 00:00 0 
+57100000-571fd000 rw-p 00000000 00:00 0 
+571fd000-57200000 ---p 00000000 00:00 0 
+57200000-572fd000 rw-p 00000000 00:00 0 
+572fd000-57300000 ---p 00000000 00:00 0 
+57300000-573fe000 rw-p 00000000 00:00 0 
+573fe000-57400000 ---p 00000000 00:00 0 
+57400000-575fd000 rw-p 00000000 00:00 0 
+575fd000-57600000 ---p 00000000 00:00 0 
+57600000-576ff000 rw-p 00000000 00:00 0 
+576ff000-57700000 ---p 00000000 00:00 0 
+57700000-577fe000 rw-p 00000000 00:00 0 
+577fe000-57800000 ---p 00000000 00:00 0 
+57800000-57a00000 rw-p 00000000 00:00 0 
+57a00000-57c00000 rw-p 00000000 00:00 0 
+57c00000-57e00000 rw-p 00000000 00:00 0 
+57e00000-58000000 rw-p 00000000 00:00 0 
+58000000-581fd000 rw-p 00000000 00:00 0 
+581fd000-58200000 ---p 00000000 00:00 0 
+58200000-582ff000 rw-p 00000000 00:00 0 
+582ff000-58300000 ---p 00000000 00:00 0 
+58300000-58400000 rw-p 00000000 00:00 0 
+58400000-584c1000 rw-p 00000000 00:00 0 
+584c1000-58500000 ---p 00000000 00:00 0 
+58500000-58600000 rw-p 00000000 00:00 0 
+58600000-586de000 rw-p 00000000 00:00 0 
+586de000-58700000 ---p 00000000 00:00 0 
+58700000-587d7000 rw-p 00000000 00:00 0 
+587d7000-58800000 ---p 00000000 00:00 0 
+58800000-588ff000 rw-p 00000000 00:00 0 
+588ff000-58900000 ---p 00000000 00:00 0 
+58900000-589fe000 rw-p 00000000 00:00 0 
+589fe000-58a00000 ---p 00000000 00:00 0 
+58a00000-58afe000 rw-p 00000000 00:00 0 
+58afe000-58b00000 ---p 00000000 00:00 0 
+58b00000-58bfc000 rw-p 00000000 00:00 0 
+58bfc000-58c00000 ---p 00000000 00:00 0 
+58c00000-58e00000 rw-p 00000000 00:00 0 
+58e00000-59000000 rw-p 00000000 00:00 0 
+59000000-59200000 rw-p 00000000 00:00 0 
+59200000-592ff000 rw-p 00000000 00:00 0 
+592ff000-59300000 ---p 00000000 00:00 0 
+59300000-593fe000 rw-p 00000000 00:00 0 
+593fe000-59400000 ---p 00000000 00:00 0 
+59400000-594fd000 rw-p 00000000 00:00 0 
+594fd000-59500000 ---p 00000000 00:00 0 
+59500000-595fd000 rw-p 00000000 00:00 0 
+595fd000-59600000 ---p 00000000 00:00 0 
+59600000-596ff000 rw-p 00000000 00:00 0 
+596ff000-59700000 ---p 00000000 00:00 0 
+59700000-597fe000 rw-p 00000000 00:00 0 
+597fe000-59800000 ---p 00000000 00:00 0 
+59800000-59a00000 rw-p 00000000 00:00 0 
+59a00000-59c00000 rw-p 00000000 00:00 0 
+59c00000-59dff000 rw-p 00000000 00:00 0 
+59dff000-59e00000 ---p 00000000 00:00 0 
+59e00000-5a000000 rw-p 00000000 00:00 0 
+5a000000-5a200000 rw-p 00000000 00:00 0 
+5a200000-5a400000 rw-p 00000000 00:00 0 
+5a400000-5a5fe000 rw-p 00000000 00:00 0 
+5a5fe000-5a600000 ---p 00000000 00:00 0 
+5a600000-5a7fe000 rw-p 00000000 00:00 0 
+5a7fe000-5a800000 ---p 00000000 00:00 0 
+5a800000-5a8fd000 rw-p 00000000 00:00 0 
+5a8fd000-5a900000 ---p 00000000 00:00 0 
+5a900000-5a9ff000 rw-p 00000000 00:00 0 
+5a9ff000-5aa00000 ---p 00000000 00:00 0 
+5aa00000-5abfe000 rw-p 00000000 00:00 0 
+5abfe000-5ac00000 ---p 00000000 00:00 0 
+5ac00000-5ae00000 rw-p 00000000 00:00 0 
+5ae00000-5b000000 rw-p 00000000 00:00 0 
+5b000000-5b0fd000 rw-p 00000000 00:00 0 
+5b0fd000-5b100000 ---p 00000000 00:00 0 
+5b100000-5b200000 rw-p 00000000 00:00 0 
+5b200000-5b3ff000 rw-p 00000000 00:00 0 
+5b3ff000-5b400000 ---p 00000000 00:00 0 
+5b400000-5b4fd000 rw-p 00000000 00:00 0 
+5b4fd000-5b500000 ---p 00000000 00:00 0 
+5b500000-5b5fd000 rw-p 00000000 00:00 0 
+5b5fd000-5b600000 ---p 00000000 00:00 0 
+5b600000-5b7fd000 rw-p 00000000 00:00 0 
+5b7fd000-5b800000 ---p 00000000 00:00 0 
+5b800000-5b9fd000 rw-p 00000000 00:00 0 
+5b9fd000-5ba00000 ---p 00000000 00:00 0 
+5ba00000-5bbfd000 rw-p 00000000 00:00 0 
+5bbfd000-5bc00000 ---p 00000000 00:00 0 
+5bc00000-5bdfd000 rw-p 00000000 00:00 0 
+5bdfd000-5be00000 ---p 00000000 00:00 0 
+5be00000-5c000000 rw-p 00000000 00:00 0 
+5c000000-5c200000 rw-p 00000000 00:00 0 
+5c200000-5c400000 rw-p 00000000 00:00 0 
+5c400000-5c5fe000 rw-p 00000000 00:00 0 
+5c5fe000-5c600000 ---p 00000000 00:00 0 
+5c600000-5c7fe000 rw-p 00000000 00:00 0 
+5c7fe000-5c800000 ---p 00000000 00:00 0 
+5c800000-5c8fe000 rw-p 00000000 00:00 0 
+5c8fe000-5c900000 ---p 00000000 00:00 0 
+5c900000-5ca00000 rw-p 00000000 00:00 0 
+5ca00000-5cafe000 rw-p 00000000 00:00 0 
+5cafe000-5cb00000 ---p 00000000 00:00 0 
+5cb00000-5cbfe000 rw-p 00000000 00:00 0 
+5cbfe000-5cc00000 ---p 00000000 00:00 0 
+5cc00000-5cdff000 rw-p 00000000 00:00 0 
+5cdff000-5ce00000 ---p 00000000 00:00 0 
+5ce00000-5cefd000 rw-p 00000000 00:00 0 
+5cefd000-5cf00000 ---p 00000000 00:00 0 
+5cf00000-5d000000 rw-p 00000000 00:00 0 
+5d000000-5d1ff000 rw-p 00000000 00:00 0 
+5d1ff000-5d200000 ---p 00000000 00:00 0 
+5d200000-5d2fd000 rw-p 00000000 00:00 0 
+5d2fd000-5d300000 ---p 00000000 00:00 0 
+5d300000-5d400000 rw-p 00000000 00:00 0 
+5d400000-5d5fe000 rw-p 00000000 00:00 0 
+5d5fe000-5d600000 ---p 00000000 00:00 0 
+5d600000-5d6fe000 rw-p 00000000 00:00 0 
+5d6fe000-5d700000 ---p 00000000 00:00 0 
+5d700000-5d7ff000 rw-p 00000000 00:00 0 
+5d7ff000-5d800000 ---p 00000000 00:00 0 
+5d800000-5d8fd000 rw-p 00000000 00:00 0 
+5d8fd000-5d900000 ---p 00000000 00:00 0 
+5d900000-5da00000 rw-p 00000000 00:00 0 
+5da00000-5dafd000 rw-p 00000000 00:00 0 
+5dafd000-5db00000 ---p 00000000 00:00 0 
+5db00000-5dbfd000 rw-p 00000000 00:00 0 
+5dbfd000-5dc00000 ---p 00000000 00:00 0 
+5dc00000-5ddff000 rw-p 00000000 00:00 0 
+5ddff000-5de00000 ---p 00000000 00:00 0 
+5de00000-5e000000 rw-p 00000000 00:00 0 
+5e000000-5e200000 rw-p 00000000 00:00 0 
+5e200000-5e400000 rw-p 00000000 00:00 0 
+5e400000-5e600000 rw-p 00000000 00:00 0 
+5e600000-5e6fe000 rw-p 00000000 00:00 0 
+5e6fe000-5e700000 ---p 00000000 00:00 0 
+5e700000-5e800000 rw-p 00000000 00:00 0 
+5e800000-5e8fd000 rw-p 00000000 00:00 0 
+5e8fd000-5e900000 ---p 00000000 00:00 0 
+5e900000-5ea00000 rw-p 00000000 00:00 0 
+5ea00000-5eaff000 rw-p 00000000 00:00 0 
+5eaff000-5eb00000 ---p 00000000 00:00 0 
+5eb00000-5ebff000 rw-p 00000000 00:00 0 
+5ebff000-5ec00000 ---p 00000000 00:00 0 
+5ec00000-5ecfd000 rw-p 00000000 00:00 0 
+5ecfd000-5ed00000 ---p 00000000 00:00 0 
+5ed00000-5edfe000 rw-p 00000000 00:00 0 
+5edfe000-5ee00000 ---p 00000000 00:00 0 
+5ee00000-5eefe000 rw-p 00000000 00:00 0 
+5eefe000-5ef00000 ---p 00000000 00:00 0 
+5ef00000-5effd000 rw-p 00000000 00:00 0 
+5effd000-5f000000 ---p 00000000 00:00 0 
+5f000000-5f1ff000 rw-p 00000000 00:00 0 
+5f1ff000-5f200000 ---p 00000000 00:00 0 
+5f200000-5f2fe000 rw-p 00000000 00:00 0 
+5f2fe000-5f300000 ---p 00000000 00:00 0 
+5f300000-5f400000 rw-p 00000000 00:00 0 
+5f400000-5f5fe000 rw-p 00000000 00:00 0 
+5f5fe000-5f600000 ---p 00000000 00:00 0 
+5f600000-5f6fe000 rw-p 00000000 00:00 0 
+5f6fe000-5f700000 ---p 00000000 00:00 0 
+5f700000-5f7ff000 rw-p 00000000 00:00 0 
+5f7ff000-5f800000 ---p 00000000 00:00 0 
+5f800000-5f8fe000 rw-p 00000000 00:00 0 
+5f8fe000-5f900000 ---p 00000000 00:00 0 
+5f900000-5fa00000 rw-p 00000000 00:00 0 
+5fa00000-5fc00000 rw-p 00000000 00:00 0 
+5fc00000-5fcc7000 rw-p 00000000 00:00 0 
+5fcc7000-5fd00000 ---p 00000000 00:00 0 
+5fd00000-5fdfd000 rw-p 00000000 00:00 0 
+5fdfd000-5fe00000 ---p 00000000 00:00 0 
+5fe00000-5fef7000 rw-p 00000000 00:00 0 
+5fef7000-5ff00000 ---p 00000000 00:00 0 
+5ff00000-5ffff000 rw-p 00000000 00:00 0 
+5ffff000-60000000 ---p 00000000 00:00 0 
+60000000-601f9000 rw-p 00000000 00:00 0 
+601f9000-60200000 ---p 00000000 00:00 0 
+60200000-60400000 rw-p 00000000 00:00 0 
+60400000-60600000 rw-p 00000000 00:00 0 
+60600000-606fd000 rw-p 00000000 00:00 0 
+606fd000-60700000 ---p 00000000 00:00 0 
+60700000-607fe000 rw-p 00000000 00:00 0 
+607fe000-60800000 ---p 00000000 00:00 0 
+60800000-608fd000 rw-p 00000000 00:00 0 
+608fd000-60900000 ---p 00000000 00:00 0 
+60900000-609fe000 rw-p 00000000 00:00 0 
+609fe000-60a00000 ---p 00000000 00:00 0 
+60a00000-60afd000 rw-p 00000000 00:00 0 
+60afd000-60b00000 ---p 00000000 00:00 0 
+60b00000-60c00000 rw-p 00000000 00:00 0 
+60c00000-60cc1000 rw-p 00000000 00:00 0 
+60cc1000-60d00000 ---p 00000000 00:00 0 
+60d00000-60dff000 rw-p 00000000 00:00 0 
+60dff000-60e00000 ---p 00000000 00:00 0 
+60e00000-60ec1000 rw-p 00000000 00:00 0 
+60ec1000-60f00000 ---p 00000000 00:00 0 
+60f00000-60fc1000 rw-p 00000000 00:00 0 
+60fc1000-61000000 ---p 00000000 00:00 0 
+61000000-610c1000 rw-p 00000000 00:00 0 
+610c1000-61100000 ---p 00000000 00:00 0 
+61100000-611c1000 rw-p 00000000 00:00 0 
+611c1000-61200000 ---p 00000000 00:00 0 
+61200000-612c1000 rw-p 00000000 00:00 0 
+612c1000-61300000 ---p 00000000 00:00 0 
+61300000-613c1000 rw-p 00000000 00:00 0 
+613c1000-61400000 ---p 00000000 00:00 0 
+61400000-614fe000 rw-p 00000000 00:00 0 
+614fe000-61500000 ---p 00000000 00:00 0 
+61500000-615e2000 rw-p 00000000 00:00 0 
+615e2000-61600000 ---p 00000000 00:00 0 
+61600000-616fd000 rw-p 00000000 00:00 0 
+616fd000-61700000 ---p 00000000 00:00 0 
+61700000-617fd000 rw-p 00000000 00:00 0 
+617fd000-61800000 ---p 00000000 00:00 0 
+61800000-618f8000 rw-p 00000000 00:00 0 
+618f8000-61900000 ---p 00000000 00:00 0 
+61900000-619f4000 rw-p 00000000 00:00 0 
+619f4000-61a00000 ---p 00000000 00:00 0 
+61a00000-61c00000 rw-p 00000000 00:00 0 
+61c00000-61cff000 rw-p 00000000 00:00 0 
+61cff000-61d00000 ---p 00000000 00:00 0 
+61d00000-61e00000 rw-p 00000000 00:00 0 
+61e00000-61efe000 rw-p 00000000 00:00 0 
+61efe000-61f00000 ---p 00000000 00:00 0 
+61f00000-62000000 rw-p 00000000 00:00 0 
+62000000-62200000 rw-p 00000000 00:00 0 
+62200000-62400000 rw-p 00000000 00:00 0 
+62400000-62600000 rw-p 00000000 00:00 0 
+62600000-62800000 rw-p 00000000 00:00 0 
+62800000-628fe000 rw-p 00000000 00:00 0 
+628fe000-62900000 ---p 00000000 00:00 0 
+62900000-62a00000 rw-p 00000000 00:00 0 
+62a00000-62c00000 rw-p 00000000 00:00 0 
+62c00000-62dff000 rw-p 00000000 00:00 0 
+62dff000-62e00000 ---p 00000000 00:00 0 
+62e00000-63000000 rw-p 00000000 00:00 0 
+63000000-630fd000 rw-p 00000000 00:00 0 
+630fd000-63100000 ---p 00000000 00:00 0 
+63100000-63200000 rw-p 00000000 00:00 0 
+63200000-632ff000 rw-p 00000000 00:00 0 
+632ff000-63300000 ---p 00000000 00:00 0 
+63300000-633fe000 rw-p 00000000 00:00 0 
+633fe000-63400000 ---p 00000000 00:00 0 
+63400000-635ff000 rw-p 00000000 00:00 0 
+635ff000-63600000 ---p 00000000 00:00 0 
+63600000-636fe000 rw-p 00000000 00:00 0 
+636fe000-63700000 ---p 00000000 00:00 0 
+63700000-637fd000 rw-p 00000000 00:00 0 
+637fd000-63800000 ---p 00000000 00:00 0 
+63800000-638fd000 rw-p 00000000 00:00 0 
+638fd000-63900000 ---p 00000000 00:00 0 
+63900000-639fd000 rw-p 00000000 00:00 0 
+639fd000-63a00000 ---p 00000000 00:00 0 
+63a00000-63afd000 rw-p 00000000 00:00 0 
+63afd000-63b00000 ---p 00000000 00:00 0 
+63b00000-63bfe000 rw-p 00000000 00:00 0 
+63bfe000-63c00000 ---p 00000000 00:00 0 
+63c00000-63cfe000 rw-p 00000000 00:00 0 
+63cfe000-63d00000 ---p 00000000 00:00 0 
+63d00000-63e00000 rw-p 00000000 00:00 0 
+63e00000-63efe000 rw-p 00000000 00:00 0 
+63efe000-63f00000 ---p 00000000 00:00 0 
+63f00000-64000000 rw-p 00000000 00:00 0 
+64000000-640fd000 rw-p 00000000 00:00 0 
+640fd000-64100000 ---p 00000000 00:00 0 
+64100000-64200000 rw-p 00000000 00:00 0 
+64200000-642fd000 rw-p 00000000 00:00 0 
+642fd000-64300000 ---p 00000000 00:00 0 
+64300000-64400000 rw-p 00000000 00:00 0 
+64400000-644fe000 rw-p 00000000 00:00 0 
+644fe000-64500000 ---p 00000000 00:00 0 
+64500000-645ff000 rw-p 00000000 00:00 0 
+645ff000-64600000 ---p 00000000 00:00 0 
+64600000-64800000 rw-p 00000000 00:00 0 
+64800000-648fd000 rw-p 00000000 00:00 0 
+648fd000-64900000 ---p 00000000 00:00 0 
+64900000-64a00000 rw-p 00000000 00:00 0 
+64a00000-64bfe000 rw-p 00000000 00:00 0 
+64bfe000-64c00000 ---p 00000000 00:00 0 
+64c00000-64cfe000 rw-p 00000000 00:00 0 
+64cfe000-64d00000 ---p 00000000 00:00 0 
+64d00000-64dfe000 rw-p 00000000 00:00 0 
+64dfe000-64e00000 ---p 00000000 00:00 0 
+64e00000-64fff000 rw-p 00000000 00:00 0 
+64fff000-65000000 ---p 00000000 00:00 0 
+65000000-65200000 rw-p 00000000 00:00 0 
+65200000-65400000 rw-p 00000000 00:00 0 
+65400000-654ff000 rw-p 00000000 00:00 0 
+654ff000-65500000 ---p 00000000 00:00 0 
+65500000-65600000 rw-p 00000000 00:00 0 
+65600000-656fe000 rw-p 00000000 00:00 0 
+656fe000-65700000 ---p 00000000 00:00 0 
+65700000-657f2000 rw-p 00000000 00:00 0 
+657f2000-65800000 ---p 00000000 00:00 0 
+65800000-65a00000 rw-p 00000000 00:00 0 
+65a00000-65bed000 rw-p 00000000 00:00 0 
+65bed000-65c00000 ---p 00000000 00:00 0 
+65c00000-65e00000 rw-p 00000000 00:00 0 
+65e00000-65efe000 rw-p 00000000 00:00 0 
+65efe000-65f00000 ---p 00000000 00:00 0 
+65f00000-66000000 rw-p 00000000 00:00 0 
+66000000-660ff000 rw-p 00000000 00:00 0 
+660ff000-66100000 ---p 00000000 00:00 0 
+66100000-66200000 rw-p 00000000 00:00 0 
+66200000-662ef000 rw-p 00000000 00:00 0 
+662ef000-66300000 ---p 00000000 00:00 0 
+66300000-663fd000 rw-p 00000000 00:00 0 
+663fd000-66400000 ---p 00000000 00:00 0 
+66400000-66600000 rw-p 00000000 00:00 0 
+66600000-666ff000 rw-p 00000000 00:00 0 
+666ff000-66700000 ---p 00000000 00:00 0 
+66700000-66800000 rw-p 00000000 00:00 0 
+66800000-66a00000 rw-p 00000000 00:00 0 
+66a00000-66c00000 rw-p 00000000 00:00 0 
+66c00000-66cfd000 rw-p 00000000 00:00 0 
+66cfd000-66d00000 ---p 00000000 00:00 0 
+66d00000-66e00000 rw-p 00000000 00:00 0 
+66e00000-67000000 rw-p 00000000 00:00 0 
+67000000-67200000 rw-p 00000000 00:00 0 
+67200000-673ff000 rw-p 00000000 00:00 0 
+673ff000-67400000 ---p 00000000 00:00 0 
+67400000-674fd000 rw-p 00000000 00:00 0 
+674fd000-67500000 ---p 00000000 00:00 0 
+67500000-67600000 rw-p 00000000 00:00 0 
+67600000-677ff000 rw-p 00000000 00:00 0 
+677ff000-67800000 ---p 00000000 00:00 0 
+67800000-678fe000 rw-p 00000000 00:00 0 
+678fe000-67900000 ---p 00000000 00:00 0 
+67900000-679ff000 rw-p 00000000 00:00 0 
+679ff000-67a00000 ---p 00000000 00:00 0 
+67a00000-67afe000 rw-p 00000000 00:00 0 
+67afe000-67b00000 ---p 00000000 00:00 0 
+67b00000-67c00000 rw-p 00000000 00:00 0 
+67c00000-67cfd000 rw-p 00000000 00:00 0 
+67cfd000-67d00000 ---p 00000000 00:00 0 
+67d00000-67e00000 rw-p 00000000 00:00 0 
+67e00000-67ffd000 rw-p 00000000 00:00 0 
+67ffd000-68000000 ---p 00000000 00:00 0 
+68000000-681fe000 rw-p 00000000 00:00 0 
+681fe000-68200000 ---p 00000000 00:00 0 
+68200000-683fe000 rw-p 00000000 00:00 0 
+683fe000-68400000 ---p 00000000 00:00 0 
+68400000-685ff000 rw-p 00000000 00:00 0 
+685ff000-68600000 ---p 00000000 00:00 0 
+68600000-68800000 rw-p 00000000 00:00 0 
+68800000-68a00000 rw-p 00000000 00:00 0 
+68a00000-68afe000 rw-p 00000000 00:00 0 
+68afe000-68b00000 ---p 00000000 00:00 0 
+68b00000-68bfe000 rw-p 00000000 00:00 0 
+68bfe000-68c00000 ---p 00000000 00:00 0 
+68c00000-68dfe000 rw-p 00000000 00:00 0 
+68dfe000-68e00000 ---p 00000000 00:00 0 
+68e00000-68efe000 rw-p 00000000 00:00 0 
+68efe000-68f00000 ---p 00000000 00:00 0 
+68f00000-68ffd000 rw-p 00000000 00:00 0 
+68ffd000-69000000 ---p 00000000 00:00 0 
+69000000-690fe000 rw-p 00000000 00:00 0 
+690fe000-69100000 ---p 00000000 00:00 0 
+69100000-69200000 rw-p 00000000 00:00 0 
+69200000-692fd000 rw-p 00000000 00:00 0 
+692fd000-69300000 ---p 00000000 00:00 0 
+69300000-69400000 rw-p 00000000 00:00 0 
+69400000-695f0000 rw-p 00000000 00:00 0 
+695f0000-69600000 ---p 00000000 00:00 0 
+69600000-69800000 rw-p 00000000 00:00 0 
+69800000-698fd000 rw-p 00000000 00:00 0 
+698fd000-69900000 ---p 00000000 00:00 0 
+69900000-699fe000 rw-p 00000000 00:00 0 
+699fe000-69a00000 ---p 00000000 00:00 0 
+69a00000-69bfd000 rw-p 00000000 00:00 0 
+69bfd000-69c00000 ---p 00000000 00:00 0 
+69c00000-69ce1000 rw-p 00000000 00:00 0 
+69ce1000-69d00000 ---p 00000000 00:00 0 
+69d00000-69dff000 rw-p 00000000 00:00 0 
+69dff000-69e00000 ---p 00000000 00:00 0 
+69e00000-69ee1000 rw-p 00000000 00:00 0 
+69ee1000-69f00000 ---p 00000000 00:00 0 
+69f00000-69fe1000 rw-p 00000000 00:00 0 
+69fe1000-6a000000 ---p 00000000 00:00 0 
+6a000000-6a0ff000 rw-p 00000000 00:00 0 
+6a0ff000-6a100000 ---p 00000000 00:00 0 
+6a100000-6a1ed000 rw-p 00000000 00:00 0 
+6a1ed000-6a200000 ---p 00000000 00:00 0 
+6a200000-6a3fe000 rw-p 00000000 00:00 0 
+6a3fe000-6a400000 ---p 00000000 00:00 0 
+6a400000-6a600000 rw-p 00000000 00:00 0 
+6a600000-6a7ff000 rw-p 00000000 00:00 0 
+6a7ff000-6a800000 ---p 00000000 00:00 0 
+6a800000-6aa00000 rw-p 00000000 00:00 0 
+6aa00000-6ac00000 rw-p 00000000 00:00 0 
+6ac00000-6ae00000 rw-p 00000000 00:00 0 
+6ae00000-6aefd000 rw-p 00000000 00:00 0 
+6aefd000-6af00000 ---p 00000000 00:00 0 
+6af00000-6affd000 rw-p 00000000 00:00 0 
+6affd000-6b000000 ---p 00000000 00:00 0 
+6b000000-6b0fe000 rw-p 00000000 00:00 0 
+6b0fe000-6b100000 ---p 00000000 00:00 0 
+6b100000-6b1ff000 rw-p 00000000 00:00 0 
+6b1ff000-6b200000 ---p 00000000 00:00 0 
+6b200000-6b2ff000 rw-p 00000000 00:00 0 
+6b2ff000-6b300000 ---p 00000000 00:00 0 
+6b300000-6b3ff000 rw-p 00000000 00:00 0 
+6b3ff000-6b400000 ---p 00000000 00:00 0 
+6b400000-6b5ff000 rw-p 00000000 00:00 0 
+6b5ff000-6b600000 ---p 00000000 00:00 0 
+6b600000-6b7fe000 rw-p 00000000 00:00 0 
+6b7fe000-6b800000 ---p 00000000 00:00 0 
+6b800000-6b8fd000 rw-p 00000000 00:00 0 
+6b8fd000-6b900000 ---p 00000000 00:00 0 
+6b900000-6b9fe000 rw-p 00000000 00:00 0 
+6b9fe000-6ba00000 ---p 00000000 00:00 0 
+6ba00000-6bafd000 rw-p 00000000 00:00 0 
+6bafd000-6bb00000 ---p 00000000 00:00 0 
+6bb00000-6bbfd000 rw-p 00000000 00:00 0 
+6bbfd000-6bc00000 ---p 00000000 00:00 0 
+6bc00000-6bcfd000 rw-p 00000000 00:00 0 
+6bcfd000-6bd00000 ---p 00000000 00:00 0 
+6bd00000-6be00000 rw-p 00000000 00:00 0 
+6be00000-6c000000 rw-p 00000000 00:00 0 
+6c000000-6c200000 rw-p 00000000 00:00 0 
+6c200000-6c2fe000 rw-p 00000000 00:00 0 
+6c2fe000-6c300000 ---p 00000000 00:00 0 
+6c300000-6c400000 rw-p 00000000 00:00 0 
+6c400000-6c4ff000 rw-p 00000000 00:00 0 
+6c4ff000-6c500000 ---p 00000000 00:00 0 
+6c500000-6c5f7000 rw-p 00000000 00:00 0 
+6c5f7000-6c600000 ---p 00000000 00:00 0 
+6c600000-6c6fe000 rw-p 00000000 00:00 0 
+6c6fe000-6c700000 ---p 00000000 00:00 0 
+6c700000-6c7ff000 rw-p 00000000 00:00 0 
+6c7ff000-6c800000 ---p 00000000 00:00 0 
+6c800000-6c9fd000 rw-p 00000000 00:00 0 
+6c9fd000-6ca00000 ---p 00000000 00:00 0 
+6ca00000-6cc00000 rw-p 00000000 00:00 0 
+6cc00000-6ccfe000 rw-p 00000000 00:00 0 
+6ccfe000-6cd00000 ---p 00000000 00:00 0 
+6cd00000-6ce00000 rw-p 00000000 00:00 0 
+6ce00000-6d000000 rw-p 00000000 00:00 0 
+6d000000-6d1fd000 rw-p 00000000 00:00 0 
+6d1fd000-6d200000 ---p 00000000 00:00 0 
+6d200000-6d400000 rw-p 00000000 00:00 0 
+6d400000-6d600000 rw-p 00000000 00:00 0 
+6d600000-6d7ff000 rw-p 00000000 00:00 0 
+6d7ff000-6d800000 ---p 00000000 00:00 0 
+6d800000-6d9ff000 rw-p 00000000 00:00 0 
+6d9ff000-6da00000 ---p 00000000 00:00 0 
+6da00000-6dbff000 rw-p 00000000 00:00 0 
+6dbff000-6dc00000 ---p 00000000 00:00 0 
+6dc00000-6dcfe000 rw-p 00000000 00:00 0 
+6dcfe000-6dd00000 ---p 00000000 00:00 0 
+6dd00000-6ddfd000 rw-p 00000000 00:00 0 
+6ddfd000-6de00000 ---p 00000000 00:00 0 
+6de00000-6defe000 rw-p 00000000 00:00 0 
+6defe000-6df00000 ---p 00000000 00:00 0 
+6df00000-6dffd000 rw-p 00000000 00:00 0 
+6dffd000-6e000000 ---p 00000000 00:00 0 
+6e000000-6e200000 rw-p 00000000 00:00 0 
+6e200000-6e2fd000 rw-p 00000000 00:00 0 
+6e2fd000-6e300000 ---p 00000000 00:00 0 
+6e300000-6e400000 rw-p 00000000 00:00 0 
+6e400000-6e4f1000 rw-p 00000000 00:00 0 
+6e4f1000-6e500000 ---p 00000000 00:00 0 
+6e500000-6e5ff000 rw-p 00000000 00:00 0 
+6e5ff000-6e600000 ---p 00000000 00:00 0 
+6e600000-6e7fc000 rw-p 00000000 00:00 0 
+6e7fc000-6e800000 ---p 00000000 00:00 0 
+6e800000-6e8ff000 rw-p 00000000 00:00 0 
+6e8ff000-6e900000 ---p 00000000 00:00 0 
+6e900000-6e9fe000 rw-p 00000000 00:00 0 
+6e9fe000-6ea00000 ---p 00000000 00:00 0 
+6ea00000-6ec00000 rw-p 00000000 00:00 0 
+6ec00000-6ee00000 rw-p 00000000 00:00 0 
+6ee00000-6f000000 rw-p 00000000 00:00 0 
+6f000000-6f1ff000 rw-p 00000000 00:00 0 
+6f1ff000-6f200000 ---p 00000000 00:00 0 
+6f200000-6f2fd000 rw-p 00000000 00:00 0 
+6f2fd000-6f300000 ---p 00000000 00:00 0 
+6f300000-6f3fe000 rw-p 00000000 00:00 0 
+6f3fe000-6f400000 ---p 00000000 00:00 0 
+6f400000-6f5fe000 rw-p 00000000 00:00 0 
+6f5fe000-6f600000 ---p 00000000 00:00 0 
+6f600000-6f6ff000 rw-p 00000000 00:00 0 
+6f6ff000-6f700000 ---p 00000000 00:00 0 
+6f700000-6f7fd000 rw-p 00000000 00:00 0 
+6f7fd000-6f800000 ---p 00000000 00:00 0 
+6f800000-6f9ff000 rw-p 00000000 00:00 0 
+6f9ff000-6fa00000 ---p 00000000 00:00 0 
+6fa00000-6fc00000 rw-p 00000000 00:00 0 
+6fc00000-6fe00000 rw-p 00000000 00:00 0 
+6fe00000-70000000 rw-p 00000000 00:00 0 
+70000000-700fe000 rw-p 00000000 00:00 0 
+700fe000-70100000 ---p 00000000 00:00 0 
+70100000-70200000 rw-p 00000000 00:00 0 
+70200000-702fe000 rw-p 00000000 00:00 0 
+702fe000-70300000 ---p 00000000 00:00 0 
+70300000-703fd000 rw-p 00000000 00:00 0 
+703fd000-70400000 ---p 00000000 00:00 0 
+70400000-704fd000 rw-p 00000000 00:00 0 
+704fd000-70500000 ---p 00000000 00:00 0 
+70500000-705ff000 rw-p 00000000 00:00 0 
+705ff000-70600000 ---p 00000000 00:00 0 
+70600000-707ff000 rw-p 00000000 00:00 0 
+707ff000-70800000 ---p 00000000 00:00 0 
+70800000-708ff000 rw-p 00000000 00:00 0 
+708ff000-70900000 ---p 00000000 00:00 0 
+70900000-709fe000 rw-p 00000000 00:00 0 
+709fe000-70a00000 ---p 00000000 00:00 0 
+70a00000-70afe000 rw-p 00000000 00:00 0 
+70afe000-70b00000 ---p 00000000 00:00 0 
+70b00000-70bfd000 rw-p 00000000 00:00 0 
+70bfd000-70c00000 ---p 00000000 00:00 0 
+70c00000-70cfe000 rw-p 00000000 00:00 0 
+70cfe000-70d00000 ---p 00000000 00:00 0 
+70d00000-70dfd000 rw-p 00000000 00:00 0 
+70dfd000-70e00000 ---p 00000000 00:00 0 
+70e00000-70efe000 rw-p 00000000 00:00 0 
+70efe000-70f00000 ---p 00000000 00:00 0 
+70f00000-71000000 rw-p 00000000 00:00 0 
+71000000-711ff000 rw-p 00000000 00:00 0 
+711ff000-71200000 ---p 00000000 00:00 0 
+71200000-712ff000 rw-p 00000000 00:00 0 
+712ff000-71300000 ---p 00000000 00:00 0 
+71300000-713ff000 rw-p 00000000 00:00 0 
+713ff000-71400000 ---p 00000000 00:00 0 
+71400000-714ff000 rw-p 00000000 00:00 0 
+714ff000-71500000 ---p 00000000 00:00 0 
+71500000-71600000 rw-p 00000000 00:00 0 
+71600000-717fd000 rw-p 00000000 00:00 0 
+717fd000-71800000 ---p 00000000 00:00 0 
+71800000-718fe000 rw-p 00000000 00:00 0 
+718fe000-71900000 ---p 00000000 00:00 0 
+71900000-71a00000 rw-p 00000000 00:00 0 
+71a00000-71c00000 rw-p 00000000 00:00 0 
+71c00000-71dfe000 rw-p 00000000 00:00 0 
+71dfe000-71e00000 ---p 00000000 00:00 0 
+71e00000-71eff000 rw-p 00000000 00:00 0 
+71eff000-71f00000 ---p 00000000 00:00 0 
+71f00000-72000000 rw-p 00000000 00:00 0 
+72000000-72100000 rw-p 00000000 00:00 0 
+72100000-72300000 rw-p 00000000 00:00 0 
+72300000-723fe000 rw-p 00000000 00:00 0 
+723fe000-72400000 ---p 00000000 00:00 0 
+72400000-72500000 rw-p 00000000 00:00 0 
+72500000-725fd000 rw-p 00000000 00:00 0 
+725fd000-72600000 ---p 00000000 00:00 0 
+72600000-726ff000 rw-p 00000000 00:00 0 
+726ff000-72700000 ---p 00000000 00:00 0 
+72700000-727f9000 rw-p 00000000 00:00 0 
+727f9000-72800000 ---p 00000000 00:00 0 
+72800000-728fd000 rw-p 00000000 00:00 0 
+728fd000-72900000 ---p 00000000 00:00 0 
+72900000-729fc000 rw-p 00000000 00:00 0 
+729fc000-72a00000 ---p 00000000 00:00 0 
+72a00000-73b00000 rw-p 00000000 00:00 0 
+73b00000-73bfd000 rw-p 00000000 00:00 0 
+73bfd000-73c00000 ---p 00000000 00:00 0 
+73c00000-73cfd000 rw-p 00000000 00:00 0 
+73cfd000-73d00000 ---p 00000000 00:00 0 
+73d00000-73dfd000 rw-p 00000000 00:00 0 
+73dfd000-73e00000 ---p 00000000 00:00 0 
+73e00000-73f0e000 rw-p 00000000 00:00 0 
+73f0e000-74000000 rw-p 00000000 00:00 0 
+74000000-74200000 rw-p 00000000 00:00 0 
+74200000-742fb000 rw-p 00000000 00:00 0 
+742fb000-74300000 ---p 00000000 00:00 0 
+74300000-74400000 rw-p 00000000 00:00 0 
+74400000-744ff000 rw-p 00000000 00:00 0 
+744ff000-74500000 ---p 00000000 00:00 0 
+74500000-745ff000 rw-p 00000000 00:00 0 
+745ff000-74600000 ---p 00000000 00:00 0 
+74600000-746fd000 rw-p 00000000 00:00 0 
+746fd000-74700000 ---p 00000000 00:00 0 
+74700000-74730000 rw-p 00000000 00:00 0 
+74730000-7478f000 rw-p 00000000 00:00 0 
+7478f000-747ff000 r-xp 00000000 08:25 133499     /home/chenjia/Documents/libcudd.so
+747ff000-74800000 rw-p 0006f000 08:25 133499     /home/chenjia/Documents/libcudd.so
+74800000-748c0000 rw-p 00000000 00:00 0 
+748c0000-74900000 ---p 00000000 00:00 0 
+74900000-74a00000 rw-p 00000000 00:00 0 
+74a00000-74b00000 rw-p 00000000 00:00 0 
+74b00000-74bf9000 rw-p 00000000 00:00 0 
+74bf9000-74c00000 ---p 00000000 00:00 0 
+74c00000-74d44000 rw-p 00000000 00:00 0 
+74d44000-74d47000 ---p 00000000 00:00 0 
+74d47000-74d95000 rw-p 00000000 00:00 0          [stack:3002]
+74d95000-74d98000 ---p 00000000 00:00 0 
+74d98000-74de6000 rw-p 00000000 00:00 0 
+74de6000-74de9000 ---p 00000000 00:00 0 
+74de9000-74e37000 rw-p 00000000 00:00 0 
+74e37000-74e3a000 ---p 00000000 00:00 0 
+74e3a000-74f89000 rw-p 00000000 00:00 0 
+74f89000-750d1000 rw-p 00000000 00:00 0 
+750d1000-754d1000 rw-s 00000000 00:04 9601043    /SYSV00000000 (deleted)
+754d1000-755d2000 rw-p 00000000 00:00 0 
+755d2000-756fa000 rw-p 00000000 00:00 0 
+756fa000-75700000 ---p 00000000 00:00 0 
+75700000-75800000 rw-p 00000000 00:00 0 
+75800000-759fc000 rw-p 00000000 00:00 0 
+759fc000-75a00000 ---p 00000000 00:00 0 
+75a00000-75be8000 rw-p 00000000 00:00 0 
+75be8000-75c00000 ---p 00000000 00:00 0 
+75c00000-75e00000 rw-p 00000000 00:00 0 
+75e00000-75f00000 rw-p 00000000 00:00 0 
+75f00000-75f42000 rw-p 00000000 00:00 0 
+75f42000-75f45000 ---p 00000000 00:00 0 
+75f45000-76094000 rw-p 00000000 00:00 0 
+76094000-760ac000 rw-p 00000000 00:00 0 
+760ac000-760d0000 r--s 001c2000 08:25 284698     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.core.lib_1.5.2.r42x201302111859/lib/guava-13.0.1.jar
+760d0000-76100000 r--s 001c5000 08:25 137069     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.core_1.5.2.r42x201302111859.jar
+76100000-761ff000 rw-p 00000000 00:00 0 
+761ff000-76200000 ---p 00000000 00:00 0 
+76200000-76300000 rw-p 00000000 00:00 0 
+76300000-763fb000 rw-p 00000000 00:00 0 
+763fb000-76400000 ---p 00000000 00:00 0 
+76400000-764f9000 rw-p 00000000 00:00 0 
+764f9000-76500000 ---p 00000000 00:00 0 
+76500000-76600000 rw-p 00000000 00:00 0 
+76600000-76700000 rw-p 00000000 00:00 0 
+76700000-7674b000 rw-p 00000000 00:00 0 
+7674b000-76800000 ---p 00000000 00:00 0 
+76800000-76808000 rw-p 00000000 00:00 0 
+76808000-7680b000 ---p 00000000 00:00 0 
+7680b000-76959000 rw-p 00000000 00:00 0          [stack:2960]
+76959000-76aac000 r-xp 00000000 08:25 525048     /usr/lib/i386-linux-gnu/libxml2.so.2.9.1
+76aac000-76aad000 ---p 00153000 08:25 525048     /usr/lib/i386-linux-gnu/libxml2.so.2.9.1
+76aad000-76ab1000 r--p 00153000 08:25 525048     /usr/lib/i386-linux-gnu/libxml2.so.2.9.1
+76ab1000-76ab2000 rw-p 00157000 08:25 525048     /usr/lib/i386-linux-gnu/libxml2.so.2.9.1
+76ab2000-76ab3000 rw-p 00000000 00:00 0 
+76ab3000-76aec000 r-xp 00000000 08:25 530029     /usr/lib/i386-linux-gnu/libcroco-0.6.so.3.0.1
+76aec000-76aee000 r--p 00039000 08:25 530029     /usr/lib/i386-linux-gnu/libcroco-0.6.so.3.0.1
+76aee000-76aef000 rw-p 0003b000 08:25 530029     /usr/lib/i386-linux-gnu/libcroco-0.6.so.3.0.1
+76aef000-76b25000 r-xp 00000000 08:25 530678     /usr/lib/i386-linux-gnu/librsvg-2.so.2.40.2
+76b25000-76b26000 r--p 00035000 08:25 530678     /usr/lib/i386-linux-gnu/librsvg-2.so.2.40.2
+76b26000-76b27000 rw-p 00036000 08:25 530678     /usr/lib/i386-linux-gnu/librsvg-2.so.2.40.2
+76b27000-78e00000 r--p 00000000 08:25 931084     /usr/share/icons/hicolor/icon-theme.cache
+78e00000-78efb000 rw-p 00000000 00:00 0 
+78efb000-78f00000 ---p 00000000 00:00 0 
+78f00000-78f07000 rw-p 00000000 00:00 0 
+78f07000-78f2b000 r-xp 00000000 08:25 263181     /lib/i386-linux-gnu/liblzma.so.5.0.0
+78f2b000-78f2c000 r--p 00023000 08:25 263181     /lib/i386-linux-gnu/liblzma.so.5.0.0
+78f2c000-78f2d000 rw-p 00024000 08:25 263181     /lib/i386-linux-gnu/liblzma.so.5.0.0
+78f2d000-7a571000 r--p 00000000 08:25 921307     /usr/share/icons/gnome/icon-theme.cache
+7a571000-7a65a000 r--p 00000000 08:25 927948     /usr/share/icons/Humanity/icon-theme.cache
+7a65a000-7a75b000 rw-p 00000000 00:00 0 
+7a75b000-7a772000 rw-p 00000000 00:00 0 
+7a772000-7a7d2000 rw-s 00000000 00:04 9306127    /SYSV00000000 (deleted)
+7a7d2000-7a800000 r--s 001ef000 08:25 137101     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.core.java_1.5.2.r42x201302111907.jar
+7a800000-7a900000 rw-p 00000000 00:00 0 
+7a900000-7aa00000 rw-p 00000000 00:00 0 
+7aa00000-7ab00000 rw-p 00000000 00:00 0 
+7ab00000-7abff000 rw-p 00000000 00:00 0 
+7abff000-7ac00000 ---p 00000000 00:00 0 
+7ac00000-7ac23000 rw-p 00000000 00:00 0 
+7ac23000-7ac56000 r-xp 00000000 08:25 265894     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libsunec.so
+7ac56000-7ac5a000 rw-p 00032000 08:25 265894     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libsunec.so
+7ac5a000-7ac5e000 rw-p 00000000 00:00 0 
+7ac5e000-7ac61000 ---p 00000000 00:00 0 
+7ac61000-7adaf000 rw-p 00000000 00:00 0          [stack:2958]
+7adaf000-7aeaf000 rw-p 00000000 00:00 0 
+7aeaf000-7aeb2000 ---p 00000000 00:00 0 
+7aeb2000-7b000000 rw-p 00000000 00:00 0          [stack:2965]
+7b000000-7b100000 rw-p 00000000 00:00 0 
+7b100000-7b200000 rw-p 00000000 00:00 0 
+7b200000-7b300000 rw-p 00000000 00:00 0 
+7b300000-7b400000 rw-p 00000000 00:00 0 
+7b400000-7b500000 rw-p 00000000 00:00 0 
+7b500000-7b5ff000 rw-p 00000000 00:00 0 
+7b5ff000-7b600000 ---p 00000000 00:00 0 
+7b600000-7b602000 rw-p 00000000 00:00 0 
+7b602000-7b650000 r--p 00000000 08:25 1180635    /usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf
+7b650000-7b6af000 r--p 00000000 08:25 1180800    /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-RI.ttf
+7b6af000-7b7af000 rw-p 00000000 00:00 0 
+7b7af000-7b8af000 rw-p 00000000 00:00 0 
+7b8af000-7b8b2000 ---p 00000000 00:00 0 
+7b8b2000-7ba00000 rw-p 00000000 00:00 0          [stack:2955]
+7ba00000-7bb00000 rw-p 00000000 00:00 0 
+7bb00000-7bc00000 rw-p 00000000 00:00 0 
+7bc00000-7bcf9000 rw-p 00000000 00:00 0 
+7bcf9000-7bd00000 ---p 00000000 00:00 0 
+7bd00000-7be00000 rw-p 00000000 00:00 0 
+7be00000-7bf00000 rw-p 00000000 00:00 0 
+7bf00000-7bffe000 rw-p 00000000 00:00 0 
+7bffe000-7c000000 ---p 00000000 00:00 0 
+7c000000-7c100000 rw-p 00000000 00:00 0 
+7c100000-7c200000 rw-p 00000000 00:00 0 
+7c200000-7c2ff000 rw-p 00000000 00:00 0 
+7c2ff000-7c300000 ---p 00000000 00:00 0 
+7c300000-7c400000 rw-p 00000000 00:00 0 
+7c400000-7c500000 rw-p 00000000 00:00 0 
+7c500000-7c5fd000 rw-p 00000000 00:00 0 
+7c5fd000-7c600000 ---p 00000000 00:00 0 
+7c600000-7c658000 r--p 00000000 08:25 1180793    /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-BI.ttf
+7c658000-7c6aa000 r--p 00000000 08:25 1180792    /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf
+7c6aa000-7c6b5000 r--s 00084000 08:25 137386     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ui.workbench.texteditor_3.8.0.v20120523-1310.jar
+7c6b5000-7c7b5000 rw-p 00000000 00:00 0 
+7c7b5000-7c7b6000 ---p 00000000 00:00 0 
+7c7b6000-7cfb6000 rw-p 00000000 00:00 0 
+7cfb6000-7cfb7000 ---p 00000000 00:00 0 
+7cfb7000-7d7b7000 rw-p 00000000 00:00 0 
+7d7b7000-7d7b8000 ---p 00000000 00:00 0 
+7d7b8000-7dfb9000 rw-p 00000000 00:00 0          [stack:2948]
+7dfb9000-7dfbd000 rw-p 00000000 00:00 0 
+7dfbd000-7dfdb000 r--s 00180000 08:25 137306     /home/chenjia/Documents/eclipse/plugins/org.eclipse.team.cvs.ui_3.3.500.v20120522-1148.jar
+7dfdb000-7dfe3000 r--s 0004d000 08:25 137607     /home/chenjia/Documents/eclipse/plugins/org.eclipse.debug.core_3.7.100.v20120521-2012.jar
+7dfe3000-7dff6000 r--s 00345000 08:25 265804     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/resources.jar
+7dff6000-7e020000 r--s 0046e000 08:25 137377     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jdt.core_3.8.3.v20130121-145325.jar
+7e020000-7e033000 r--s 000e0000 08:25 136932     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jface.text_3.8.2.v20121126-164145.jar
+7e033000-7e038000 r--s 00038000 08:25 137242     /home/chenjia/Documents/eclipse/plugins/org.eclipse.text_3.5.200.v20120523-1310.jar
+7e038000-7e044000 rw-p 00000000 00:00 0 
+7e044000-7e050000 r--s 00081000 08:25 137569     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ui.editors_3.8.0.v20120523-1540.jar
+7e050000-7e06a000 rw-p 00000000 00:00 0 
+7e06a000-7e100000 r--s 00946000 08:25 137384     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jdt.ui_3.8.2.v20130107-165834.jar
+7e100000-7e1f9000 rw-p 00000000 00:00 0 
+7e1f9000-7e200000 ---p 00000000 00:00 0 
+7e200000-7e20d000 rw-p 00000000 00:00 0 
+7e20d000-7e210000 ---p 00000000 00:00 0 
+7e210000-7e25e000 rw-p 00000000 00:00 0          [stack:2964]
+7e25e000-7e261000 ---p 00000000 00:00 0 
+7e261000-7e2af000 rw-p 00000000 00:00 0 
+7e2af000-7e2b2000 ---p 00000000 00:00 0 
+7e2b2000-7e3fa000 rw-p 00000000 00:00 0 
+7e3fa000-7e400000 ---p 00000000 00:00 0 
+7e400000-7e4ff000 rw-p 00000000 00:00 0 
+7e4ff000-7e500000 ---p 00000000 00:00 0 
+7e500000-7e600000 rw-p 00000000 00:00 0 
+7e600000-7e6fe000 rw-p 00000000 00:00 0 
+7e6fe000-7e700000 ---p 00000000 00:00 0 
+7e700000-7e800000 rw-p 00000000 00:00 0 
+7e800000-7e900000 rw-p 00000000 00:00 0 
+7e900000-7ea00000 rw-p 00000000 00:00 0 
+7ea00000-7eb00000 rw-p 00000000 00:00 0 
+7eb00000-7ed00000 rw-p 00000000 00:00 0 
+7ed00000-7ef00000 rw-p 00000000 00:00 0 
+7ef00000-7effe000 rw-p 00000000 00:00 0 
+7effe000-7f000000 ---p 00000000 00:00 0 
+7f000000-7f100000 rw-p 00000000 00:00 0 
+7f100000-7f1fa000 rw-p 00000000 00:00 0 
+7f1fa000-7f200000 ---p 00000000 00:00 0 
+7f200000-7f300000 rw-p 00000000 00:00 0 
+7f300000-7f400000 rw-p 00000000 00:00 0 
+7f400000-7f500000 rw-p 00000000 00:00 0 
+7f500000-7f5fd000 rw-p 00000000 00:00 0 
+7f5fd000-7f600000 ---p 00000000 00:00 0 
+7f600000-7f700000 rw-p 00000000 00:00 0 
+7f700000-7f900000 rw-p 00000000 00:00 0 
+7f900000-7fb00000 rw-p 00000000 00:00 0 
+7fb00000-7fc00000 rw-p 00000000 00:00 0 
+7fc00000-7fcfb000 rw-p 00000000 00:00 0 
+7fcfb000-7fd00000 ---p 00000000 00:00 0 
+7fd00000-7fe00000 rw-p 00000000 00:00 0 
+7fe00000-7feff000 rw-p 00000000 00:00 0 
+7feff000-7ff00000 ---p 00000000 00:00 0 
+7ff00000-7ffe4000 rw-p 00000000 00:00 0 
+7ffe4000-80000000 ---p 00000000 00:00 0 
+80000000-80002000 rw-p 00000000 00:00 0 
+80002000-80008000 r-xp 00000000 08:25 531697     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+80008000-80009000 r--p 00005000 08:25 531697     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+80009000-8000a000 rw-p 00006000 08:25 531697     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.so
+8000a000-80026000 rw-p 00000000 00:00 0 
+80026000-80038000 r--p 00000000 08:25 934950     /usr/share/icons/ubuntu-mono-dark/icon-theme.cache
+80038000-8003b000 ---p 00000000 00:00 0 
+8003b000-8008a000 rw-p 00000000 00:00 0          [stack:3027]
+8008a000-80094000 r--s 00085000 08:25 137358     /home/chenjia/Documents/eclipse/plugins/org.eclipse.team.cvs.core_3.3.500.v20120522-1148.jar
+80094000-80099000 rw-p 00000000 00:00 0 
+80099000-800a6000 r--s 00089000 08:25 284697     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.core.lib_1.5.2.r42x201302111859/lib/commons-collections-3.2.1.jar
+800a6000-800ae000 r--s 00000000 08:25 133406     /home/chenjia/.local/share/gvfs-metadata/root-86d7f874.log
+800ae000-80100000 r--p 00000000 08:25 1180636    /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+80100000-801f9000 rw-p 00000000 00:00 0 
+801f9000-80200000 ---p 00000000 00:00 0 
+80200000-802d2000 rw-p 00000000 00:00 0 
+802d2000-80300000 ---p 00000000 00:00 0 
+80300000-803fb000 rw-p 00000000 00:00 0 
+803fb000-80400000 ---p 00000000 00:00 0 
+80400000-80409000 rw-p 00000000 00:00 0 
+80409000-80445000 r--s 00629000 08:25 137414     /home/chenjia/Documents/eclipse/plugins/com.ibm.icu_4.4.2.v20110823.jar
+80445000-8044c000 rw-p 00000000 00:00 0 
+8044c000-80474000 r--s 00219000 08:25 137476     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ui.ide_3.8.2.v20121106-165923.jar
+80474000-804cb000 r--p 00000000 08:25 1180799    /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf
+804cb000-8050d000 r--s 00360000 08:25 137428     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ui.workbench_3.104.0.v20130204-164612.jar
+8050d000-80516000 rw-p 00000000 00:00 0 
+80516000-80524000 r--s 000a7000 08:25 137529     /home/chenjia/Documents/eclipse/plugins/org.eclipse.compare_3.5.301.v20130125-135424.jar
+80524000-8052f000 r--s 000bb000 08:25 137422     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.resources_3.8.1.v20121114-124432.jar
+8052f000-80539000 r-xp 00000000 08:25 284779     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/329/1/.cp/libswt-cairo-gtk-4236.so
+80539000-8053a000 rw-p 0000a000 08:25 284779     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/329/1/.cp/libswt-cairo-gtk-4236.so
+8053a000-8053e000 r-xp 00000000 08:25 531703     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+8053e000-8053f000 r--p 00003000 08:25 531703     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+8053f000-80540000 rw-p 00004000 08:25 531703     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+80540000-80548000 r--s 00000000 08:25 264057     /var/cache/fontconfig/945677eb7aeaf62f1d50efc3fb3ec7d8-le32d4.cache-4
+80548000-8054c000 r--s 00000000 08:25 264055     /var/cache/fontconfig/2cd17615ca594fa2959ae173292e504c-le32d4.cache-4
+8054c000-80551000 r--s 00000000 08:25 264052     /var/cache/fontconfig/a755afe4a08bf5b97852ceb7400b47bc-le32d4.cache-4
+80551000-805ac000 r-xp 00000000 08:25 284778     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/329/1/.cp/libswt-pi-gtk-4236.so
+805ac000-805ae000 rw-p 0005a000 08:25 284778     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/329/1/.cp/libswt-pi-gtk-4236.so
+805ae000-805af000 rw-p 00000000 00:00 0 
+805af000-805b2000 ---p 00000000 00:00 0 
+805b2000-80600000 rw-p 00000000 00:00 0          [stack:2947]
+80600000-806e5000 rw-p 00000000 00:00 0 
+806e5000-80700000 ---p 00000000 00:00 0 
+80700000-80701000 rw-p 00000000 00:00 0 
+80701000-80702000 r--s 00000000 08:25 264058     /var/cache/fontconfig/c05880de57d1f5e948fdfacc138775d9-le32d4.cache-4
+80702000-80703000 r--s 00000000 08:25 264054     /var/cache/fontconfig/e7071f4a29fa870f4323321c154eba04-le32d4.cache-4
+80703000-80704000 r--s 00000000 08:25 264053     /var/cache/fontconfig/0d8c3b2ac0904cb8a57a757ad11a4a08-le32d4.cache-4
+80704000-80713000 r--s 00000000 08:25 264051     /var/cache/fontconfig/04aabc0a78ac019cf9454389977116d2-le32d4.cache-4
+80713000-80714000 r--s 00000000 08:25 264050     /var/cache/fontconfig/1ac9eb803944fde146138c791f5cc56a-le32d4.cache-4
+80714000-80717000 r--s 00000000 08:25 264049     /var/cache/fontconfig/385c0604a188198f04d133e54aba7fe7-le32d4.cache-4
+80717000-80719000 r--s 00000000 08:25 264047     /var/cache/fontconfig/767a8244fc0220cfb567a839d0392e0b-le32d4.cache-4
+80719000-8071e000 r--s 00000000 08:25 264044     /var/cache/fontconfig/3047814df9a2f067bd2d96a2b9c36e5a-le32d4.cache-4
+8071e000-8071f000 rw-p 00000000 00:00 0 
+8071f000-80725000 r--s 002f7000 08:25 265924     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/charsets.jar
+80725000-8072c000 r--s 00000000 08:25 531683     /usr/lib/i386-linux-gnu/gconv/gconv-modules.cache
+8072c000-8072d000 r-xp 00000000 08:25 531707     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+8072d000-8072e000 r--p 00001000 08:25 531707     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+8072e000-8072f000 rw-p 00002000 08:25 531707     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so
+8072f000-80732000 r--s 00014000 08:25 137204     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ui.views_3.6.100.v20120705-114010.jar
+80732000-8073d000 r--p 00000000 08:25 927957     /usr/share/icons/Humanity-Dark/icon-theme.cache
+8073d000-80741000 r--s 00022000 08:25 137115     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ui_3.104.0.v20121024-145224.jar
+80741000-80746000 rw-p 00000000 00:00 0 
+80746000-8074e000 r--s 00077000 08:25 396026     /home/chenjia/Documents/eclipse/plugins/de.tum.in.jmoped_2.0.2/lib/jclasslib.jar
+8074e000-80756000 r--s 00052000 08:25 137314     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jdt.apt.core_3.3.500.v20120522-1651.jar
+80756000-8075f000 r--s 0003c000 08:25 284696     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.core.lib_1.5.2.r42x201302111859/lib/commons-primitives-1.0.jar
+8075f000-8077a000 r--s 00146000 08:25 137621     /home/chenjia/Documents/eclipse/plugins/org.eclipse.team.ui_3.6.201.v20130125-135424.jar
+8077a000-8077b000 rw-p 00000000 00:00 0 
+8077b000-8077f000 r--s 00043000 08:25 396029     /home/chenjia/Documents/eclipse/plugins/de.tum.in.jmoped_2.0.2/lib/underbone.jar
+8077f000-8079a000 r--s 0018b000 08:25 137246     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jgit_2.2.0.201212191850-r.jar
+8079a000-807a7000 r--s 000c6000 08:25 137073     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jdt.debug_3.7.101.v20120913-153601/jdimodel.jar
+807a7000-807af000 r--s 00041000 08:25 137224     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.builds.ui_1.0.3.v20130107-0100.jar
+807af000-807b2000 ---p 00000000 00:00 0 
+807b2000-80800000 rw-p 00000000 00:00 0 
+80800000-808fe000 rw-p 00000000 00:00 0 
+808fe000-80900000 ---p 00000000 00:00 0 
+80900000-80904000 r--s 00000000 08:25 264045     /var/cache/fontconfig/8801497958630a81b71ace7c5f9b32a8-le32d4.cache-4
+80904000-80908000 r--s 00000000 08:25 264041     /var/cache/fontconfig/b47c4e1ecd0709278f4910c18777a504-le32d4.cache-4
+80908000-80918000 r--s 00000000 08:25 264040     /var/cache/fontconfig/d52a8644073d54c13679302ca1180695-le32d4.cache-4
+80918000-8091a000 rw-p 00000000 00:00 0 
+8091a000-8091f000 r--s 0001b000 08:25 137405     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.team.ui_3.8.3.v20130107-0100.jar
+8091f000-80928000 r--s 0006a000 08:25 137524     /home/chenjia/Documents/eclipse/plugins/org.eclipse.search_3.8.0.v20120523-1540.jar
+80928000-8092c000 r--s 0000e000 08:25 137083     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jdt.debug_3.7.101.v20120913-153601/jdi.jar
+8092c000-8094e000 r--s 00184000 08:25 137376     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.tasks.ui_3.8.3.v20130107-0100.jar
+8094e000-80951000 rw-p 00000000 00:00 0 
+80951000-80954000 r--s 00018000 08:25 136931     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.security_1.1.100.v20120522-1841.jar
+80954000-80958000 r--s 0004d000 08:25 396025     /home/chenjia/Documents/eclipse/plugins/de.tum.in.jmoped_2.0.2/lib/javabdd-2.0.jar
+80958000-80961000 r--s 00071000 08:25 284699     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.core.lib_1.5.2.r42x201302111859/lib/MVEL-fork.jar
+80961000-80967000 r--s 0003d000 08:25 137247     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.bugzilla.ui_3.8.3.v20130107-0100.jar
+80967000-80981000 r--s 00139000 08:25 137244     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jdt.debug.ui_3.6.100.v20120530-1425.jar
+80981000-80986000 r--s 00024000 08:25 137368     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.commons.workbench_3.8.3.v20130107-0100.jar
+80986000-80987000 rw-p 00000000 00:00 0 
+80987000-8098a000 r--s 00011000 08:25 137210     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.util_1.0.400.v20120917-192807.jar
+8098a000-80993000 r--s 00059000 08:25 137375     /home/chenjia/Documents/eclipse/plugins/org.eclipse.team.core_3.6.100.v20120524-0627.jar
+80993000-809bd000 r--s 00208000 08:25 137361     /home/chenjia/Documents/eclipse/plugins/org.eclipse.egit.ui_2.2.0.201212191850-r.jar
+809bd000-809f0000 r--s 0024c000 08:25 137273     /home/chenjia/Documents/eclipse/plugins/org.eclipse.debug.ui_3.8.2.v20130130-171415.jar
+809f0000-809f3000 r--s 0001a000 08:25 136930     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.context.core_3.8.3.v20130107-0100.jar
+809f3000-809f7000 r--s 00027000 08:25 284701     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.core.lib_1.5.2.r42x201302111859/lib/commons-io-2.0.1.jar
+809f7000-80a00000 r--s 0005a000 08:25 137329     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.tasks.core_3.8.3.v20130107-0100.jar
+80a00000-80b00000 rw-p 00000000 00:00 0 
+80b00000-80bfd000 rw-p 00000000 00:00 0 
+80bfd000-80c00000 ---p 00000000 00:00 0 
+80c00000-80cff000 rw-p 00000000 00:00 0 
+80cff000-80d00000 ---p 00000000 00:00 0 
+80d00000-80dfe000 rw-p 00000000 00:00 0 
+80dfe000-80e00000 ---p 00000000 00:00 0 
+80e00000-80f00000 rw-p 00000000 00:00 0 
+80f00000-810f9000 rw-p 00000000 00:00 0 
+810f9000-81100000 ---p 00000000 00:00 0 
+81100000-811fd000 rw-p 00000000 00:00 0 
+811fd000-81200000 ---p 00000000 00:00 0 
+81200000-812f4000 rw-p 00000000 00:00 0 
+812f4000-81300000 ---p 00000000 00:00 0 
+81300000-813fa000 rw-p 00000000 00:00 0 
+813fa000-81400000 ---p 00000000 00:00 0 
+81400000-814e8000 rw-p 00000000 00:00 0 
+814e8000-81500000 ---p 00000000 00:00 0 
+81500000-81501000 r--s 00000000 08:25 264048     /var/cache/fontconfig/dc05db6664285cc2f12bf69c139ae4c3-le32d4.cache-4
+81501000-81502000 r--s 00000000 08:25 264046     /var/cache/fontconfig/4794a0821666d79190d59a36cb4f44b5-le32d4.cache-4
+81502000-81503000 r--s 00000000 08:25 264043     /var/cache/fontconfig/56cf4f4769d0f4abc89a4895d7bd3ae1-le32d4.cache-4
+81503000-8150a000 r--s 00000000 08:25 264039     /var/cache/fontconfig/3f7329c5293ffd510edef78f73874cfd-le32d4.cache-4
+8150a000-8150d000 r--s 00000000 08:25 264038     /var/cache/fontconfig/d589a48862398ed80a3d6066f4f56f4c-le32d4.cache-4
+8150d000-81516000 r--s 00000000 08:25 263103     /var/cache/fontconfig/089dead882dea3570ffc31a9898cfb69-le32d4.cache-4
+81516000-81518000 r--s 00000000 08:25 264025     /var/cache/fontconfig/e13b20fdb08344e0e664864cc2ede53d-le32d4.cache-4
+81518000-8151b000 r--s 00000000 08:25 263102     /var/cache/fontconfig/7ef2298fde41cc6eeb7af42e48b7d293-le32d4.cache-4
+8151b000-8151c000 rw-p 00000000 00:00 0 
+8151c000-8151e000 r--s 00006000 08:25 137580     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.tasks.index.ui_3.8.3.v20130107-0100.jar
+8151e000-81520000 r--s 00012000 08:25 137310     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.commons.net_3.8.3.v20130107-0100.jar
+81520000-81525000 r--s 0004a000 08:25 137188     /home/chenjia/Documents/eclipse/plugins/org.eclipse.egit.core_2.2.0.201212191850-r.jar
+81525000-8157f000 r-xp 00000000 08:25 530403     /usr/lib/i386-linux-gnu/libibus-1.0.so.5.0.505
+8157f000-81580000 r--p 0005a000 08:25 530403     /usr/lib/i386-linux-gnu/libibus-1.0.so.5.0.505
+81580000-81581000 rw-p 0005b000 08:25 530403     /usr/lib/i386-linux-gnu/libibus-1.0.so.5.0.505
+81581000-81584000 r--s 00018000 08:25 137673     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.commands_3.6.2.v20130123-162658.jar
+81584000-81587000 r--s 00019000 08:25 137479     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.commons.core_3.8.3.v20130107-0100.jar
+81587000-8158d000 r--s 0003d000 08:25 137348     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wst.common.snippets_1.2.200.v201204260225.jar
+8158d000-81596000 r-xp 00000000 08:25 284786     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/329/1/.cp/libswt-atk-gtk-4236.so
+81596000-81597000 rw-p 00009000 08:25 284786     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/329/1/.cp/libswt-atk-gtk-4236.so
+81597000-8159d000 r-xp 00000000 08:25 532017     /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+8159d000-8159e000 r--p 00005000 08:25 532017     /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+8159e000-8159f000 rw-p 00006000 08:25 532017     /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/immodules/im-ibus.so
+8159f000-815a3000 r--s 0001d000 08:25 137265     /home/chenjia/Documents/eclipse/plugins/org.eclipse.e4.ui.workbench.addons.swt_0.10.3.v20130124-185622.jar
+815a3000-815aa000 r--s 0004a000 08:25 137702     /home/chenjia/Documents/eclipse/plugins/org.eclipse.e4.ui.workbench.renderers.swt_0.10.3.v20130124-170312.jar
+815aa000-815ad000 r--s 00013000 08:25 137535     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.expressions_3.4.401.v20120912-155018.jar
+815ad000-815b1000 r--s 0001a000 08:25 137315     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ui.navigator.resources_3.4.400.v20120705-114010.jar
+815b1000-815b2000 rw-p 00000000 00:00 0 
+815b2000-815b4000 r--s 00015000 08:25 137369     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.contenttype_3.4.200.v20120523-2004.jar
+815b4000-815b8000 r--s 0001d000 08:25 137309     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.p2.repository_2.2.0.v20120524-1945.jar
+815b8000-815c0000 r--s 0004c000 08:25 137730     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.p2.metadata_2.1.0.v20120430-2001.jar
+815c0000-815c8000 rw-p 00000000 00:00 0 
+815c8000-815d1000 r--s 00031000 08:25 396027     /home/chenjia/Documents/eclipse/plugins/de.tum.in.jmoped_2.0.2/lib/jmoped-translator.jar
+815d1000-815d6000 r--s 00045000 08:25 137504     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ui.forms_3.5.200.v20120705-114351.jar
+815d6000-815db000 r--s 00049000 08:25 137595     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jdt.launching_3.6.101.v20130111-183046.jar
+815db000-815df000 r--s 00024000 08:25 137200     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ui.console_3.5.100.v20120521-2012.jar
+815df000-815e4000 r--s 00035000 08:25 137394     /home/chenjia/Documents/eclipse/plugins/org.eclipse.e4.ui.workbench_0.11.0.v20130125-100758.jar
+815e4000-815e6000 r--s 00004000 08:25 137502     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.team.cvs_3.8.3.v20130107-0100.jar
+815e6000-815ea000 r--s 00026000 08:25 137261     /home/chenjia/Documents/eclipse/plugins/org.eclipse.e4.ui.workbench.swt_0.10.3.v20130124-133900.jar
+815ea000-815ec000 rw-p 00000000 00:00 0 
+815ec000-815f3000 r--s 00049000 08:25 137196     /home/chenjia/Documents/eclipse/plugins/org.eclipse.ltk.core.refactoring_3.6.0.v20120523-1543.jar
+815f3000-815f7000 r--s 00025000 08:25 137584     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.java.ui_3.8.3.v20130107-0100.jar
+815f7000-815fa000 r--s 00019000 08:25 137285     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.filebuffers_3.5.200.v20120523-1310.jar
+815fa000-815fc000 r-xp 00000000 08:25 395837     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/74/1/.cp/os/linux/x86/libunixfile_1_0_0.so
+815fc000-815fd000 rw-p 00001000 08:25 395837     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/74/1/.cp/os/linux/x86/libunixfile_1_0_0.so
+815fd000-81600000 rw-p 00000000 00:00 0 
+81600000-816fd000 rw-p 00000000 00:00 0 
+816fd000-81700000 ---p 00000000 00:00 0 
+81700000-817fa000 rw-p 00000000 00:00 0 
+817fa000-81800000 ---p 00000000 00:00 0 
+81800000-818fb000 rw-p 00000000 00:00 0 
+818fb000-81900000 ---p 00000000 00:00 0 
+81900000-81901000 r--s 00000000 08:25 264042     /var/cache/fontconfig/b9d506c9ac06c20b433354fa67a72993-le32d4.cache-4
+81901000-81905000 rwxp 00000000 00:00 0 
+81905000-8190a000 r-xp 00000000 08:25 529888     /usr/lib/i386-linux-gnu/libXtst.so.6.1.0
+8190a000-8190b000 r--p 00004000 08:25 529888     /usr/lib/i386-linux-gnu/libXtst.so.6.1.0
+8190b000-8190c000 rw-p 00005000 08:25 529888     /usr/lib/i386-linux-gnu/libXtst.so.6.1.0
+8190c000-8190d000 r-xp 00000000 08:25 530365     /usr/lib/i386-linux-gnu/libgthread-2.0.so.0.4000.0
+8190d000-8190e000 r--p 00000000 08:25 530365     /usr/lib/i386-linux-gnu/libgthread-2.0.so.0.4000.0
+8190e000-8190f000 rw-p 00001000 08:25 530365     /usr/lib/i386-linux-gnu/libgthread-2.0.so.0.4000.0
+8190f000-81912000 r-xp 00000000 08:25 284777     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/329/1/.cp/libswt-gtk-4236.so
+81912000-81913000 rw-p 00002000 08:25 284777     /home/chenjia/Documents/eclipse/configuration/org.eclipse.osgi/bundles/329/1/.cp/libswt-gtk-4236.so
+81913000-81915000 rw-p 00000000 00:00 0 
+81915000-81917000 r--s 0000b000 08:25 137295     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.monitor.ui_3.8.3.v20130107-0100.jar
+81917000-8191d000 rw-p 00000000 00:00 0 
+8191d000-81922000 r--s 00043000 08:25 284700     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.core.lib_1.5.2.r42x201302111859/lib/commons-lang-2.5.jar
+81922000-81925000 r--s 0001a000 08:25 137267     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.p2.metadata.repository_1.2.100.v20120524-1717.jar
+81925000-81927000 rw-p 00000000 00:00 0 
+81927000-81929000 r--s 0000d000 08:25 137523     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jdt.compiler.tool_1.0.200.v20130116-050536.jar
+81929000-8193d000 r--s 000f7000 08:25 137581     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jface_3.8.102.v20130123-162658.jar
+8193d000-81940000 r--s 00016000 08:25 136937     /home/chenjia/Documents/eclipse/plugins/org.eclipse.m2e.launching_1.3.0.20130129-0926.jar
+81940000-81942000 r--s 0000d000 08:25 137298     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.p2.operations_2.2.0.v20130119-010614.jar
+81942000-81948000 r--s 00039000 08:25 137578     /home/chenjia/Documents/eclipse/plugins/org.eclipse.epp.mpc.ui_1.1.1.I20110907-0947.jar
+81948000-8194a000 r--s 00024000 08:25 137149     /home/chenjia/Documents/eclipse/plugins/org.eclipse.jdt.compiler.apt_1.0.600.v20130116-050536.jar
+8194a000-8194c000 rw-p 00000000 00:00 0 
+8194c000-8194f000 r--s 0000e000 08:25 137490     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.resources.ui_3.8.3.v20130107-0100.jar
+8194f000-81951000 rw-p 00000000 00:00 0 
+81951000-81953000 r--s 0000a000 08:25 137264     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.discovery.core_1.5.2.r42x201302111927.jar
+81953000-81955000 rw-p 00000000 00:00 0 
+81955000-81958000 r--s 0000f000 08:25 396028     /home/chenjia/Documents/eclipse/plugins/de.tum.in.jmoped_2.0.2/lib/jwpds.jar
+81958000-8195a000 r--s 0000e000 08:25 137499     /home/chenjia/Documents/eclipse/plugins/org.eclipse.wb.discovery.ui_1.5.2.r42x201302111927.jar
+8195a000-8195d000 ---p 00000000 00:00 0 
+8195d000-819ab000 rw-p 00000000 00:00 0          [stack:2943]
+819ab000-819ad000 r--s 00003000 08:25 137531     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.p2.updatechecker_1.1.200.v20110808-1657.jar
+819ad000-819af000 r--s 0000d000 08:25 137506     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.p2.ui.sdk.scheduler_1.1.0.v20110815-1744.jar
+819af000-819b2000 ---p 00000000 00:00 0 
+819b2000-81a00000 rw-p 00000000 00:00 0          [stack:2942]
+81a00000-81afd000 rw-p 00000000 00:00 0 
+81afd000-81b00000 ---p 00000000 00:00 0 
+81b00000-81b01000 r--s 00000000 08:25 264037     /var/cache/fontconfig/0c9eb80ebd1c36541ebe2852d3bb0c49-le32d4.cache-4
+81b01000-81b02000 rw-p 00000000 00:00 0 
+81b02000-81b06000 r--s 0002d000 08:25 137087     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.p2.engine_2.2.0.v20130121-021919.jar
+81b06000-81b08000 r--s 00002000 08:25 284103     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.5.101.v20130108-163257/runtime_registry_compatibility.jar
+81b08000-81b0b000 r--s 0002a000 08:25 137406     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.registry_3.5.200.v20120522-1841.jar
+81b0b000-81b0d000 r--s 00010000 08:25 137579     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.p2.core_2.2.0.v20120430-0525.jar
+81b0d000-81b10000 ---p 00000000 00:00 0 
+81b10000-81c5e000 rw-p 00000000 00:00 0          [stack:2953]
+81c5e000-81c61000 ---p 00000000 00:00 0 
+81c61000-81caf000 rw-p 00000000 00:00 0          [stack:2940]
+81caf000-81cb2000 ---p 00000000 00:00 0 
+81cb2000-81d00000 rw-p 00000000 00:00 0          [stack:2939]
+81d00000-81dfd000 rw-p 00000000 00:00 0 
+81dfd000-81e00000 ---p 00000000 00:00 0 
+81e00000-81efb000 rw-p 00000000 00:00 0 
+81efb000-81f00000 ---p 00000000 00:00 0 
+81f00000-82000000 rw-p 00000000 00:00 0 
+82000000-820f9000 rw-p 00000000 00:00 0 
+820f9000-82100000 ---p 00000000 00:00 0 
+82100000-821ff000 rw-p 00000000 00:00 0 
+821ff000-82200000 ---p 00000000 00:00 0 
+82200000-82300000 rw-p 00000000 00:00 0 
+82300000-82301000 rw-p 00000000 00:00 0 
+82301000-82317000 r--s 00233000 08:25 137211     /home/chenjia/Documents/eclipse/plugins/org.eclipse.swt.gtk.linux.x86_3.100.1.v4236b.jar
+82317000-82319000 r--s 00004000 08:25 137255     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.java.tasks_3.8.3.v20130107-0100.jar
+82319000-8231b000 r--s 00008000 08:25 137335     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.monitor.core_3.8.3.v20130107-0100.jar
+8231b000-8231d000 r--s 00015000 08:25 137176     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.jobs_3.5.300.v20120912-155018.jar
+8231d000-8231f000 r--s 0000d000 08:25 137300     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.filesystem_1.3.200.v20130115-145044.jar
+8231f000-82322000 ---p 00000000 00:00 0 
+82322000-82370000 rw-p 00000000 00:00 0          [stack:2938]
+82370000-82373000 ---p 00000000 00:00 0 
+82373000-823c1000 rw-p 00000000 00:00 0          [stack:2937]
+823c1000-823dd000 r--s 00393000 08:25 266134     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/ext/cldrdata.jar
+823dd000-823e8000 r--s 0021a000 08:25 266137     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/ext/localedata.jar
+823e8000-823fc000 r-xp 00000000 08:25 265857     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libnet.so
+823fc000-823fd000 rw-p 00014000 08:25 265857     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libnet.so
+823fd000-82411000 r--s 00142000 08:25 137266     /home/chenjia/Documents/eclipse/plugins/org.eclipse.osgi_3.8.2.v20130124-134944.jar
+82411000-82471000 rw-s 00000000 00:04 6094862    /SYSV00000000 (deleted)
+82471000-824d5000 rw-p 00000000 00:00 0 
+824d5000-824d6000 ---p 00000000 00:00 0 
+824d6000-82cd6000 rw-p 00000000 00:00 0          [stack:2936]
+82cd6000-82cf4000 r--s 00000000 08:25 788034     /usr/share/mime/mime.cache
+82cf4000-82cf5000 ---p 00000000 00:00 0 
+82cf5000-834f5000 rw-p 00000000 00:00 0          [stack:2935]
+834f5000-8350e000 r-xp 00000000 08:25 531780     /usr/lib/i386-linux-gnu/gio/modules/libgioremote-volume-monitor.so
+8350e000-8350f000 ---p 00019000 08:25 531780     /usr/lib/i386-linux-gnu/gio/modules/libgioremote-volume-monitor.so
+8350f000-83510000 r--p 00019000 08:25 531780     /usr/lib/i386-linux-gnu/gio/modules/libgioremote-volume-monitor.so
+83510000-83511000 rw-p 0001a000 08:25 531780     /usr/lib/i386-linux-gnu/gio/modules/libgioremote-volume-monitor.so
+83511000-8355a000 r-xp 00000000 08:25 268577     /lib/i386-linux-gnu/libdbus-1.so.3.7.6
+8355a000-8355b000 r--p 00048000 08:25 268577     /lib/i386-linux-gnu/libdbus-1.so.3.7.6
+8355b000-8355c000 rw-p 00049000 08:25 268577     /lib/i386-linux-gnu/libdbus-1.so.3.7.6
+8355c000-83564000 r-xp 00000000 08:25 263196     /lib/i386-linux-gnu/libnih-dbus.so.1.0.0
+83564000-83565000 r--p 00007000 08:25 263196     /lib/i386-linux-gnu/libnih-dbus.so.1.0.0
+83565000-83566000 rw-p 00008000 08:25 263196     /lib/i386-linux-gnu/libnih-dbus.so.1.0.0
+83566000-8357d000 r-xp 00000000 08:25 263198     /lib/i386-linux-gnu/libnih.so.1.0.0
+8357d000-8357e000 r--p 00016000 08:25 263198     /lib/i386-linux-gnu/libnih.so.1.0.0
+8357e000-8357f000 rw-p 00017000 08:25 263198     /lib/i386-linux-gnu/libnih.so.1.0.0
+8357f000-8359b000 r-xp 00000000 08:25 275776     /lib/i386-linux-gnu/libcgmanager.so.0.0.0
+8359b000-8359c000 r--p 0001b000 08:25 275776     /lib/i386-linux-gnu/libcgmanager.so.0.0.0
+8359c000-8359d000 rw-p 0001c000 08:25 275776     /lib/i386-linux-gnu/libcgmanager.so.0.0.0
+8359d000-835ae000 r-xp 00000000 08:25 266841     /lib/i386-linux-gnu/libudev.so.1.3.5
+835ae000-835af000 r--p 00010000 08:25 266841     /lib/i386-linux-gnu/libudev.so.1.3.5
+835af000-835b0000 rw-p 00011000 08:25 266841     /lib/i386-linux-gnu/libudev.so.1.3.5
+835b0000-835e2000 r-xp 00000000 08:25 532081     /usr/lib/i386-linux-gnu/gvfs/libgvfscommon.so
+835e2000-835e4000 r--p 00032000 08:25 532081     /usr/lib/i386-linux-gnu/gvfs/libgvfscommon.so
+835e4000-835e5000 rw-p 00034000 08:25 532081     /usr/lib/i386-linux-gnu/gvfs/libgvfscommon.so
+835e5000-83615000 r-xp 00000000 08:25 531781     /usr/lib/i386-linux-gnu/gio/modules/libgvfsdbus.so
+83615000-83616000 r--p 0002f000 08:25 531781     /usr/lib/i386-linux-gnu/gio/modules/libgvfsdbus.so
+83616000-83617000 rw-p 00030000 08:25 531781     /usr/lib/i386-linux-gnu/gio/modules/libgvfsdbus.so
+83617000-83633000 r-xp 00000000 08:25 263161     /lib/i386-linux-gnu/libgcc_s.so.1
+83633000-83634000 rw-p 0001b000 08:25 263161     /lib/i386-linux-gnu/libgcc_s.so.1
+83634000-83710000 r-xp 00000000 08:25 530751     /usr/lib/i386-linux-gnu/libstdc++.so.6.0.19
+83710000-83711000 ---p 000dc000 08:25 530751     /usr/lib/i386-linux-gnu/libstdc++.so.6.0.19
+83711000-83715000 r--p 000dc000 08:25 530751     /usr/lib/i386-linux-gnu/libstdc++.so.6.0.19
+83715000-83716000 rw-p 000e0000 08:25 530751     /usr/lib/i386-linux-gnu/libstdc++.so.6.0.19
+83716000-8371d000 rw-p 00000000 00:00 0 
+8371d000-8373b000 r-xp 00000000 08:25 530626     /usr/lib/i386-linux-gnu/libproxy.so.1.0.0
+8373b000-8373c000 ---p 0001e000 08:25 530626     /usr/lib/i386-linux-gnu/libproxy.so.1.0.0
+8373c000-8373d000 r--p 0001e000 08:25 530626     /usr/lib/i386-linux-gnu/libproxy.so.1.0.0
+8373d000-8373e000 rw-p 0001f000 08:25 530626     /usr/lib/i386-linux-gnu/libproxy.so.1.0.0
+8373e000-8373f000 r--s 00000000 08:25 133352     /home/chenjia/.local/share/gvfs-metadata/root
+8373f000-8374e000 r-xp 00000000 08:25 265892     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libnio.so
+8374e000-8374f000 rw-p 0000e000 08:25 265892     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libnio.so
+8374f000-83752000 r-xp 00000000 08:25 531696     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+83752000-83753000 r--p 00002000 08:25 531696     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+83753000-83754000 rw-p 00003000 08:25 531696     /usr/lib/i386-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+83754000-83794000 r--p 00000000 08:25 1183482    /usr/share/glib-2.0/schemas/gschemas.compiled
+83794000-837bd000 r-xp 00000000 08:25 530840     /usr/lib/i386-linux-gnu/libvorbis.so.0.4.5
+837bd000-837be000 ---p 00029000 08:25 530840     /usr/lib/i386-linux-gnu/libvorbis.so.0.4.5
+837be000-837bf000 r--p 00029000 08:25 530840     /usr/lib/i386-linux-gnu/libvorbis.so.0.4.5
+837bf000-837c0000 rw-p 0002a000 08:25 530840     /usr/lib/i386-linux-gnu/libvorbis.so.0.4.5
+837c0000-837c9000 r-xp 00000000 08:25 530472     /usr/lib/i386-linux-gnu/libltdl.so.7.3.0
+837c9000-837ca000 r--p 00008000 08:25 530472     /usr/lib/i386-linux-gnu/libltdl.so.7.3.0
+837ca000-837cb000 rw-p 00009000 08:25 530472     /usr/lib/i386-linux-gnu/libltdl.so.7.3.0
+837cb000-837dd000 r-xp 00000000 08:25 530761     /usr/lib/i386-linux-gnu/libtdb.so.1.2.12
+837dd000-837de000 r--p 00011000 08:25 530761     /usr/lib/i386-linux-gnu/libtdb.so.1.2.12
+837de000-837df000 rw-p 00012000 08:25 530761     /usr/lib/i386-linux-gnu/libtdb.so.1.2.12
+837df000-837e7000 r-xp 00000000 08:25 530844     /usr/lib/i386-linux-gnu/libvorbisfile.so.3.3.4
+837e7000-837e8000 r--p 00007000 08:25 530844     /usr/lib/i386-linux-gnu/libvorbisfile.so.3.3.4
+837e8000-837e9000 rw-p 00008000 08:25 530844     /usr/lib/i386-linux-gnu/libvorbisfile.so.3.3.4
+837e9000-837f8000 r-xp 00000000 08:25 529986     /usr/lib/i386-linux-gnu/libcanberra.so.0.2.5
+837f8000-837f9000 r--p 0000e000 08:25 529986     /usr/lib/i386-linux-gnu/libcanberra.so.0.2.5
+837f9000-837fa000 rw-p 0000f000 08:25 529986     /usr/lib/i386-linux-gnu/libcanberra.so.0.2.5
+837fa000-837fd000 r--s 00013000 08:25 137513     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.app_1.3.100.v20120522-1841.jar
+837fd000-83803000 r--p 00000000 08:25 133431     /home/chenjia/.config/dconf/user
+83803000-8380e000 r-xp 00000000 08:25 531776     /usr/lib/i386-linux-gnu/gio/modules/libdconfsettings.so
+8380e000-8380f000 r--p 0000a000 08:25 531776     /usr/lib/i386-linux-gnu/gio/modules/libdconfsettings.so
+8380f000-83810000 rw-p 0000b000 08:25 531776     /usr/lib/i386-linux-gnu/gio/modules/libdconfsettings.so
+83810000-83845000 r-xp 00000000 08:25 532013     /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/engines/libmurrine.so
+83845000-83846000 r--p 00034000 08:25 532013     /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/engines/libmurrine.so
+83846000-83847000 rw-p 00035000 08:25 532013     /usr/lib/i386-linux-gnu/gtk-2.0/2.10.0/engines/libmurrine.so
+83847000-83857000 r-xp 00000000 08:25 530808     /usr/lib/i386-linux-gnu/libunity-gtk2-parser.so.0.0.0
+83857000-83858000 r--p 0000f000 08:25 530808     /usr/lib/i386-linux-gnu/libunity-gtk2-parser.so.0.0.0
+83858000-83859000 rw-p 00010000 08:25 530808     /usr/lib/i386-linux-gnu/libunity-gtk2-parser.so.0.0.0
+83859000-83860000 r-xp 00000000 08:25 530566     /usr/lib/i386-linux-gnu/libogg.so.0.8.1
+83860000-83861000 r--p 00006000 08:25 530566     /usr/lib/i386-linux-gnu/libogg.so.0.8.1
+83861000-83862000 rw-p 00007000 08:25 530566     /usr/lib/i386-linux-gnu/libogg.so.0.8.1
+83862000-83866000 r-xp 00000000 08:25 529982     /usr/lib/i386-linux-gnu/libcanberra-gtk.so.0.1.9
+83866000-83867000 r--p 00003000 08:25 529982     /usr/lib/i386-linux-gnu/libcanberra-gtk.so.0.1.9
+83867000-83868000 rw-p 00004000 08:25 529982     /usr/lib/i386-linux-gnu/libcanberra-gtk.so.0.1.9
+83868000-8386c000 r-xp 00000000 08:25 532031     /usr/lib/i386-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+8386c000-8386d000 ---p 00004000 08:25 532031     /usr/lib/i386-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+8386d000-8386e000 r--p 00004000 08:25 532031     /usr/lib/i386-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+8386e000-8386f000 rw-p 00005000 08:25 532031     /usr/lib/i386-linux-gnu/gtk-2.0/modules/libcanberra-gtk-module.so
+8386f000-83873000 r-xp 00000000 08:25 532035     /usr/lib/i386-linux-gnu/gtk-2.0/modules/libunity-gtk-module.so
+83873000-83874000 r--p 00003000 08:25 532035     /usr/lib/i386-linux-gnu/gtk-2.0/modules/libunity-gtk-module.so
+83874000-83875000 rw-p 00004000 08:25 532035     /usr/lib/i386-linux-gnu/gtk-2.0/modules/libunity-gtk-module.so
+83875000-83893000 r-xp 00000000 08:25 529939     /usr/lib/i386-linux-gnu/libatk-1.0.so.0.21009.1
+83893000-83895000 r--p 0001d000 08:25 529939     /usr/lib/i386-linux-gnu/libatk-1.0.so.0.21009.1
+83895000-83896000 rw-p 0001f000 08:25 529939     /usr/lib/i386-linux-gnu/libatk-1.0.so.0.21009.1
+83896000-83cfd000 r-xp 00000000 08:25 530103     /usr/lib/i386-linux-gnu/libgtk-x11-2.0.so.0.2400.23
+83cfd000-83d01000 r--p 00466000 08:25 530103     /usr/lib/i386-linux-gnu/libgtk-x11-2.0.so.0.2400.23
+83d01000-83d03000 rw-p 0046a000 08:25 530103     /usr/lib/i386-linux-gnu/libgtk-x11-2.0.so.0.2400.23
+83d03000-83d05000 rw-p 00000000 00:00 0 
+83d05000-83d1f000 r-xp 00000000 08:25 530276     /usr/lib/i386-linux-gnu/libgraphite2.so.3.0.1
+83d1f000-83d20000 r--p 00019000 08:25 530276     /usr/lib/i386-linux-gnu/libgraphite2.so.3.0.1
+83d20000-83d21000 rw-p 0001a000 08:25 530276     /usr/lib/i386-linux-gnu/libgraphite2.so.3.0.1
+83d21000-83d26000 r-xp 00000000 08:25 529858     /usr/lib/i386-linux-gnu/libXdmcp.so.6.0.0
+83d26000-83d27000 r--p 00004000 08:25 529858     /usr/lib/i386-linux-gnu/libXdmcp.so.6.0.0
+83d27000-83d28000 rw-p 00005000 08:25 529858     /usr/lib/i386-linux-gnu/libXdmcp.so.6.0.0
+83d28000-83d2a000 r-xp 00000000 08:25 529847     /usr/lib/i386-linux-gnu/libXau.so.6.0.0
+83d2a000-83d2b000 r--p 00001000 08:25 529847     /usr/lib/i386-linux-gnu/libXau.so.6.0.0
+83d2b000-83d2c000 rw-p 00002000 08:25 529847     /usr/lib/i386-linux-gnu/libXau.so.6.0.0
+83d2c000-83d33000 r-xp 00000000 08:25 530050     /usr/lib/i386-linux-gnu/libdatrie.so.1.3.1
+83d33000-83d34000 r--p 00006000 08:25 530050     /usr/lib/i386-linux-gnu/libdatrie.so.1.3.1
+83d34000-83d35000 rw-p 00007000 08:25 530050     /usr/lib/i386-linux-gnu/libdatrie.so.1.3.1
+83d35000-83d89000 r-xp 00000000 08:25 530389     /usr/lib/i386-linux-gnu/libharfbuzz.so.0.927.0
+83d89000-83d8a000 r--p 00054000 08:25 530389     /usr/lib/i386-linux-gnu/libharfbuzz.so.0.927.0
+83d8a000-83d8b000 rw-p 00055000 08:25 530389     /usr/lib/i386-linux-gnu/libharfbuzz.so.0.927.0
+83d8b000-83dab000 r-xp 00000000 08:25 530911     /usr/lib/i386-linux-gnu/libxcb.so.1.1.0
+83dab000-83dac000 r--p 0001f000 08:25 530911     /usr/lib/i386-linux-gnu/libxcb.so.1.1.0
+83dac000-83dad000 rw-p 00020000 08:25 530911     /usr/lib/i386-linux-gnu/libxcb.so.1.1.0
+83dad000-83db5000 r-xp 00000000 08:25 530897     /usr/lib/i386-linux-gnu/libxcb-render.so.0.0.0
+83db5000-83db6000 r--p 00008000 08:25 530897     /usr/lib/i386-linux-gnu/libxcb-render.so.0.0.0
+83db6000-83db7000 rw-p 00009000 08:25 530897     /usr/lib/i386-linux-gnu/libxcb-render.so.0.0.0
+83db7000-83ddd000 r-xp 00000000 08:25 263249     /lib/i386-linux-gnu/libpng12.so.0.50.0
+83ddd000-83dde000 r--p 00025000 08:25 263249     /lib/i386-linux-gnu/libpng12.so.0.50.0
+83dde000-83ddf000 rw-p 00026000 08:25 263249     /lib/i386-linux-gnu/libpng12.so.0.50.0
+83ddf000-83e83000 r-xp 00000000 08:25 530605     /usr/lib/i386-linux-gnu/libpixman-1.so.0.30.2
+83e83000-83e88000 r--p 000a4000 08:25 530605     /usr/lib/i386-linux-gnu/libpixman-1.so.0.30.2
+83e88000-83e89000 rw-p 000a9000 08:25 530605     /usr/lib/i386-linux-gnu/libpixman-1.so.0.30.2
+83e89000-83eae000 r-xp 00000000 08:25 263156     /lib/i386-linux-gnu/libexpat.so.1.6.0
+83eae000-83eaf000 ---p 00025000 08:25 263156     /lib/i386-linux-gnu/libexpat.so.1.6.0
+83eaf000-83eb1000 r--p 00025000 08:25 263156     /lib/i386-linux-gnu/libexpat.so.1.6.0
+83eb1000-83eb2000 rw-p 00027000 08:25 263156     /lib/i386-linux-gnu/libexpat.so.1.6.0
+83eb2000-83ec5000 r-xp 00000000 08:25 263260     /lib/i386-linux-gnu/libresolv-2.19.so
+83ec5000-83ec6000 ---p 00013000 08:25 263260     /lib/i386-linux-gnu/libresolv-2.19.so
+83ec6000-83ec7000 r--p 00013000 08:25 263260     /lib/i386-linux-gnu/libresolv-2.19.so
+83ec7000-83ec8000 rw-p 00014000 08:25 263260     /lib/i386-linux-gnu/libresolv-2.19.so
+83ec8000-83eca000 rw-p 00000000 00:00 0 
+83eca000-83eea000 r-xp 00000000 08:25 272599     /lib/i386-linux-gnu/libselinux.so.1
+83eea000-83eeb000 r--p 0001f000 08:25 272599     /lib/i386-linux-gnu/libselinux.so.1
+83eeb000-83eec000 rw-p 00020000 08:25 272599     /lib/i386-linux-gnu/libselinux.so.1
+83eec000-83eed000 rw-p 00000000 00:00 0 
+83eed000-83f05000 r-xp 00000000 08:25 263297     /lib/i386-linux-gnu/libz.so.1.2.8
+83f05000-83f06000 r--p 00017000 08:25 263297     /lib/i386-linux-gnu/libz.so.1.2.8
+83f06000-83f07000 rw-p 00018000 08:25 263297     /lib/i386-linux-gnu/libz.so.1.2.8
+83f07000-83f0f000 r-xp 00000000 08:25 530773     /usr/lib/i386-linux-gnu/libthai.so.0.2.0
+83f0f000-83f10000 r--p 00007000 08:25 530773     /usr/lib/i386-linux-gnu/libthai.so.0.2.0
+83f10000-83f11000 rw-p 00008000 08:25 530773     /usr/lib/i386-linux-gnu/libthai.so.0.2.0
+83f11000-83f14000 r-xp 00000000 08:25 530242     /usr/lib/i386-linux-gnu/libgmodule-2.0.so.0.4000.0
+83f14000-83f15000 r--p 00002000 08:25 530242     /usr/lib/i386-linux-gnu/libgmodule-2.0.so.0.4000.0
+83f15000-83f16000 rw-p 00003000 08:25 530242     /usr/lib/i386-linux-gnu/libgmodule-2.0.so.0.4000.0
+83f16000-83fb0000 r-xp 00000000 08:25 527918     /usr/lib/i386-linux-gnu/libfreetype.so.6.11.1
+83fb0000-83fb1000 ---p 0009a000 08:25 527918     /usr/lib/i386-linux-gnu/libfreetype.so.6.11.1
+83fb1000-83fb5000 r--p 0009a000 08:25 527918     /usr/lib/i386-linux-gnu/libfreetype.so.6.11.1
+83fb5000-83fb6000 rw-p 0009e000 08:25 527918     /usr/lib/i386-linux-gnu/libfreetype.so.6.11.1
+83fb6000-83fca000 r-xp 00000000 08:25 530586     /usr/lib/i386-linux-gnu/libpangoft2-1.0.so.0.3600.3
+83fca000-83fcb000 r--p 00013000 08:25 530586     /usr/lib/i386-linux-gnu/libpangoft2-1.0.so.0.3600.3
+83fcb000-83fcc000 rw-p 00014000 08:25 530586     /usr/lib/i386-linux-gnu/libpangoft2-1.0.so.0.3600.3
+83fcc000-83fdd000 r-xp 00000000 08:25 529860     /usr/lib/i386-linux-gnu/libXext.so.6.4.0
+83fdd000-83fde000 r--p 00010000 08:25 529860     /usr/lib/i386-linux-gnu/libXext.so.6.4.0
+83fde000-83fdf000 rw-p 00011000 08:25 529860     /usr/lib/i386-linux-gnu/libXext.so.6.4.0
+83fdf000-8410f000 r-xp 00000000 08:25 529843     /usr/lib/i386-linux-gnu/libX11.so.6.3.0
+8410f000-84110000 r--p 00130000 08:25 529843     /usr/lib/i386-linux-gnu/libX11.so.6.3.0
+84110000-84112000 rw-p 00131000 08:25 529843     /usr/lib/i386-linux-gnu/libX11.so.6.3.0
+84112000-84113000 rw-p 00000000 00:00 0 
+84113000-84232000 r-xp 00000000 08:25 529978     /usr/lib/i386-linux-gnu/libcairo.so.2.11301.0
+84232000-84234000 r--p 0011e000 08:25 529978     /usr/lib/i386-linux-gnu/libcairo.so.2.11301.0
+84234000-84235000 rw-p 00120000 08:25 529978     /usr/lib/i386-linux-gnu/libcairo.so.2.11301.0
+84235000-84236000 rw-p 00000000 00:00 0 
+84236000-8423a000 r-xp 00000000 08:25 529862     /usr/lib/i386-linux-gnu/libXfixes.so.3.1.0
+8423a000-8423b000 r--p 00003000 08:25 529862     /usr/lib/i386-linux-gnu/libXfixes.so.3.1.0
+8423b000-8423c000 rw-p 00004000 08:25 529862     /usr/lib/i386-linux-gnu/libXfixes.so.3.1.0
+8423c000-84275000 r-xp 00000000 08:25 527916     /usr/lib/i386-linux-gnu/libfontconfig.so.1.8.0
+84275000-84276000 r--p 00039000 08:25 527916     /usr/lib/i386-linux-gnu/libfontconfig.so.1.8.0
+84276000-84277000 rw-p 0003a000 08:25 527916     /usr/lib/i386-linux-gnu/libfontconfig.so.1.8.0
+84277000-843f4000 r-xp 00000000 08:25 530228     /usr/lib/i386-linux-gnu/libgio-2.0.so.0.4000.0
+843f4000-843f6000 r--p 0017c000 08:25 530228     /usr/lib/i386-linux-gnu/libgio-2.0.so.0.4000.0
+843f6000-843f7000 rw-p 0017e000 08:25 530228     /usr/lib/i386-linux-gnu/libgio-2.0.so.0.4000.0
+843f7000-843f8000 rw-p 00000000 00:00 0 
+843f8000-84442000 r-xp 00000000 08:25 530582     /usr/lib/i386-linux-gnu/libpango-1.0.so.0.3600.3
+84442000-84443000 ---p 0004a000 08:25 530582     /usr/lib/i386-linux-gnu/libpango-1.0.so.0.3600.3
+84443000-84444000 r--p 0004a000 08:25 530582     /usr/lib/i386-linux-gnu/libpango-1.0.so.0.3600.3
+84444000-84445000 rw-p 0004b000 08:25 530582     /usr/lib/i386-linux-gnu/libpango-1.0.so.0.3600.3
+84445000-844f0000 r-xp 00000000 08:25 528994     /usr/lib/i386-linux-gnu/libgdk-x11-2.0.so.0.2400.23
+844f0000-844f1000 ---p 000ab000 08:25 528994     /usr/lib/i386-linux-gnu/libgdk-x11-2.0.so.0.2400.23
+844f1000-844f3000 r--p 000ab000 08:25 528994     /usr/lib/i386-linux-gnu/libgdk-x11-2.0.so.0.2400.23
+844f3000-844f4000 rw-p 000ad000 08:25 528994     /usr/lib/i386-linux-gnu/libgdk-x11-2.0.so.0.2400.23
+844f4000-845fe000 r-xp 00000000 08:25 263165     /lib/i386-linux-gnu/libglib-2.0.so.0.4000.0
+845fe000-845ff000 r--p 00109000 08:25 263165     /lib/i386-linux-gnu/libglib-2.0.so.0.4000.0
+845ff000-84600000 rw-p 0010a000 08:25 263165     /lib/i386-linux-gnu/libglib-2.0.so.0.4000.0
+84600000-846fc000 rw-p 00000000 00:00 0 
+846fc000-84700000 ---p 00000000 00:00 0 
+84700000-84702000 r-xp 00000000 08:25 530901     /usr/lib/i386-linux-gnu/libxcb-shm.so.0.0.0
+84702000-84703000 r--p 00001000 08:25 530901     /usr/lib/i386-linux-gnu/libxcb-shm.so.0.0.0
+84703000-84704000 rw-p 00002000 08:25 530901     /usr/lib/i386-linux-gnu/libxcb-shm.so.0.0.0
+84704000-84706000 r-xp 00000000 08:25 529856     /usr/lib/i386-linux-gnu/libXdamage.so.1.1.0
+84706000-84707000 r--p 00001000 08:25 529856     /usr/lib/i386-linux-gnu/libXdamage.so.1.1.0
+84707000-84708000 rw-p 00002000 08:25 529856     /usr/lib/i386-linux-gnu/libXdamage.so.1.1.0
+84708000-84758000 r-xp 00000000 08:25 530258     /usr/lib/i386-linux-gnu/libgobject-2.0.so.0.4000.0
+84758000-84759000 r--p 0004f000 08:25 530258     /usr/lib/i386-linux-gnu/libgobject-2.0.so.0.4000.0
+84759000-8475a000 rw-p 00050000 08:25 530258     /usr/lib/i386-linux-gnu/libgobject-2.0.so.0.4000.0
+8475a000-8475b000 ---p 00000000 00:00 0 
+8475b000-847db000 rw-p 00000000 00:00 0          [stack:2934]
+847db000-847de000 ---p 00000000 00:00 0 
+847de000-8482c000 rw-p 00000000 00:00 0          [stack:2933]
+8482c000-8482f000 ---p 00000000 00:00 0 
+8482f000-848ad000 rw-p 00000000 00:00 0          [stack:2932]
+848ad000-848b0000 ---p 00000000 00:00 0 
+848b0000-8492e000 rw-p 00000000 00:00 0          [stack:2931]
+8492e000-84931000 ---p 00000000 00:00 0 
+84931000-849af000 rw-p 00000000 00:00 0          [stack:2930]
+849af000-849b2000 ---p 00000000 00:00 0 
+849b2000-84a00000 rw-p 00000000 00:00 0          [stack:2929]
+84a00000-84c00000 r--p 00000000 08:25 533691     /usr/lib/locale/locale-archive
+84c00000-84cfd000 rw-p 00000000 00:00 0 
+84cfd000-84d00000 ---p 00000000 00:00 0 
+84d00000-84e00000 rw-p 00000000 00:00 0 
+84e00000-84efa000 rw-p 00000000 00:00 0 
+84efa000-84f00000 ---p 00000000 00:00 0 
+84f00000-84f02000 r--s 00007000 08:25 137334     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.variables_3.2.600.v20120521-2012.jar
+84f02000-84f0b000 r-xp 00000000 08:25 529854     /usr/lib/i386-linux-gnu/libXcursor.so.1.0.2
+84f0b000-84f0c000 r--p 00008000 08:25 529854     /usr/lib/i386-linux-gnu/libXcursor.so.1.0.2
+84f0c000-84f0d000 rw-p 00009000 08:25 529854     /usr/lib/i386-linux-gnu/libXcursor.so.1.0.2
+84f0d000-84f10000 ---p 00000000 00:00 0 
+84f10000-84f5e000 rw-p 00000000 00:00 0          [stack:2928]
+84f5e000-84f5f000 ---p 00000000 00:00 0 
+84f5f000-84fdf000 rw-p 00000000 00:00 0          [stack:2926]
+84fdf000-851b4000 r--s 03c4d000 08:25 265934     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/rt.jar
+851b4000-855fa000 rw-p 00000000 00:00 0 
+855fa000-85600000 ---p 00000000 00:00 0 
+85600000-86800000 rw-p 00000000 00:00 0 
+86800000-868f9000 rw-p 00000000 00:00 0 
+868f9000-86900000 ---p 00000000 00:00 0 
+86900000-86901000 r--s 00003000 08:25 137245     /home/chenjia/Documents/eclipse/plugins/org.eclipse.e4.ui.di_0.10.1.v20120523-1955.jar
+86901000-86903000 r--s 0000f000 08:25 137389     /home/chenjia/Documents/eclipse/plugins/org.eclipse.mylyn.tasks.search_3.8.3.v20130107-0100.jar
+86903000-86905000 r-xp 00000000 08:25 529852     /usr/lib/i386-linux-gnu/libXcomposite.so.1.0.0
+86905000-86906000 r--p 00001000 08:25 529852     /usr/lib/i386-linux-gnu/libXcomposite.so.1.0.0
+86906000-86907000 rw-p 00002000 08:25 529852     /usr/lib/i386-linux-gnu/libXcomposite.so.1.0.0
+86907000-86910000 r-xp 00000000 08:25 529880     /usr/lib/i386-linux-gnu/libXrandr.so.2.2.0
+86910000-86911000 r--p 00008000 08:25 529880     /usr/lib/i386-linux-gnu/libXrandr.so.2.2.0
+86911000-86912000 rw-p 00009000 08:25 529880     /usr/lib/i386-linux-gnu/libXrandr.so.2.2.0
+86912000-86921000 r-xp 00000000 08:25 529868     /usr/lib/i386-linux-gnu/libXi.so.6.1.0
+86921000-86922000 r--p 0000e000 08:25 529868     /usr/lib/i386-linux-gnu/libXi.so.6.1.0
+86922000-86923000 rw-p 0000f000 08:25 529868     /usr/lib/i386-linux-gnu/libXi.so.6.1.0
+86923000-8692c000 r-xp 00000000 08:25 529882     /usr/lib/i386-linux-gnu/libXrender.so.1.3.0
+8692c000-8692d000 r--p 00008000 08:25 529882     /usr/lib/i386-linux-gnu/libXrender.so.1.3.0
+8692d000-8692e000 rw-p 00009000 08:25 529882     /usr/lib/i386-linux-gnu/libXrender.so.1.3.0
+8692e000-86931000 ---p 00000000 00:00 0 
+86931000-8697f000 rw-p 00000000 00:00 0          [stack:2927]
+8697f000-86980000 ---p 00000000 00:00 0 
+86980000-86a00000 rw-p 00000000 00:00 0          [stack:2925]
+86a00000-86afa000 rw-p 00000000 00:00 0 
+86afa000-86b00000 ---p 00000000 00:00 0 
+86b00000-86c00000 rw-p 00000000 00:00 0 
+86c00000-86c01000 r--s 00002000 08:25 137620     /home/chenjia/Documents/eclipse/plugins/org.eclipse.e4.ui.workbench3_0.12.0.v20120521-2329.jar
+86c01000-86c22000 r-xp 00000000 08:25 530204     /usr/lib/i386-linux-gnu/libgdk_pixbuf-2.0.so.0.3000.7
+86c22000-86c23000 r--p 00020000 08:25 530204     /usr/lib/i386-linux-gnu/libgdk_pixbuf-2.0.so.0.3000.7
+86c23000-86c24000 rw-p 00021000 08:25 530204     /usr/lib/i386-linux-gnu/libgdk_pixbuf-2.0.so.0.3000.7
+86c24000-86c7f000 rw-p 00000000 00:00 0 
+86c7f000-86c80000 ---p 00000000 00:00 0 
+86c80000-86d00000 rw-p 00000000 00:00 0          [stack:2924]
+86d00000-86d38000 rw-p 00000000 00:00 0 
+86d38000-86e00000 ---p 00000000 00:00 0 
+86e00000-86e02000 r-xp 00000000 08:25 529870     /usr/lib/i386-linux-gnu/libXinerama.so.1.0.0
+86e02000-86e03000 r--p 00001000 08:25 529870     /usr/lib/i386-linux-gnu/libXinerama.so.1.0.0
+86e03000-86e04000 rw-p 00002000 08:25 529870     /usr/lib/i386-linux-gnu/libXinerama.so.1.0.0
+86e04000-86e53000 rw-p 00000000 00:00 0 
+86e53000-86e54000 ---p 00000000 00:00 0 
+86e54000-86ed4000 rw-p 00000000 00:00 0          [stack:2923]
+86ed4000-86ed5000 ---p 00000000 00:00 0 
+86ed5000-86f81000 rw-p 00000000 00:00 0          [stack:2922]
+86f81000-87000000 ---p 00000000 00:00 0 
+87000000-8c740000 rw-p 00000000 00:00 0 
+8c740000-9c580000 ---p 00000000 00:00 0 
+9c580000-a7000000 rw-p 00000000 00:00 0 
+a7000000-a7001000 r--s 00004000 08:25 137598     /home/chenjia/Documents/eclipse/plugins/org.eclipse.swt_3.100.1.v4236b.jar
+a7001000-a703d000 r-xp 00000000 08:25 263237     /lib/i386-linux-gnu/libpcre.so.3.13.1
+a703d000-a703e000 r--p 0003b000 08:25 263237     /lib/i386-linux-gnu/libpcre.so.3.13.1
+a703e000-a703f000 rw-p 0003c000 08:25 263237     /lib/i386-linux-gnu/libpcre.so.3.13.1
+a703f000-a706b000 rw-p 00000000 00:00 0 
+a706b000-a70e9000 ---p 00000000 00:00 0 
+a70e9000-a713f000 rw-p 00000000 00:00 0 
+a713f000-a7195000 rw-p 00000000 00:00 0 
+a7195000-a7500000 ---p 00000000 00:00 0 
+a7500000-a8a20000 rwxp 00000000 00:00 0 
+a8a20000-b6500000 ---p 00000000 00:00 0 
+b6500000-b65f9000 rw-p 00000000 00:00 0 
+b65f9000-b6600000 ---p 00000000 00:00 0 
+b6600000-b6601000 r--s 00009000 08:25 266138     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/ext/sunec.jar
+b6601000-b6602000 rw-p 00000000 00:00 0 
+b6602000-b6603000 r--s 00002000 08:25 137423     /home/chenjia/Documents/eclipse/plugins/org.eclipse.core.filesystem.linux.x86_1.4.0.v20120522-1137.jar
+b6603000-b660e000 r-xp 00000000 08:25 530584     /usr/lib/i386-linux-gnu/libpangocairo-1.0.so.0.3600.3
+b660e000-b660f000 r--p 0000a000 08:25 530584     /usr/lib/i386-linux-gnu/libpangocairo-1.0.so.0.3600.3
+b660f000-b6610000 rw-p 0000b000 08:25 530584     /usr/lib/i386-linux-gnu/libpangocairo-1.0.so.0.3600.3
+b6610000-b6615000 r-xp 00000000 08:25 530125     /usr/lib/i386-linux-gnu/libffi.so.6.0.1
+b6615000-b6616000 r--p 00005000 08:25 530125     /usr/lib/i386-linux-gnu/libffi.so.6.0.1
+b6616000-b6617000 rw-p 00006000 08:25 530125     /usr/lib/i386-linux-gnu/libffi.so.6.0.1
+b6617000-b661a000 r--s 00018000 08:25 137364     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.common_3.6.100.v20120522-1841.jar
+b661a000-b662b000 r-xp 00000000 08:25 532034     /usr/lib/i386-linux-gnu/gtk-2.0/modules/liboverlay-scrollbar.so
+b662b000-b662c000 r--p 00010000 08:25 532034     /usr/lib/i386-linux-gnu/gtk-2.0/modules/liboverlay-scrollbar.so
+b662c000-b662d000 rw-p 00011000 08:25 532034     /usr/lib/i386-linux-gnu/gtk-2.0/modules/liboverlay-scrollbar.so
+b662d000-b663a000 r-xp 00000000 08:25 284714     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.200.v20120913-144807/eclipse_1502.so
+b663a000-b663b000 rw-p 0000c000 08:25 284714     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.200.v20120913-144807/eclipse_1502.so
+b663b000-b663e000 r--s 00019000 08:25 265928     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/jce.jar
+b663e000-b6657000 r-xp 00000000 08:25 265850     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libzip.so
+b6657000-b6658000 rw-p 00018000 08:25 265850     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libzip.so
+b6658000-b6663000 r-xp 00000000 08:25 263209     /lib/i386-linux-gnu/libnss_files-2.19.so
+b6663000-b6664000 r--p 0000a000 08:25 263209     /lib/i386-linux-gnu/libnss_files-2.19.so
+b6664000-b6665000 rw-p 0000b000 08:25 263209     /lib/i386-linux-gnu/libnss_files-2.19.so
+b6665000-b666f000 r-xp 00000000 08:25 263219     /lib/i386-linux-gnu/libnss_nis-2.19.so
+b666f000-b6670000 r--p 00009000 08:25 263219     /lib/i386-linux-gnu/libnss_nis-2.19.so
+b6670000-b6671000 rw-p 0000a000 08:25 263219     /lib/i386-linux-gnu/libnss_nis-2.19.so
+b6671000-b6686000 r-xp 00000000 08:25 263203     /lib/i386-linux-gnu/libnsl-2.19.so
+b6686000-b6687000 r--p 00015000 08:25 263203     /lib/i386-linux-gnu/libnsl-2.19.so
+b6687000-b6688000 rw-p 00016000 08:25 263203     /lib/i386-linux-gnu/libnsl-2.19.so
+b6688000-b668a000 rw-p 00000000 00:00 0 
+b668a000-b6691000 r-xp 00000000 08:25 263205     /lib/i386-linux-gnu/libnss_compat-2.19.so
+b6691000-b6692000 r--p 00006000 08:25 263205     /lib/i386-linux-gnu/libnss_compat-2.19.so
+b6692000-b6693000 rw-p 00007000 08:25 263205     /lib/i386-linux-gnu/libnss_compat-2.19.so
+b6693000-b6694000 rw-p 00000000 00:00 0 
+b6694000-b6695000 r--s 00000000 00:15 24031      /run/user/1000/dconf/user
+b6695000-b669a000 r--s 00092000 08:25 265803     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/jsse.jar
+b669a000-b669c000 r--s 0000b000 08:25 137340     /home/chenjia/Documents/eclipse/plugins/org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar
+b669c000-b669d000 r--p 00855000 08:25 533691     /usr/lib/locale/locale-archive
+b669d000-b66a9000 rw-p 00000000 00:00 0 
+b66a9000-b66cd000 r-xp 00000000 08:25 265883     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libjava.so
+b66cd000-b66ce000 rw-p 00023000 08:25 265883     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libjava.so
+b66ce000-b66d5000 r-xp 00000000 08:25 263262     /lib/i386-linux-gnu/librt-2.19.so
+b66d5000-b66d6000 r--p 00006000 08:25 263262     /lib/i386-linux-gnu/librt-2.19.so
+b66d6000-b66d7000 rw-p 00007000 08:25 263262     /lib/i386-linux-gnu/librt-2.19.so
+b66d7000-b66da000 ---p 00000000 00:00 0 
+b66da000-b6728000 rw-p 00000000 00:00 0          [stack:2921]
+b6728000-b676c000 r-xp 00000000 08:25 263184     /lib/i386-linux-gnu/libm-2.19.so
+b676c000-b676d000 r--p 00043000 08:25 263184     /lib/i386-linux-gnu/libm-2.19.so
+b676d000-b676e000 rw-p 00044000 08:25 263184     /lib/i386-linux-gnu/libm-2.19.so
+b676e000-b7076000 r-xp 00000000 08:25 265841     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/server/libjvm.so
+b7076000-b70de000 rw-p 00908000 08:25 265841     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/server/libjvm.so
+b70de000-b7502000 rw-p 00000000 00:00 0 
+b7502000-b76ab000 r-xp 00000000 08:25 263134     /lib/i386-linux-gnu/libc-2.19.so
+b76ab000-b76ad000 r--p 001a9000 08:25 263134     /lib/i386-linux-gnu/libc-2.19.so
+b76ad000-b76ae000 rw-p 001ab000 08:25 263134     /lib/i386-linux-gnu/libc-2.19.so
+b76ae000-b76b1000 rw-p 00000000 00:00 0 
+b76b1000-b76b4000 r-xp 00000000 08:25 263151     /lib/i386-linux-gnu/libdl-2.19.so
+b76b4000-b76b5000 r--p 00002000 08:25 263151     /lib/i386-linux-gnu/libdl-2.19.so
+b76b5000-b76b6000 rw-p 00003000 08:25 263151     /lib/i386-linux-gnu/libdl-2.19.so
+b76b6000-b76ca000 r-xp 00000000 08:25 264347     /home/chenjia/Documents/jdk1.8.0_05/lib/i386/jli/libjli.so
+b76ca000-b76cb000 rw-p 00013000 08:25 264347     /home/chenjia/Documents/jdk1.8.0_05/lib/i386/jli/libjli.so
+b76cb000-b76cc000 rw-p 00000000 00:00 0 
+b76cc000-b76e4000 r-xp 00000000 08:25 263254     /lib/i386-linux-gnu/libpthread-2.19.so
+b76e4000-b76e5000 r--p 00017000 08:25 263254     /lib/i386-linux-gnu/libpthread-2.19.so
+b76e5000-b76e6000 rw-p 00018000 08:25 263254     /lib/i386-linux-gnu/libpthread-2.19.so
+b76e6000-b76e8000 rw-p 00000000 00:00 0 
+b76e8000-b76f0000 rw-s 00000000 08:25 1183480    /tmp/hsperfdata_chenjia/2920
+b76f0000-b76f1000 rw-p 00000000 00:00 0 
+b76f1000-b76f2000 r--p 00000000 00:00 0 
+b76f2000-b76fd000 r-xp 00000000 08:25 265923     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libverify.so
+b76fd000-b76fe000 rw-p 0000b000 08:25 265923     /home/chenjia/Documents/jdk1.8.0_05/jre/lib/i386/libverify.so
+b76fe000-b7700000 rw-p 00000000 00:00 0 
+b7700000-b7701000 r-xp 00000000 00:00 0          [vdso]
+b7701000-b7721000 r-xp 00000000 08:25 263110     /lib/i386-linux-gnu/ld-2.19.so
+b7721000-b7722000 r--p 0001f000 08:25 263110     /lib/i386-linux-gnu/ld-2.19.so
+b7722000-b7723000 rw-p 00020000 08:25 263110     /lib/i386-linux-gnu/ld-2.19.so
+b7723000-b7800000 rw-p 00000000 00:00 0 
+b7800000-b78fe000 rw-p 00000000 00:00 0 
+b78fe000-b7900000 ---p 00000000 00:00 0 
+b7900000-b7afe000 rw-p 00000000 00:00 0 
+b7afe000-b7b00000 ---p 00000000 00:00 0 
+b7b00000-b7bfe000 rw-p 00000000 00:00 0 
+b7bfe000-b7c00000 ---p 00000000 00:00 0 
+b7c00000-b7eff000 rw-p 00000000 00:00 0 
+b7eff000-b7f00000 ---p 00000000 00:00 0 
+b7f00000-b7ffe000 rw-p 00000000 00:00 0 
+b7ffe000-b8000000 ---p 00000000 00:00 0 
+b8000000-b82ff000 rw-p 00000000 00:00 0 
+b82ff000-b8300000 ---p 00000000 00:00 0 
+b8300000-b84ff000 rw-p 00000000 00:00 0 
+b84ff000-b8500000 ---p 00000000 00:00 0 
+b8500000-b85fd000 rw-p 00000000 00:00 0 
+b85fd000-b8600000 ---p 00000000 00:00 0 
+b8600000-b86fb000 rw-p 00000000 00:00 0 
+b86fb000-b8700000 ---p 00000000 00:00 0 
+b8700000-b87fd000 rw-p 00000000 00:00 0 
+b87fd000-b8800000 ---p 00000000 00:00 0 
+b8800000-b96fd000 rw-p 00000000 00:00 0 
+b96fd000-b9700000 ---p 00000000 00:00 0 
+b9700000-b98fe000 rw-p 00000000 00:00 0 
+b98fe000-b9900000 ---p 00000000 00:00 0 
+b9900000-b9afd000 rw-p 00000000 00:00 0 
+b9afd000-b9b00000 ---p 00000000 00:00 0 
+b9b00000-b9bfd000 rw-p 00000000 00:00 0 
+b9bfd000-b9c00000 ---p 00000000 00:00 0 
+b9c00000-b9cfe000 rw-p 00000000 00:00 0 
+b9cfe000-b9d00000 ---p 00000000 00:00 0 
+b9d00000-b9dff000 rw-p 00000000 00:00 0 
+b9dff000-b9e00000 ---p 00000000 00:00 0 
+b9e00000-b9efe000 rw-p 00000000 00:00 0 
+b9efe000-b9f00000 ---p 00000000 00:00 0 
+b9f00000-ba0ff000 rw-p 00000000 00:00 0 
+ba0ff000-ba100000 ---p 00000000 00:00 0 
+ba100000-ba1fd000 rw-p 00000000 00:00 0 
+ba1fd000-ba200000 ---p 00000000 00:00 0 
+ba200000-ba3fd000 rw-p 00000000 00:00 0 
+ba3fd000-ba400000 ---p 00000000 00:00 0 
+ba400000-ba4fe000 rw-p 00000000 00:00 0 
+ba4fe000-ba500000 ---p 00000000 00:00 0 
+ba500000-ba5fd000 rw-p 00000000 00:00 0 
+ba5fd000-ba600000 ---p 00000000 00:00 0 
+ba600000-ba6fe000 rw-p 00000000 00:00 0 
+ba6fe000-ba700000 ---p 00000000 00:00 0 
+ba700000-ba7fd000 rw-p 00000000 00:00 0 
+ba7fd000-ba800000 ---p 00000000 00:00 0 
+ba800000-baafe000 rw-p 00000000 00:00 0 
+baafe000-bab00000 ---p 00000000 00:00 0 
+bab00000-babfd000 rw-p 00000000 00:00 0 
+babfd000-bac00000 ---p 00000000 00:00 0 
+bac00000-bacfd000 rw-p 00000000 00:00 0 
+bacfd000-bad00000 ---p 00000000 00:00 0 
+bad00000-baefe000 rw-p 00000000 00:00 0 
+baefe000-baf00000 ---p 00000000 00:00 0 
+baf00000-bbbff000 rw-p 00000000 00:00 0 
+bbbff000-bbc00000 ---p 00000000 00:00 0 
+bbc00000-bbcfe000 rw-p 00000000 00:00 0 
+bbcfe000-bbd00000 ---p 00000000 00:00 0 
+bbd00000-bbdff000 rw-p 00000000 00:00 0 
+bbdff000-bbe00000 ---p 00000000 00:00 0 
+bbe00000-bbefe000 rw-p 00000000 00:00 0 
+bbefe000-bbf00000 ---p 00000000 00:00 0 
+bbf00000-bc0fd000 rw-p 00000000 00:00 0 
+bc0fd000-bc100000 ---p 00000000 00:00 0 
+bc100000-bc2fe000 rw-p 00000000 00:00 0 
+bc2fe000-bc300000 ---p 00000000 00:00 0 
+bc300000-bc4fe000 rw-p 00000000 00:00 0 
+bc4fe000-bc500000 ---p 00000000 00:00 0 
+bc500000-bc5fe000 rw-p 00000000 00:00 0 
+bc5fe000-bc600000 ---p 00000000 00:00 0 
+bc600000-bc6fd000 rw-p 00000000 00:00 0 
+bc6fd000-bc700000 ---p 00000000 00:00 0 
+bc700000-bc900000 rw-p 00000000 00:00 0 
+bc900000-bc9f7000 rw-p 00000000 00:00 0 
+bc9f7000-bca00000 ---p 00000000 00:00 0 
+bca00000-bcafe000 rw-p 00000000 00:00 0 
+bcafe000-bcb00000 ---p 00000000 00:00 0 
+bcb00000-bccfd000 rw-p 00000000 00:00 0 
+bccfd000-bcd00000 ---p 00000000 00:00 0 
+bcd00000-bcdfe000 rw-p 00000000 00:00 0 
+bcdfe000-bce00000 ---p 00000000 00:00 0 
+bce00000-bcffe000 rw-p 00000000 00:00 0 
+bcffe000-bd000000 ---p 00000000 00:00 0 
+bd000000-bd0fd000 rw-p 00000000 00:00 0 
+bd0fd000-bd100000 ---p 00000000 00:00 0 
+bd100000-bd2fe000 rw-p 00000000 00:00 0 
+bd2fe000-bd300000 ---p 00000000 00:00 0 
+bd300000-bd3e5000 rw-p 00000000 00:00 0 
+bd3e5000-bd400000 ---p 00000000 00:00 0 
+bd400000-bd4ff000 rw-p 00000000 00:00 0 
+bd4ff000-bd500000 ---p 00000000 00:00 0 
+bd500000-be2fd000 rw-p 00000000 00:00 0 
+be2fd000-be300000 ---p 00000000 00:00 0 
+be300000-be3fd000 rw-p 00000000 00:00 0 
+be3fd000-be400000 ---p 00000000 00:00 0 
+be400000-be4fd000 rw-p 00000000 00:00 0 
+be4fd000-be500000 ---p 00000000 00:00 0 
+be500000-be5ff000 rw-p 00000000 00:00 0 
+be5ff000-be600000 ---p 00000000 00:00 0 
+be600000-be6ff000 rw-p 00000000 00:00 0 
+be6ff000-be700000 ---p 00000000 00:00 0 
+be700000-be9fd000 rw-p 00000000 00:00 0 
+be9fd000-bea00000 ---p 00000000 00:00 0 
+bea00000-bebfe000 rw-p 00000000 00:00 0 
+bebfe000-bec00000 ---p 00000000 00:00 0 
+bec00000-bedfe000 rw-p 00000000 00:00 0 
+bedfe000-bee00000 ---p 00000000 00:00 0 
+bee00000-beeff000 rw-p 00000000 00:00 0 
+beeff000-bef00000 ---p 00000000 00:00 0 
+bef00000-beffe000 rw-p 00000000 00:00 0 
+beffe000-bf000000 ---p 00000000 00:00 0 
+bf000000-bf0fe000 rw-p 00000000 00:00 0 
+bf0fe000-bf100000 ---p 00000000 00:00 0 
+bf100000-bf1fd000 rw-p 00000000 00:00 0 
+bf1fd000-bf200000 ---p 00000000 00:00 0 
+bf200000-bf300000 rw-p 00000000 00:00 0 
+bf300000-bf600000 rw-p 00000000 00:00 0 
+bf600000-bf6fd000 rw-p 00000000 00:00 0 
+bf6fd000-bf700000 ---p 00000000 00:00 0 
+bf700000-bf8fe000 rw-p 00000000 00:00 0 
+bf8fe000-bf900000 ---p 00000000 00:00 0 
+bf900000-bfa00000 rw-p 00000000 00:00 0 
+bfa00000-bfaac000 rw-p 00000000 00:00 0 
+bfaac000-bfaad000 rwxp 00000000 00:00 0 
+bfaad000-bfade000 rw-p 00000000 00:00 0 
+bfadf000-bfb00000 rw-p 00000000 00:00 0          [stack]
+bfb00000-bfcfe000 rw-p 00000000 00:00 0 
+bfcfe000-bfd00000 ---p 00000000 00:00 0 
+bfd00000-bfdfd000 rw-p 00000000 00:00 0 
+bfdfd000-bfe00000 ---p 00000000 00:00 0 
+bfe00000-bfefd000 rw-p 00000000 00:00 0 
+bfefd000-bff00000 ---p 00000000 00:00 0 
+bff00000-c0000000 rw-p 00000000 00:00 0 
+
+VM Arguments:
+jvm_args: -Djava.library.path=/home/chenjia/Documents/ -Dosgi.requiredJavaVersion=1.5 -Dhelp.lucene.tokenizer=standard -XX:MaxPermSize=256m -Xms40m -Xmx512m 
+java_command: /home/chenjia/Documents/eclipse//plugins/org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar -os linux -ws gtk -arch x86 -showsplash /home/chenjia/Documents/eclipse//plugins/org.eclipse.platform_4.2.2.v201302041200/splash.bmp -launcher /home/chenjia/Documents/eclipse/eclipse -name Eclipse --launcher.library /home/chenjia/Documents/eclipse//plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.200.v20120913-144807/eclipse_1502.so -startup /home/chenjia/Documents/eclipse//plugins/org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar --launcher.overrideVmargs -exitdata 5b800d -product org.eclipse.epp.package.java.product -vm /home/chenjia/Documents/jdk1.8.0_05/bin/java -vmargs -Djava.library.path=/home/chenjia/Documents/ -Dosgi.requiredJavaVersion=1.5 -Dhelp.lucene.tokenizer=standard -XX:MaxPermSize=256m -Xms40m -Xmx512m -jar /home/chenjia/Documents/eclipse//plugins/org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar
+java_class_path (initial): /home/chenjia/Documents/eclipse//plugins/org.eclipse.equinox.launcher_1.3.0.v20120522-1813.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+SHELL=/bin/bash
+DISPLAY=:0.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x863250], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x863250], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x6ef420], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: SIG_IGN, sa_mask[0]=0x00001000, sa_flags=0x10000000
+SIGXFSZ: [libjvm.so+0x6ef420], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x6ef420], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x6f0b30], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x6f1f40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x6f1f40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x6f1f40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x6f1f40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=14.04
+DISTRIB_CODENAME=trusty
+DISTRIB_DESCRIPTION="Ubuntu 14.04 LTS"
+
+uname:Linux 3.13.0-30-generic #55-Ubuntu SMP Fri Jul 4 21:43:42 UTC 2014 i686
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 63789, NOFILE 4096, AS infinity
+load average:0.99 0.90 0.74
+
+/proc/meminfo:
+MemTotal:        8184220 kB
+MemFree:         4357736 kB
+Buffers:           56232 kB
+Cached:           753160 kB
+SwapCached:            0 kB
+Active:          3165844 kB
+Inactive:         566884 kB
+Active(anon):    2925568 kB
+Inactive(anon):   275212 kB
+Active(file):     240276 kB
+Inactive(file):   291672 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+HighTotal:       7377668 kB
+HighFree:        3934436 kB
+LowTotal:         806552 kB
+LowFree:          423300 kB
+SwapTotal:       2096124 kB
+SwapFree:        2096124 kB
+Dirty:               280 kB
+Writeback:             0 kB
+AnonPages:       2923636 kB
+Mapped:           198220 kB
+Shmem:            277176 kB
+Slab:              38652 kB
+SReclaimable:      19032 kB
+SUnreclaim:        19620 kB
+KernelStack:        3376 kB
+PageTables:        13008 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6188232 kB
+Committed_AS:    3613944 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       76960 kB
+VmallocChunk:      42560 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    493568 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       40952 kB
+DirectMap2M:      870400 kB
+
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, ht, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x12
+cpu MHz		: 1200.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4988.35
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x12
+cpu MHz		: 1200.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4988.35
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x12
+cpu MHz		: 1200.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4988.35
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x12
+cpu MHz		: 2501.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4988.35
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 8184220k(4357736k free), swap 2096124k(2096124k free)
+
+vm_info: Java HotSpot(TM) Server VM (25.5-b02) for linux-x86 JRE (1.8.0_05-b13), built on Mar 18 2014 00:45:30 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Wed Jul 16 20:17:39 2014
+elapsed time: 771 seconds
+
